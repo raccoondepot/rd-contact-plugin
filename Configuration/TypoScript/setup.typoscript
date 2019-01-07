@@ -1,0 +1,85 @@
+# initial part
+page.footerData {
+    103 = FLUIDTEMPLATE
+    103 {
+        file = EXT:rd_contact_plugin/Resources/Private/Templates/Main.html
+
+        partialRootPaths {
+            0 = EXT:rd_contact_plugin/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            0 = EXT:rd_contact_plugin/Resources/Private/Layouts/
+        }
+    }
+}
+
+# include variables
+page.footerData.103.dataProcessing < page.10.dataProcessing
+page.footerData.103.settings < page.10.settings
+page.footerData.103.variables < page.10.variables
+page.footerData.103.settings {
+    rd_contact_plugin {
+        enabled = {$plugin.tx_rdcontactplugin.settings.enabled}
+        position = {$plugin.tx_rdcontactplugin.settings.position}
+        useMobilePhone = {$plugin.tx_rdcontactplugin.settings.useMobilePhone}
+        mobilePhone = {$plugin.tx_rdcontactplugin.settings.mobilePhone}
+        mobilePhoneLabel = {$plugin.tx_rdcontactplugin.settings.mobilePhoneLabel}
+        useCallMe = {$plugin.tx_rdcontactplugin.settings.useCallMe}
+        callMeLabel = {$plugin.tx_rdcontactplugin.settings.callMeLabel}
+        callMeFormDescription = {$plugin.tx_rdcontactplugin.settings.callMeFormDescription}
+        callMeForm_field_name = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_name}
+        callMeForm_field_phone = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_phone}
+        callMeForm_field_email = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_email}
+        callMeForm_field_date = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_date}
+        callMeForm_field_submit = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_submit}
+    } 
+}
+
+# include js/css
+page.includeCSS {
+    rd_contact_plugin_css = typo3conf/ext/rd_contact_plugin/Resources/Public/css/index.less
+}
+page.includeJS {
+    rd_contact_plugin_js = typo3conf/ext/rd_contact_plugin/Resources/Public/js/index.js
+}
+
+// plugin settings
+plugin.tx_rdcontactplugin_emailactions {
+  view {
+    templateRootPaths.0 = EXT:rd_contact_plugin/Resources/Private/Templates/
+    templateRootPaths.1 = {$plugin.tx_rdcontactplugin_emailactions.view.templateRootPath}
+    partialRootPaths.0 = EXT:rd_contact_plugin/Resources/Private/Partials/
+    partialRootPaths.1 = {$plugin.tx_rdcontactplugin_emailactions.view.partialRootPath}
+    layoutRootPaths.0 = EXT:rd_contact_plugin/Resources/Private/Layouts/
+    layoutRootPaths.1 = {$plugin.tx_rdcontactplugin_emailactions.view.layoutRootPath}
+  }
+  features {
+  }
+  mvc {
+  }
+}
+
+// ajax page
+ajax = PAGE
+ajax {
+    typeNum = 453299
+
+    10 = USER
+    10 {
+        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+        extensionName = RdContactPlugin
+        pluginName = EmailActions
+        vendorName = RaccoonDepot
+        view < plugin.tx_rdcontactplugin_emailactions.view
+        persistence < plugin.tx_rdcontactplugin_emailactions.persistence
+        settings < module.tx_rdcontactplugin_emailactions.settings
+    }
+
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+        debug = 0
+        no_cache = 1
+    }
+}

@@ -1,5 +1,56 @@
 plugin.tx_rdcontactplugin {
-	settings{
+	settings {
+		
+		# cat=plugin.tx_rdcontactplugin/main; type=boolean; label=Enable Contact Plugin under this root page
+		enabled = 1
 
+		# cat=plugin.tx_rdcontactplugin/main; type=string; label=Plugin position (bottom_left / top_left / top_right / bottom_right)
+		position = bottom_right
+
+
+		### mobile phone ###
+
+		# cat=plugin.tx_rdcontactplugin/mobilePhone; type=boolean; label=Can users call you using your mobile phone number?
+		useMobilePhone = 1
+		# cat=plugin.tx_rdcontactplugin/mobilePhone; type=string; label=Mobile Phone (only digits)
+		mobilePhone = 387777777777
+		# cat=plugin.tx_rdcontactplugin/mobilePhone; type=string; label=Mobile Phone (Link label)
+		mobilePhoneLabel = +38 (777) 777 77 77
+
+
+		### call me ###
+
+		# cat=plugin.tx_rdcontactplugin/callMe; type=boolean; label=Can you call to your users by yourself?
+		useCallMe = 1
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=Call-Me button label
+		callMeLabel = Call me
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=Call-Me form description
+		callMeFormDescription = Some text description here..
+
+		# form fields
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me form] Name field placeholder
+		callMeForm_field_name = Your name
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me form] Phone field placeholder
+		callMeForm_field_phone = Phone
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me form] E-mail field placeholder
+		callMeForm_field_email = E-mail
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me form] Preferred Date field placeholder
+		callMeForm_field_date = Preferred date
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me form] Submit button label
+		callMeForm_field_submit = Send
+
+		### smth else.. ###
 	}
+}
+
+// plugin for ajax handling
+plugin.tx_rdcontactplugin_emailactions {
+  view {
+    # cat=plugin.tx_rdcontactplugin_emailactions/file; type=string; label=Path to template root (FE)
+    templateRootPath = EXT:rd_contact_plugin/Resources/Private/Templates/
+    # cat=plugin.tx_rdcontactplugin_emailactions/file; type=string; label=Path to template partials (FE)
+    partialRootPath = EXT:rd_contact_plugin/Resources/Private/Partials/
+    # cat=plugin.tx_rdcontactplugin_emailactions/file; type=string; label=Path to template layouts (FE)
+    layoutRootPath = EXT:rd_contact_plugin/Resources/Private/Layouts/
+  }
 }
