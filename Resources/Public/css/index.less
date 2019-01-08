@@ -5,6 +5,7 @@
     left: 80px;
     z-index: 999999;
 
+    /* different positions of the plugin */
     &.top_left {
         top: 50px;
         left: 80px;
@@ -58,7 +59,7 @@
         }
     }
     
-    /* button */
+    /* plugin button styles */
     .inner {
         background: #7daf65;
         padding: 10px 20px;
@@ -122,6 +123,7 @@
             }
         }
         
+        /* let's show submenu on hover or tap */
         &:hover .possible-cases,
         &.tapped .possible-cases {
             opacity: 1;
@@ -130,7 +132,7 @@
             transform: scaleX(1) translate( 0, 0%);
         }
 
-        /* list of contact possibilities */
+        /* submenu container - list of contact possibilities */
         .possible-cases {
             position: absolute;
             opacity: 0;
@@ -139,7 +141,7 @@
             left: 100%;
             width: 200px;
 
-            /* for animation */
+            /* animation of submenu container */
             -webkit-transform-origin: top left;
             -ms-transform-origin: top left;
             transform-origin: top left;
@@ -168,7 +170,7 @@
                     .p-c-icon {
                         width: auto;
                         height: 15px;
-                        margin-right: 3px;
+                        margin-right: 5px;
                         margin-top: -2px;
                     }
                     
@@ -202,7 +204,11 @@
     }
 
 
-    /* modals */
+    /**
+    *
+    *  Modal windows 
+    *
+    */
     .modal-rd {
         display: none; 
         position: fixed; 
@@ -253,7 +259,14 @@
     }
 }
 
-/* animation */
+
+/**
+*
+*  Animations 
+*
+*/
+
+/* wave animation on a plugin button */
 @-webkit-keyframes anim-effect-jelena {
     0% {
         opacity: 1;

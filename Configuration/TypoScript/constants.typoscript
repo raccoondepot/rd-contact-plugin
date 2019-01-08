@@ -1,45 +1,61 @@
 plugin.tx_rdcontactplugin {
 	settings {
 		
-		# cat=plugin.tx_rdcontactplugin/main; type=boolean; label=Enable Contact Plugin under this root page
+		###
+		### general ###
+		###
+		# cat=plugin.tx_rdcontactplugin/main; type=boolean; label=[MAIN] Enable plugin under this root page
 		enabled = 1
-
-		# cat=plugin.tx_rdcontactplugin/main; type=string; label=Plugin position (bottom_left / top_left / top_right / bottom_right)
+		# cat=plugin.tx_rdcontactplugin/main; type=string; label=[MAIN] Plugin position on the user screen (bottom_left / top_left / top_right / bottom_right)
 		position = bottom_right
 
-
+		###
 		### mobile phone ###
-
-		# cat=plugin.tx_rdcontactplugin/mobilePhone; type=boolean; label=Can users call you using your mobile phone number?
+		###
+		# cat=plugin.tx_rdcontactplugin/mobilePhone; type=boolean; label=[Mobile-Phone-Link] Can users call you using your mobile phone number?
 		useMobilePhone = 1
-		# cat=plugin.tx_rdcontactplugin/mobilePhone; type=string; label=Mobile Phone (only digits)
+		# cat=plugin.tx_rdcontactplugin/mobilePhone; type=string; label=[Mobile-Phone-Link] Your mobile phone number (only digits)
 		mobilePhone = 387777777777
-		# cat=plugin.tx_rdcontactplugin/mobilePhone; type=string; label=Mobile Phone (Link label)
+		# cat=plugin.tx_rdcontactplugin/mobilePhone; type=string; label=[Mobile-Phone-Link] Link label
 		mobilePhoneLabel = +38 (777) 777 77 77
+		# cat=plugin.tx_rdcontactplugin/mobilePhone; type=string; label=[Mobile-Phone-Link] Link icon
+		mobilePhoneIcon = EXT:rd_contact_plugin/Resources/Public/icons/phone-receiver.svg
 
-
-		### call me ###
-
-		# cat=plugin.tx_rdcontactplugin/callMe; type=boolean; label=Can you call to your users by yourself?
+		###
+		### Call-me form ###
+		###
+		# cat=plugin.tx_rdcontactplugin/callMe; type=boolean; label=[Call-Me-Form-Link] Would you like to call to your users by yourself?
 		useCallMe = 1
-		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=Call-Me button label
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form-Link] Link label
 		callMeLabel = Call me
-		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=Call-Me form description
-		callMeFormDescription = Some text description here..
-
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form-Link] Link icon
+		callMeFormIcon = EXT:rd_contact_plugin/Resources/Public/icons/earphones.svg
+		#
 		# form fields
-		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me form] Name field placeholder
-		callMeForm_field_name = Your name
-		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me form] Phone field placeholder
-		callMeForm_field_phone = Phone
-		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me form] E-mail field placeholder
-		callMeForm_field_email = E-mail
-		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me form] Preferred Date field placeholder
-		callMeForm_field_date = Preferred date
-		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me form] Submit button label
+		#
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form] Form description
+		callMeFormDescription = Some text description here..
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form] Name field placeholder
+		callMeForm_field_name_placeholder = Your name
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form] Phone field placeholder
+		callMeForm_field_phone_placeholder = Phone
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form] E-mail field placeholder
+		callMeForm_field_email_placeholder = E-mail
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form] Name field label
+		callMeForm_field_name_label = Your name
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form] Phone field label
+		callMeForm_field_phone_label = Phone
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form] E-mail field label
+		callMeForm_field_email_label = E-mail
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form] Preferred Date field label
+		callMeForm_field_date_label = Preferred date
+		# cat=plugin.tx_rdcontactplugin/callMe; type=string; label=[Call-Me-Form] Submit button label
 		callMeForm_field_submit = Send
 
+		###
 		### smth else.. ###
+		###
+
 	}
 }
 

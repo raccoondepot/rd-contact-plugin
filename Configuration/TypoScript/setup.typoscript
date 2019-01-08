@@ -27,11 +27,16 @@ page.footerData.103.settings {
         useCallMe = {$plugin.tx_rdcontactplugin.settings.useCallMe}
         callMeLabel = {$plugin.tx_rdcontactplugin.settings.callMeLabel}
         callMeFormDescription = {$plugin.tx_rdcontactplugin.settings.callMeFormDescription}
-        callMeForm_field_name = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_name}
-        callMeForm_field_phone = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_phone}
-        callMeForm_field_email = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_email}
-        callMeForm_field_date = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_date}
+        callMeForm_field_name = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_name_placeholder}
+        callMeForm_field_phone = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_phone_placeholder}
+        callMeForm_field_email = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_email_placeholder}
         callMeForm_field_submit = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_submit}
+        callMeFormIcon = {$plugin.tx_rdcontactplugin.settings.callMeFormIcon}
+        mobilePhoneIcon = {$plugin.tx_rdcontactplugin.settings.mobilePhoneIcon}
+        callMeForm_field_name_label = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_name_label}
+        callMeForm_field_phone_label = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_phone_label}
+        callMeForm_field_email_label = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_email_label}
+        callMeForm_field_date_label = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_date_label}
     } 
 }
 

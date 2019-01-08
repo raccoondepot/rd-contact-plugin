@@ -7,13 +7,13 @@ class EmailController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     
     /**
-     * action callmeform
+     * action callmeformHandler
      *
      * @return void
      */
-    public function callmeformAction()
+    public function callmeformHandlerAction()
     {
-        $ajaxUrl = $this->uriBuilder->setTargetPageType('453299')->uriFor('callmeform', array(), NULL, NULL, NULL);
+        $ajaxUrl = $this->uriBuilder->setTargetPageType('453299')->uriFor('callmeformHandler', array(), NULL, NULL, NULL);
         $this->view->assign('ajaxUrl', $ajaxUrl );
     }
 

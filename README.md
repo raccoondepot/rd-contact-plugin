@@ -22,6 +22,10 @@ TS conditions
 TCA configs
 
 
+### Known issues ###
+in case of 404 when you send forms data -> 'pageNotFoundOnCHashError' => false,
+
+
 ### Authors ###
 [LOGO]
 Raccoon Depot

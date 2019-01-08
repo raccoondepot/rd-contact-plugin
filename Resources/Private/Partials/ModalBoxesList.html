@@ -2,8 +2,9 @@
 
     <!--
         Include call-me-form box
+            * will be triggered by DOM element - data-modal="CallMeForm" - on click
     -->
-    <f:variable name="ModalID">call-me-form</f:variable>
-    <f:render partial="ModalBoxLayout" arguments="{_all}" />
+    <f:variable name="ModalID">CallMeForm</f:variable>
+    <f:render partial="ModalForms/ModalLayout/ModalBoxLayout" arguments="{_all}" />
 
 </html>

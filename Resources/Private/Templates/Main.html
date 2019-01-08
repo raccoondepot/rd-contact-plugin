@@ -26,7 +26,7 @@
                         <f:if condition="{settings.rd_contact_plugin.mobilePhoneLabel}">
                             <li>
                                 <a href="tel:{settings.rd_contact_plugin.mobilePhone}" class="link-case">
-                                    <f:image src="EXT:rd_contact_plugin/Resources/Public/icons/phone-receiver.svg" treatIdAsReference="1" class="p-c-icon" />
+                                    <f:image src="{settings.rd_contact_plugin.mobilePhoneIcon}" treatIdAsReference="1" class="p-c-icon" />
                                     {settings.rd_contact_plugin.mobilePhoneLabel}
                                 </a>
                             </li>
@@ -39,8 +39,8 @@
                 <f:if condition="{settings.rd_contact_plugin.useCallMe}">
                     <f:if condition="{settings.rd_contact_plugin.callMeLabel}">
                         <li>
-                            <a data-modal="call-me-form" class="link-case open-modal-form">
-                                <f:image src="EXT:rd_contact_plugin/Resources/Public/icons/earphones.svg" treatIdAsReference="1" class="p-c-icon" />
+                            <a data-modal="CallMeForm" class="link-case open-modal-form">
+                                <f:image src="{settings.rd_contact_plugin.callMeFormIcon}" treatIdAsReference="1" class="p-c-icon" />
                                 {settings.rd_contact_plugin.callMeLabel}
                             </a>
                         </li>
