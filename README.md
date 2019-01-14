@@ -15,12 +15,12 @@ Any contact option can be disabled and configured precisely
 </ol>
 
 ## How to install ##
-composer bla bla / manually
-enable via extension manager
-add TS includes
-callMeForm_email_recieverEmail
-answerMeByEmailForm_email_recieverEmail
-getAppointmentForm_email_recieverEmail
+1. add git@gitlab.com:raccoondepot/rd_contact_plugin.git to repositories in your composer.json file
+2. add "raccoondepot/rd-contact-plugin": "dev-master" in require section in your composer.json file
+3. composer update
+4. make sure rd_contact_plugin enabled in Extension Manager
+5. add TS static includes
+6. to make [Call-Me-form], [Answer-Me-By-E-mail-form], [Get-Appointment-form] contact options visible on your website, set next constants in your TS: callMeForm_email_recieverEmail, answerMeByEmailForm_email_recieverEmail, getAppointmentForm_email_recieverEmail (you can find them further in the configuration section)
 
 ## How to configure ##
 ### Typoscript variables ###
