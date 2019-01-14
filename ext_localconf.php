@@ -10,11 +10,11 @@ $boot = function ($extensionKey='rd_contact_plugin') {
         'RaccoonDepot.RdContactPlugin',
         'EmailActions',
         [
-            'Email' => 'callmeformHandler'
+            'Email' => 'callmeformHandler, answermebyemailformHandler, getAppointmentformHandler'
         ],
         // non-cacheable actions
         [
-            'Email' => 'callmeformHandler'
+            'Email' => 'callmeformHandler, answermebyemailformHandler, getAppointmentformHandler'
         ]
     );
 };

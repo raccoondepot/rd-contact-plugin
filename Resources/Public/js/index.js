@@ -2,6 +2,7 @@
 // modals
 document.addEventListener('DOMContentLoaded', function() {
 
+    // open modals
     Array.prototype.forEach.call(document.querySelectorAll(".open-modal-form"), function(e){
         e.onclick = function() {
             var modalId = this.getAttribute('data-modal');
@@ -18,6 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.style.display = "none";
             });
         }
+    });
+
+
+    // InputJs Mask
+    Array.prototype.forEach.call(document.querySelectorAll(".input-mask-simple"), function(e) {
+        var maskOptions = {
+            mask: e.getAttribute('data-mask')
+        };
+        var mask = new IMask(e, maskOptions);
     });
 
 });

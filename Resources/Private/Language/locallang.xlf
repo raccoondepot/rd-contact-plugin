@@ -3,6 +3,60 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2018-08-05T18:44:00Z" product-name="rd_contact_plugin">
 		<header/>
 		<body>
+
+			<!-- callMe_form -->
+			<trans-unit id="callMe_form.email_description">
+				<source>Dear friend, you got new call-me request from -</source>
+			</trans-unit>
+			<trans-unit id="callMe_form.email_field.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="callMe_form.email_field.email">
+				<source>E-mail</source>
+			</trans-unit>
+			<trans-unit id="callMe_form.email_field.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="callMe_form.email_field.date">
+				<source>Preferred date for the call</source>
+			</trans-unit>
+			<trans-unit id="callMe_form.email_field.date.now">
+				<source>As soon as possible!</source>
+			</trans-unit>
+
+			<!-- answerMeByEmail_form -->
+			<trans-unit id="answerMeByEmail_form.email_description">
+				<source>Dear friend, you got new answer-me-by-email request from -</source>
+			</trans-unit>
+			<trans-unit id="answerMeByEmail_form.email_field.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="answerMeByEmail_form.email_field.email">
+				<source>E-mail</source>
+			</trans-unit>
+			<trans-unit id="answerMeByEmail_form.email_field.question">
+				<source>Question</source>
+			</trans-unit>
+
+			<!-- getAppointment -->
+			<trans-unit id="getAppointment_form.email_description">
+				<source>Dear friend, you got new Appointment request from -</source>
+			</trans-unit>
+			<trans-unit id="getAppointment_form.email_field.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="getAppointment_form.email_field.email">
+				<source>E-mail</source>
+			</trans-unit>
+			<trans-unit id="getAppointment_form.email_field.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="getAppointment_form.email_field.date">
+				<source>Preferred date for the Appointment</source>
+			</trans-unit>
+			<trans-unit id="getAppointment_form.email_field.date.now">
+				<source>As soon as possible!</source>
+			</trans-unit>
 			
 		</body>
 	</file>

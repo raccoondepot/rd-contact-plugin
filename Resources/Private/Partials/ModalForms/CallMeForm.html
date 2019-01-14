@@ -5,13 +5,13 @@
         <p>{settings.rd_contact_plugin.callMeFormDescription}</p>
     </f:if>
 
-    <f:form class="row" action="callmeformHandler" extensionName="rd_contact_plugin" pluginName="EmailActions" controller="Email" pageType="453299">
+    <f:form class="row" action="callmeformHandler" extensionName="rd_contact_plugin" pluginName="EmailActions" controller="Email" pageType="453299" method="POST">
         
         <!-- name -->
         <div class="col-md-6 rd-input-wrapper">
             <label>
                 {settings.rd_contact_plugin.callMeForm_field_name_label}
-                <f:form.textfield property="name" placeholder="{settings.rd_contact_plugin.callMeForm_field_name}" class="rd-input" required="TRUE" errorClass="error" />
+                <f:form.textfield name="name" placeholder="{settings.rd_contact_plugin.callMeForm_field_name}" class="rd-input" required="TRUE" errorClass="error" />
             </label>
         </div>
 
@@ -19,23 +19,25 @@
         <div class="col-md-6 rd-input-wrapper">
             <label>
                 {settings.rd_contact_plugin.callMeForm_field_phone_label}
-                <f:form.textfield property="phone" placeholder="{settings.rd_contact_plugin.callMeForm_field_phone}" class="rd-input" required="TRUE" errorClass="error" />
+                <f:form.textfield name="phone" additionalAttributes="{data-mask: '{settings.rd_contact_plugin.callMeForm_field_phone_mask_template}'}" placeholder="{settings.rd_contact_plugin.callMeForm_field_phone}" class="rd-input input-mask-simple" required="TRUE" errorClass="error" />
             </label>
         </div>
 
         <!-- email -->
-        <div class="col-md-6 rd-input-wrapper">
-            <label>
-                {settings.rd_contact_plugin.callMeForm_field_email_label}
-                <f:form.textfield property="email" placeholder="{settings.rd_contact_plugin.callMeForm_field_email}" class="rd-input" type="email" required="TRUE" errorClass="error" />
-            </label>
-        </div>
+        <f:if condition="{settings.rd_contact_plugin.useCallMeForm_field_email}">
+            <div class="col-md-6 rd-input-wrapper">
+                <label>
+                    {settings.rd_contact_plugin.callMeForm_field_email_label}
+                    <f:form.textfield name="email" placeholder="{settings.rd_contact_plugin.callMeForm_field_email}" class="rd-input" type="email" required="TRUE" errorClass="error" />
+                </label>
+            </div>
+        </f:if>
 
         <!-- date -->
         <div class="col-md-6 rd-input-wrapper">
             <label>
                 {settings.rd_contact_plugin.callMeForm_field_date_label}
-                <f:form.textfield property="date" class="rd-input" type="date" errorClass="error" />
+                <f:form.textfield name="date" additionalAttributes="{data-mask: '{settings.rd_contact_plugin.callMeForm_field_date_mask_template}'}" placeholder="{settings.rd_contact_plugin.callMeForm_field_date_pl}" class="rd-input input-mask-simple" errorClass="error" />
             </label>
         </div>
 

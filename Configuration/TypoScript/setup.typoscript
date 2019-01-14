@@ -24,6 +24,8 @@ page.footerData.103.settings {
         useMobilePhone = {$plugin.tx_rdcontactplugin.settings.useMobilePhone}
         mobilePhone = {$plugin.tx_rdcontactplugin.settings.mobilePhone}
         mobilePhoneLabel = {$plugin.tx_rdcontactplugin.settings.mobilePhoneLabel}
+        mobilePhoneIcon = {$plugin.tx_rdcontactplugin.settings.mobilePhoneIcon}
+
         useCallMe = {$plugin.tx_rdcontactplugin.settings.useCallMe}
         callMeLabel = {$plugin.tx_rdcontactplugin.settings.callMeLabel}
         callMeFormDescription = {$plugin.tx_rdcontactplugin.settings.callMeFormDescription}
@@ -32,11 +34,66 @@ page.footerData.103.settings {
         callMeForm_field_email = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_email_placeholder}
         callMeForm_field_submit = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_submit}
         callMeFormIcon = {$plugin.tx_rdcontactplugin.settings.callMeFormIcon}
-        mobilePhoneIcon = {$plugin.tx_rdcontactplugin.settings.mobilePhoneIcon}
         callMeForm_field_name_label = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_name_label}
         callMeForm_field_phone_label = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_phone_label}
         callMeForm_field_email_label = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_email_label}
         callMeForm_field_date_label = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_date_label}
+        callMeForm_field_phone_mask_template = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_phone_mask_template}
+        callMeForm_email_body_tmpl_path = {$plugin.tx_rdcontactplugin.settings.callMeForm_email_body_tmpl_path}
+        callMeForm_email_recieverEmail = {$plugin.tx_rdcontactplugin.settings.callMeForm_email_recieverEmail}
+        callMeForm_email_recieverName = {$plugin.tx_rdcontactplugin.settings.callMeForm_email_recieverName}
+        callMeForm_email_subject = {$plugin.tx_rdcontactplugin.settings.callMeForm_email_subject}
+        callMeForm_field_date_pl = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_date_pl}
+        callMeForm_field_date_mask_template = {$plugin.tx_rdcontactplugin.settings.callMeForm_field_date_mask_template}
+        useCallMeForm_field_email = {$plugin.tx_rdcontactplugin.settings.useCallMeForm_field_email}
+        
+        useAnswerMeByEmail = {$plugin.tx_rdcontactplugin.settings.useAnswerMeByEmail}
+        answerMeByEmailLabel = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailLabel}
+        answerMeByEmailFormIcon = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailFormIcon}
+        answerMeByEmailFormDescription = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailFormDescription}
+        answerMeByEmailForm_field_name_label = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_field_name_label}
+        answerMeByEmailForm_field_name_placeholder = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_field_name_placeholder}
+        answerMeByEmailForm_field_email_label = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_field_email_label}
+        answerMeByEmailForm_field_email_placeholder = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_field_email_placeholder}
+        answerMeByEmailForm_field_question_label = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_field_question_label}
+        answerMeByEmailForm_field_question_placeholder = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_field_question_placeholder}
+        answerMeByEmailForm_field_submit = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_field_submit}
+        answerMeByEmailForm_email_body_tmpl_path = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_email_body_tmpl_path}
+        answerMeByEmailForm_email_recieverEmail = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_email_recieverEmail}
+        answerMeByEmailForm_email_recieverName = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_email_recieverName}
+        answerMeByEmailForm_email_subject = {$plugin.tx_rdcontactplugin.settings.answerMeByEmailForm_email_subject}
+        
+        useViber = {$plugin.tx_rdcontactplugin.settings.useViber}
+        viber = {$plugin.tx_rdcontactplugin.settings.viber}
+        viberLabel = {$plugin.tx_rdcontactplugin.settings.viberLabel}
+        viberIcon = {$plugin.tx_rdcontactplugin.settings.viberIcon}
+
+        useFbMessenger = {$plugin.tx_rdcontactplugin.settings.useFbMessenger}
+        fbMessengerUrl = {$plugin.tx_rdcontactplugin.settings.fbMessengerUrl}
+        fbMessengerLabel = {$plugin.tx_rdcontactplugin.settings.fbMessengerLabel}
+        fbMessengerIcon = {$plugin.tx_rdcontactplugin.settings.fbMessengerIcon}
+
+        useGetAppointment = {$plugin.tx_rdcontactplugin.settings.useGetAppointment}
+        getAppointmentLabel = {$plugin.tx_rdcontactplugin.settings.getAppointmentLabel}
+        getAppointmentFormDescription = {$plugin.tx_rdcontactplugin.settings.getAppointmentFormDescription}
+        getAppointmentForm_field_name = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_name_placeholder}
+        getAppointmentForm_field_phone = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_phone_placeholder}
+        getAppointmentForm_field_email = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_email_placeholder}
+        getAppointmentForm_field_submit = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_submit}
+        getAppointmentFormIcon = {$plugin.tx_rdcontactplugin.settings.getAppointmentFormIcon}
+        getAppointmentForm_field_name_label = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_name_label}
+        getAppointmentForm_field_phone_label = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_phone_label}
+        getAppointmentForm_field_email_label = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_email_label}
+        getAppointmentForm_field_date_label = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_date_label}
+        getAppointmentForm_field_phone_mask_template = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_phone_mask_template}
+        getAppointmentForm_email_body_tmpl_path = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_email_body_tmpl_path}
+        getAppointmentForm_email_recieverEmail = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_email_recieverEmail}
+        getAppointmentForm_email_recieverName = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_email_recieverName}
+        getAppointmentForm_email_subject = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_email_subject}
+        getAppointmentForm_field_date_pl = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_date_pl}
+        getAppointmentForm_field_date_mask_template = {$plugin.tx_rdcontactplugin.settings.getAppointmentForm_field_date_mask_template}
+        useGetAppointmentForm_field_email = {$plugin.tx_rdcontactplugin.settings.useGetAppointmentForm_field_email}
+        
     } 
 }
 
@@ -45,6 +102,8 @@ page.includeCSS {
     rd_contact_plugin_css = typo3conf/ext/rd_contact_plugin/Resources/Public/css/index.less
 }
 page.includeJS {
+    imaskjs_js = https://unpkg.com/imask
+    imaskjs_js.external = 1
     rd_contact_plugin_js = typo3conf/ext/rd_contact_plugin/Resources/Public/js/index.js
 }
 
@@ -88,3 +147,6 @@ ajax {
         no_cache = 1
     }
 }
+
+lib.currentURL= TEXT
+lib.currentURL.data = getIndpEnv:TYPO3_REQUEST_URL

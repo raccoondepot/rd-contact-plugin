@@ -7,4 +7,19 @@
     <f:variable name="ModalID">CallMeForm</f:variable>
     <f:render partial="ModalForms/ModalLayout/ModalBoxLayout" arguments="{_all}" />
 
+    <!--
+        Include AnswerMeByEmailForm box
+            * will be triggered by DOM element - data-modal="AnswerMeByEmailForm" - on click
+    -->
+    <f:variable name="ModalID">AnswerMeByEmailForm</f:variable>
+    <f:render partial="ModalForms/ModalLayout/ModalBoxLayout" arguments="{_all}" />
+
+    <!--
+        Include GetAppointmentForm box
+            * will be triggered by DOM element - data-modal="GetAppointmentForm" - on click
+    -->
+    <f:variable name="ModalID">GetAppointmentForm</f:variable>
+    <f:render partial="ModalForms/ModalLayout/ModalBoxLayout" arguments="{_all}" />
+
+
 </html>

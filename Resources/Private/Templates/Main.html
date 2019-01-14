@@ -4,8 +4,6 @@
 
 <f:section name="Main">
 
-    <f:debug>{_all}</f:debug>
-
     <!-- Contact plugin -->
     <div class="inner ">
 
@@ -20,7 +18,7 @@
         <div class="possible-cases">
             <ul>
 
-                <!-- useMobilePhone -->
+                <!-- MobilePhone -->
                 <f:if condition="{settings.rd_contact_plugin.useMobilePhone}">
                     <f:if condition="{settings.rd_contact_plugin.mobilePhone}">
                         <f:if condition="{settings.rd_contact_plugin.mobilePhoneLabel}">
@@ -33,9 +31,22 @@
                         </f:if>
                     </f:if>
                 </f:if>
-                <!-- useMobilePhone -->
+                <!-- MobilePhone -->
 
-                <!-- useCallMe -->
+                <!-- GetAppointment -->
+                <f:if condition="{settings.rd_contact_plugin.useGetAppointment}">
+                    <f:if condition="{settings.rd_contact_plugin.getAppointmentLabel}">
+                        <li>
+                            <a data-modal="GetAppointmentForm" class="link-case open-modal-form">
+                                <f:image src="{settings.rd_contact_plugin.getAppointmentFormIcon}" treatIdAsReference="1" class="p-c-icon" />
+                                {settings.rd_contact_plugin.getAppointmentLabel}
+                            </a>
+                        </li>
+                    </f:if>
+                </f:if>
+                <!-- GetAppointment -->
+
+                <!-- CallMe -->
                 <f:if condition="{settings.rd_contact_plugin.useCallMe}">
                     <f:if condition="{settings.rd_contact_plugin.callMeLabel}">
                         <li>
@@ -46,7 +57,50 @@
                         </li>
                     </f:if>
                 </f:if>
-                <!-- useCallMe -->
+                <!-- CallMe -->
+
+                <!-- AnswerMeByEmail -->
+                <f:if condition="{settings.rd_contact_plugin.useAnswerMeByEmail}">
+                    <f:if condition="{settings.rd_contact_plugin.answerMeByEmailLabel}">
+                        <li>
+                            <a data-modal="AnswerMeByEmailForm" class="link-case open-modal-form">
+                                <f:image src="{settings.rd_contact_plugin.answerMeByEmailFormIcon}" treatIdAsReference="1" class="p-c-icon" />
+                                {settings.rd_contact_plugin.answerMeByEmailLabel}
+                            </a>
+                        </li>
+                    </f:if>
+                </f:if>
+                <!-- AnswerMeByEmail -->
+
+                <!-- useViber -->
+                <f:if condition="{settings.rd_contact_plugin.useViber}">
+                    <f:if condition="{settings.rd_contact_plugin.viber}">
+                        <f:if condition="{settings.rd_contact_plugin.viberLabel}">
+                            <li>
+                                <a href="viber://chat?number={settings.rd_contact_plugin.viber}" class="link-case" target="_blank">
+                                    <f:image src="{settings.rd_contact_plugin.viberIcon}" treatIdAsReference="1" class="p-c-icon" />
+                                    {settings.rd_contact_plugin.viberLabel}
+                                </a>
+                            </li>
+                        </f:if>
+                    </f:if>
+                </f:if>
+                <!-- useViber -->
+
+                <!-- useFbMessenger -->
+                <f:if condition="{settings.rd_contact_plugin.useFbMessenger}">
+                    <f:if condition="{settings.rd_contact_plugin.fbMessengerUrl}">
+                        <f:if condition="{settings.rd_contact_plugin.fbMessengerLabel}">
+                            <li>
+                                <a href="{settings.rd_contact_plugin.fbMessengerUrl}" class="link-case" target="_blank">
+                                    <f:image src="{settings.rd_contact_plugin.fbMessengerIcon}" treatIdAsReference="1" class="p-c-icon" />
+                                    {settings.rd_contact_plugin.fbMessengerLabel}
+                                </a>
+                            </li>
+                        </f:if>
+                    </f:if>
+                </f:if>
+                <!-- useFbMessenger -->
 
             </ul>
         </div>
