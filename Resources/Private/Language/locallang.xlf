@@ -58,6 +58,10 @@
 				<source>As soon as possible!</source>
 			</trans-unit>
 			
+			<!-- general -->
+			<trans-unit id="all_forms.visitor_page">
+				<source>Contact from page</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -1,5 +1,9 @@
 {f:translate(key: 'callMe_form.email_description', extensionName: 'rd_contact_plugin')} {name}
 
+<f:if condition="{currentURL}">
+    <br />{f:translate(key: 'all_forms.visitor_page', extensionName: 'rd_contact_plugin')}: {currentURL} (<a href="{currentURL}">Open</a>)
+</f:if>
+
 <ul>
     <li>{f:translate(key: 'callMe_form.email_field.name', extensionName: 'rd_contact_plugin')}: {name}</li>
 

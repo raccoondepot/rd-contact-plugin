@@ -30,6 +30,7 @@ class EmailController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
             // get args
             $name = $_POST['tx_rd_contact_plugin_emailactions']['name'];
+            $currentURL = $_POST['tx_rd_contact_plugin_emailactions']['currentURL'];
             $phone = $_POST['tx_rd_contact_plugin_emailactions']['phone'];
             $email = $_POST['tx_rd_contact_plugin_emailactions']['email'];
             $date = $_POST['tx_rd_contact_plugin_emailactions']['date'];
@@ -54,6 +55,7 @@ class EmailController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                     $mailView = $objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
                     $mailView->setTemplatePathAndFilename($emailTemplatePath);
                     $mailView->assign('name', $name);
+                    $mailView->assign('currentURL', $currentURL);
                     $mailView->assign('phone', $phone);
                     $mailView->assign('email', $email);
                     $mailView->assign('date', $date);
@@ -100,6 +102,7 @@ class EmailController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
         // get args
         $name = $_POST['tx_rd_contact_plugin_emailactions']['name'];
+        $currentURL = $_POST['tx_rd_contact_plugin_emailactions']['currentURL'];
         $email = $_POST['tx_rd_contact_plugin_emailactions']['email'];
         $question = $_POST['tx_rd_contact_plugin_emailactions']['question'];
         
@@ -123,6 +126,7 @@ class EmailController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 $mailView = $objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
                 $mailView->setTemplatePathAndFilename($emailTemplatePath);
                 $mailView->assign('name', $name);
+                $mailView->assign('currentURL', $currentURL);
                 $mailView->assign('question', $question);
                 $mailView->assign('email', $email);
                 $mailView->assign('settings', $settings);
@@ -158,6 +162,7 @@ class EmailController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
         // get args
         $name = $_POST['tx_rd_contact_plugin_emailactions']['name'];
+        $currentURL = $_POST['tx_rd_contact_plugin_emailactions']['currentURL'];
         $phone = $_POST['tx_rd_contact_plugin_emailactions']['phone'];
         $email = $_POST['tx_rd_contact_plugin_emailactions']['email'];
         $date = $_POST['tx_rd_contact_plugin_emailactions']['date'];
@@ -182,6 +187,7 @@ class EmailController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 $mailView = $objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
                 $mailView->setTemplatePathAndFilename($emailTemplatePath);
                 $mailView->assign('name', $name);
+                $mailView->assign('currentURL', $currentURL);
                 $mailView->assign('phone', $phone);
                 $mailView->assign('email', $email);
                 $mailView->assign('date', $date);

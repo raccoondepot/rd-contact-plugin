@@ -45,6 +45,8 @@
         <div class="col-md-12 rd-input-wrapper">
             <f:form.submit value="{settings.rd_contact_plugin.callMeForm_field_submit}" />
         </div>
+
+        <f:form.textfield type="hidden" name="currentURL" value="{f:cObject(typoscriptObjectPath: 'lib.currentURL')}" />
         
     </f:form>
         

@@ -1,5 +1,7 @@
 ## RD Contact form plugin ##
-<b>RD Contact Plugin</b> is an extension developed by <a href="http://www.raccoondepot.com/">Raccoon Depot</a> team to be used in TYPO3 CMS 9+ or higher. This plugin includes simple contact button on each website page, and provides different ways for communication between website visitors and website owner. An extension is flexible, so you could configure it as you wish. All configurations and labels available via TypoScript constants. Also we developed custom TS condition which can be used to run different configurations depends on HTTP_REFERER header. How HTTP_REFERER could help you in business, you can read here: <a href="https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33">https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33</a>. To see all available options/configurations and how to start read further..
+<b>RD Contact Plugin</b> is an extension developed by <a href="http://www.raccoondepot.com/">Raccoon Depot</a> team to be used in TYPO3 CMS 9+ or higher. This plugin includes simple contact button on each website page, and provides different ways for communication between website visitors and website owner. <br/>
+An extension is flexible, so you could configure it as you wish. All configurations and labels available via TypoScript constants. <br />
+Also we developed custom TS condition which can be used to run different configurations depends on HTTP_REFERER header. How HTTP_REFERER could help you in business, you can read here: <a href="https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33">https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33</a>. To see all available options/configurations and how to start read further..
 
 [Here will be some screenshots on FE & BE]
 
@@ -20,7 +22,8 @@ Any contact option can be disabled and configured precisely
 3. composer update
 4. make sure rd_contact_plugin enabled in Extension Manager
 5. add TS static includes
-6. to make [Call-Me-form], [Answer-Me-By-E-mail-form], [Get-Appointment-form] contact options visible on your website, set next constants in your TS: callMeForm_email_recieverEmail, answerMeByEmailForm_email_recieverEmail, getAppointmentForm_email_recieverEmail (you can find them further in the configuration section)
+6. to make [Call-Me-form], [Answer-Me-By-E-mail-form], [Get-Appointment-form] contact options visible on your website, set next constants in your TS: <b>callMeForm_email_recieverEmail</b>, <b>answerMeByEmailForm_email_recieverEmail</b>, <b>getAppointmentForm_email_recieverEmail</b> (you can find them further in the configuration section)
+7. clear cache
 
 ## How to configure ##
 ### Typoscript variables ###

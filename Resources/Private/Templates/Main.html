@@ -34,40 +34,46 @@
                 <!-- MobilePhone -->
 
                 <!-- GetAppointment -->
-                <f:if condition="{settings.rd_contact_plugin.useGetAppointment}">
-                    <f:if condition="{settings.rd_contact_plugin.getAppointmentLabel}">
-                        <li>
-                            <a data-modal="GetAppointmentForm" class="link-case open-modal-form">
-                                <f:image src="{settings.rd_contact_plugin.getAppointmentFormIcon}" treatIdAsReference="1" class="p-c-icon" />
-                                {settings.rd_contact_plugin.getAppointmentLabel}
-                            </a>
-                        </li>
+                <f:if condition="{settings.rd_contact_plugin.getAppointmentForm_email_recieverEmail}">
+                    <f:if condition="{settings.rd_contact_plugin.useGetAppointment}">
+                        <f:if condition="{settings.rd_contact_plugin.getAppointmentLabel}">
+                            <li>
+                                <a data-modal="GetAppointmentForm" class="link-case open-modal-form">
+                                    <f:image src="{settings.rd_contact_plugin.getAppointmentFormIcon}" treatIdAsReference="1" class="p-c-icon" />
+                                    {settings.rd_contact_plugin.getAppointmentLabel}
+                                </a>
+                            </li>
+                        </f:if>
                     </f:if>
                 </f:if>
                 <!-- GetAppointment -->
 
                 <!-- CallMe -->
-                <f:if condition="{settings.rd_contact_plugin.useCallMe}">
-                    <f:if condition="{settings.rd_contact_plugin.callMeLabel}">
-                        <li>
-                            <a data-modal="CallMeForm" class="link-case open-modal-form">
-                                <f:image src="{settings.rd_contact_plugin.callMeFormIcon}" treatIdAsReference="1" class="p-c-icon" />
-                                {settings.rd_contact_plugin.callMeLabel}
-                            </a>
-                        </li>
+                <f:if condition="{settings.rd_contact_plugin.callMeForm_email_recieverEmail}">
+                    <f:if condition="{settings.rd_contact_plugin.useCallMe}">
+                        <f:if condition="{settings.rd_contact_plugin.callMeLabel}">
+                            <li>
+                                <a data-modal="CallMeForm" class="link-case open-modal-form">
+                                    <f:image src="{settings.rd_contact_plugin.callMeFormIcon}" treatIdAsReference="1" class="p-c-icon" />
+                                    {settings.rd_contact_plugin.callMeLabel}
+                                </a>
+                            </li>
+                        </f:if>
                     </f:if>
                 </f:if>
                 <!-- CallMe -->
 
                 <!-- AnswerMeByEmail -->
-                <f:if condition="{settings.rd_contact_plugin.useAnswerMeByEmail}">
-                    <f:if condition="{settings.rd_contact_plugin.answerMeByEmailLabel}">
-                        <li>
-                            <a data-modal="AnswerMeByEmailForm" class="link-case open-modal-form">
-                                <f:image src="{settings.rd_contact_plugin.answerMeByEmailFormIcon}" treatIdAsReference="1" class="p-c-icon" />
-                                {settings.rd_contact_plugin.answerMeByEmailLabel}
-                            </a>
-                        </li>
+                <f:if condition="{settings.rd_contact_plugin.answerMeByEmailForm_email_recieverEmail}">
+                    <f:if condition="{settings.rd_contact_plugin.useAnswerMeByEmail}">
+                        <f:if condition="{settings.rd_contact_plugin.answerMeByEmailLabel}">
+                            <li>
+                                <a data-modal="AnswerMeByEmailForm" class="link-case open-modal-form">
+                                    <f:image src="{settings.rd_contact_plugin.answerMeByEmailFormIcon}" treatIdAsReference="1" class="p-c-icon" />
+                                    {settings.rd_contact_plugin.answerMeByEmailLabel}
+                                </a>
+                            </li>
+                        </f:if>
                     </f:if>
                 </f:if>
                 <!-- AnswerMeByEmail -->
