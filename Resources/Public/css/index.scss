@@ -18,7 +18,7 @@
         visibility: hidden;
         transform: translate3d(100%, 0, 0);
     }
-    1% {
+    10% {
         opacity: 0;
         display: block;
         visibility: visible;
@@ -35,16 +35,63 @@
 .rd-contact-plugin {
     position: fixed;
     z-index: 1080;
+    max-width: calc(100% - 2rem);
 
+    &.vertical-bottom {
+        @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+            bottom: 1rem;
+        }
     
-    @media (max-width: map-get($grid-breakpoints, md) - .02px) {
-        bottom: 1rem;
-        right: 1rem;
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            bottom: 3rem;
+        }
     }
 
-    @media (min-width: map-get($grid-breakpoints, md)) {
-        right: 5rem;
-        bottom: 3rem;
+    &.vertical-top {
+        @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+            top: 1rem;
+        }
+    
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            top: 3rem;
+        }
+
+        .inner-container {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+    
+    &.horizontal-right {
+        @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+            right: 1rem;
+        }
+    
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            right: 5rem;
+        }
+
+        .inner-container {
+            .button-container {
+                margin-left: auto;
+            }
+        }
+    }
+
+    &.horizontal-left {
+        @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+            left: 1rem;
+        }
+    
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            left: 5rem;
+        }
+
+        .inner-container {
+            .button-container {
+                margin-right: auto;
+            }
+        }
     }
 
     .inner-container {
@@ -53,7 +100,7 @@
             display: none;
             padding: 1rem;
             margin-bottom: 1rem;
-            background: $white;
+            background: $light-bg-color;
             max-width: 100%;
             max-height: calc(100vh - 10rem);
             overflow: auto;
@@ -75,14 +122,18 @@
                 &-item {
 
                     &:not(:last-of-type) {
-                        border-bottom: 1px solid rgba($body-color, .25);
+                        border-bottom: 1px solid rgba($text-color, .25);
                     }
 
                     &-link {
                         display: block;
                         padding-top: .5rem;
                         padding-bottom: .5rem;
-                        color: $body-color;
+                        color: $text-color;
+
+                        &.open-modal-form {
+                            cursor: pointer;
+                        }
                     }
 
                     &-icon {
@@ -98,10 +149,10 @@
             position: relative;
             width: 4rem;
             height: 4rem;
-            background-color: $primary;
+            background-color: $main-color;
             border-radius: 50%;
-            margin-left: auto;
-            box-shadow: 0 0 0 .3rem rgba($primary, .35), 0 0 0 .8rem rgba($primary, .2);
+            cursor: pointer;
+            box-shadow: 0 0 0 .3rem rgba($main-color, .35), 0 0 0 .8rem rgba($main-color, .2);
 
             &.animate {
                 &:after {
@@ -109,7 +160,7 @@
                     position: absolute;
                     height: 100%;
                     width: 100%;
-                    border: .1rem solid $primary;
+                    border: .1rem solid $main-color;
                     border-radius: 50%;
                     animation: shadow-pulse 3s ease-out infinite;
                     z-index: -1;
@@ -146,337 +197,121 @@
                 }
             }
         }
-
-        // .button-icon-container {
-        //     .button-icon {
-        //         // position: absolute;
-        //         // width: 1.5rem;
-        //         // height: 1.5rem;
-        //         // top: 50%;
-        //         // left: 50%;
-        //         // transform: translate3d(-50%, -50%, 0);
-        //         // opacity: 0;
-        //         will-change: opacity;
-        //         transition: opacity .4s ease-in-out;
-
-        //         &.show {
-        //             opacity: 1;
-        //         }
-        //     }
-        // }
-
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* different positions of the plugin */
-    &.top_left {
-        top: 50px;
-        left: 80px;
-        bottom: auto;
-        right: auto;
-
-        .inner .possible-cases {
-            -webkit-transform-origin: bottom left;
-            -ms-transform-origin: bottom left;
-            transform-origin: bottom left;
-            bottom: unset;
-            top: -10px;
-        }
-    }
-    &.top_right {
-        top: 50px;
-        right: 80px;
-        bottom: auto;
-        left: auto;
-
-        .inner .possible-cases {
-            -webkit-transform-origin: bottom right;
-            -ms-transform-origin: bottom right;
-            transform-origin: bottom right;
-            bottom: unset;
-            top: -10px;
-            left: unset;
-            right: 100%;
-
-            ul {
-                margin-left: -20px;
-            }
-        }
-    }
-    &.bottom_right {
-        bottom: 50px;
-        right: 80px;
-        left: auto;
-        top: auto;
-
-        .inner .possible-cases {
-            -webkit-transform-origin: top right;
-            -ms-transform-origin: top right;
-            transform-origin: top right;
-            left: unset;
-            right: 100%;
-
-            ul {
-                margin-left: -20px;
-            }
-        }
-    }
-
-
-    
-    
-    /* plugin button styles */
-    .inner {
-        background: #7daf65;
-        padding: 10px 20px;
-        color: #fff;
-        cursor: pointer;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        -webkit-transition: color 0.7s;
-        transition: color 0.7s;
-
-        /* wave with animation */
-        &::after {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: -35px 0 0 -35px;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            content: '';
-            opacity: 0;
-            pointer-events: none;
-            border: 2px solid rgb(123, 176, 97);
-            z-index: -2;
-            -webkit-animation: anim-effect-jelena 3s ease-out infinite;
-            animation: anim-effect-jelena 3s ease-out infinite;
-        }
-
-        /* icon in button */
-        .contact-btn-icon {
-            width: 25px;
-            height: 25px;
-        }
-
-        /* button background layers */
-        .contact-btn-shadow {
-            position: absolute;
-            border-radius: 50%;
-            background: #7bb061;
-            
-
-            &.shadow1 {
-                left: -6px;
-                top: -6px;
-                width: calc(100% + 12px);
-                height: calc(100% + 12px);  
-                z-index: -1;
-                opacity: 0.2;
-            }
-            &.shadow2 {
-                left: -10px;
-                top: -10px;
-                width: calc(100% + 20px);
-                height: calc(100% + 20px);
-                z-index: -2;
-                opacity: 0.1;
-            }
-        }
+    .modal-container {
         
-        /* let's show submenu on hover or tap */
-        &:hover .possible-cases,
-        &.tapped .possible-cases {
-            opacity: 1;
-            -webkit-transform: scaleX(1) translate( 0%, 0%);
-            -ms-transform: scaleX(1) translate( 0%, 0%);
-            transform: scaleX(1) translate( 0, 0%);
-        }
+        .modal-box {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            overflow: hidden;
+            outline: 0;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba($dark-bg-color, .5);
 
-        /* submenu container - list of contact possibilities */
-        .possible-cases {
-            position: absolute;
-            opacity: 0;
-            transition: all .3s;
-            bottom: -10px;
-            left: 100%;
-            width: 230px;
+            &.show {
+                display: flex;
+            }
 
-            /* animation of submenu container */
-            -webkit-transform-origin: top left;
-            -ms-transform-origin: top left;
-            transform-origin: top left;
-            -webkit-transition: all .5s .3s;
-            -o-transition: all .5s .3s;
-            transition: all .5s .3s;
-            opacity: .3;
-            -webkit-transform: scaleX(0) translate(-30%, 0%);
-            -ms-transform: scaleX(0) translate(-30%, 0%);
-            transform: scaleX(0) translate(-30%, 0%);
-
-            ul {
+            &-close {
+                position: fixed;
+                z-index: 1000;
                 padding: 0;
-                list-style: none;
-                margin: 0;
-                width: 230px;
-                margin-left: 20px;
-                border: 1px solid rgb(211, 227, 203);
-                font-size: 1em;
-                background: #fff;
+                border: none;
+                background-color: transparent;
+                color: $light-bg-color;
+                font-family: monospace;
+                line-height: 1;
+                cursor: pointer;
 
-                li {
-                    padding-left: 5px;
-                    padding-right: 5px;
-
-                    .p-c-icon {
-                        width: auto;
-                        height: 18px;
-                        margin-right: 5px;
-                        margin-top: -2px;
-                    }
-                    
-                    .link-case {
-                        padding: 10px 13px;
-                        display: block;
-                        border-top: 1px solid rgb(211, 227, 203);
-                        color: #414141;
-                        -webkit-transition: all .3s;
-                        -o-transition: all .3s;
-                        transition: all .3s;
-
-                        &:hover {
-                            color: #414141;
-                            opacity: .8;
-                            text-decoration: none;
-                        }
-                    }
-
-                    &:first-child {
-                        
-                        .link-case {
-                            border-top: none;
-                        }
-                    }
+                @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+                    top: 1rem;
+                    right: 1rem;
+                    width: 3rem;
+                    height: 3rem;
+                    font-size: 3rem;
                 }
-            }
             
-        }
-        
-    }
-
-
-    /**
-    *
-    *  Modal windows 
-    *
-    */
-    .modal-rd {
-        display: none; 
-        position: fixed; 
-        z-index: 1; 
-        left: 0;
-        top: 0;
-        width: 100%; 
-        height: 100%; 
-        overflow: auto; 
-        background-color: rgb(0,0,0); 
-        background-color: rgba(0,0,0,0.4); 
-        align-items: center;
-        justify-content: center;
-
-        .modal-content-rd {
-            background-color: #fefefe;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 100%;
-            max-width: 600px;
-
-            .close-rd {
-                color: #aaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-
-                &:hover, &:focus {
-                    color: black;
-                    text-decoration: none;
-                    cursor: pointer;
-                }
-
-                img {
-                    width: 18px;
-                    height: auto;
+                @media (min-width: map-get($grid-breakpoints, md)) {
+                    top: 2rem;
+                    right: 5rem;
+                    width: 4rem;
+                    height: 4rem;
+                    font-size: 4rem;
                 }
             }
 
-            .rd-input {
+            &-content {
                 width: 100%;
-            }
-            .rd-input-wrapper {
-                margin-bottom: 20px; 
+                max-width: 40rem;
+                padding: 1.5rem;
+                background: $light-bg-color;
+                border: 1px solid rgba($text-color, .25);
+                animation: show-up .3s;
+                
+                .form-container {
+                    display: none;
 
-                label {
-                    display: block;
-                    width: 100%;
+                    &.show {
+                        display: block;
+                    }
+
+                    .form {
+
+                        .form-grid {
+                            display: flex;
+                            flex-wrap: wrap;
+                            margin-left: -.25rem;
+                            margin-right: -.25rem;
+                        }
+
+                        .form-cell {
+                            padding-left: .25rem;
+                            padding-right: .25rem;
+                            margin-bottom: .5rem;
+
+                            @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+                                width: 100%;
+                            }
+                        
+                            @media (min-width: map-get($grid-breakpoints, md)) {
+                                flex: 0 0 50%;
+                                max-width: 50%;
+                            }
+
+                            label {
+                                display: block;
+                                margin-bottom: .25rem;
+                            }
+
+                            .form-input {
+                                display: block;
+                                width: 100%;
+                                padding: .375rem .75rem;
+                                color: $text-color;
+                                background-color: $light-bg-color;
+                                background-clip: padding-box;
+                                border: 1px solid rgba($text-color, .25);
+                            }
+                        }
+
+                        .form-submit {
+                            display: inline-block;
+                            border: 1px solid rgba($text-color, .25);
+                            padding: .375rem .75rem;
+                            color: $light-bg-color;
+                            background-color: $main-color;
+                            margin-top: 1rem;
+                        }
+                    }
                 }
             }
-
         }
-    }
-}
-
-
-/**
-*
-*  Animations 
-*
-*/
-
-/* wave animation on a plugin button */
-@-webkit-keyframes anim-effect-jelena {
-    0% {
-        opacity: 1;
-        -webkit-transform: scale3d(0.5, 0.5, 1);
-        transform: scale3d(0.5, 0.5, 1);
-    }
-    to {
-        opacity: 0;
-        -webkit-transform: scale3d(1.2, 1.2, 1);
-        transform: scale3d(1.2, 1.2, 1);
-    }
-}
-
-@keyframes anim-effect-jelena {
-    0% {
-        opacity: 1;
-        -webkit-transform: scale3d(0.5, 0.5, 1);
-        transform: scale3d(0.5, 0.5, 1);
-    }
-    to {
-        opacity: 0;
-        -webkit-transform: scale3d(1.2, 1.2, 1);
-        transform: scale3d(1.2, 1.2, 1);
     }
 }

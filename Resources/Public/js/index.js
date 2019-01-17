@@ -1,15 +1,33 @@
-// modals
+// rd-contact-plugin handling
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
-    var listContainer = document.querySelector('.rd-contact-plugin .contact-list-container');
-    var buttonContainer = document.querySelector('.rd-contact-plugin .button-container');
+    var listContainer = document.querySelector('.rd-contact-plugin .contact-list-container'),
+        buttonContainer = document.querySelector('.rd-contact-plugin .button-container'),
+        modalContainer = document.querySelector('.rd-contact-plugin .modal-container'),
+        modalBox = modalContainer.querySelector('.modal-box'),
+        modalContent = modalContainer.querySelector('.modal-box .modal-box-content');
 
     var iconIndex = 0,
         iconArr = buttonContainer.querySelector('.button-icon-container').children,
         iconArrLength = iconArr.length,
         interval = setInterval(nextIcon, 3000),
         openedList = false;
+
+    function hasClass(element, className) {
+        return !!element.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+    }
+
+    function addClass(element, className) {
+        if (!hasClass(element, className)) element.className += ' ' + className;
+    }
+
+    function removeClass(element, className) {
+        if (hasClass(element, className)) {
+            var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+            element.className = element.className.replace(reg, '');
+        }
+    }
 
     // animate pulsing button after load
     addClass(buttonContainer, 'animate');
@@ -22,8 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // });
 
     buttonContainer.addEventListener('click', function() {
-        console.log('click');
-
         toggleList();
     });
 
@@ -63,40 +79,50 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function hasClass(element, className) {
-        return !!element.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
-    }
-
-    function addClass(element, className) {
-        if (!hasClass(element, className)) element.className += ' ' + className;
-    }
-
-    function removeClass(element, className) {
-        if (hasClass(element, className)) {
-            var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
-            element.className = element.className.replace(reg, '');
-        }
-    }
-
-    // open modals
+    // open modalBox
     Array.prototype.forEach.call(document.querySelectorAll('.rd-contact-plugin .open-modal-form'), function (link) {
         link.onclick = function () {
-            var modalId = this.getAttribute('data-modal');
-            var modal = document.getElementById(modalId);
+            var formId = this.getAttribute('data-form');
 
-            modal.style.display = 'flex';
+            // show selected form
+            showForm(formId);
+
+            // show modal window
+            addClass(modalBox, 'show');
         }
     });
+
+    function showForm(selectedFormId) {
+        Array.prototype.forEach.call(modalBox.querySelectorAll('.modal-box-content .form-container'), function(formContainer) {
+
+            var formId = formContainer.getAttribute('data-form-id');
+            if (formId === selectedFormId) {
+                addClass(formContainer, 'show');
+            } else {
+                removeClass(formContainer, 'show');
+            }
+        });
+    }
 
     // close modal
-    Array.prototype.forEach.call(document.querySelectorAll('.modal-content-rd .close-rd'), function (closeEl) {
-        closeEl.onclick = function () {
-            Array.prototype.forEach.call(document.querySelectorAll('.modal-rd'), function (e) {
-                e.style.display = 'none';
-            });
+    modalBox.querySelector('.modal-box-close').addEventListener('click', function() {
+        closeModal();
+    });
+    modalBox.addEventListener('click', function(event) {
+        var isClickInside = modalContent.contains(event.target);
+
+        if (!isClickInside) {
+            closeModal();
         }
     });
 
+    function closeModal() {
+        removeClass(modalBox, 'show');
+
+        Array.prototype.forEach.call(modalBox.querySelectorAll('.modal-box-content .form-container'), function(formContainer) {
+            removeClass(formContainer, 'show');
+        });
+    }
 
     // InputJs Mask
     Array.prototype.forEach.call(document.querySelectorAll('.input-mask-simple'), function (e) {
@@ -105,6 +131,4 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         var mask = new IMask(e, maskOptions);
     });
-
 });
-

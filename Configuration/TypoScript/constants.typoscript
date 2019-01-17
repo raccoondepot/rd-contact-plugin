@@ -2,7 +2,6 @@
 ### CUSTOM SUBCATEGORIES ###
 ############################
 # customsubcategory=100=Main
-# customsubcategory=150=Colors
 # customsubcategory=200=Mobile Phone
 # customsubcategory=300=Call me
 # customsubcategory=400=Answer Me By Email
@@ -19,11 +18,8 @@ plugin.tx_rdcontactplugin {
 
 		# cat=plugin.tx_rdcontactplugin/100/main; type=boolean; label=[MAIN] Enable plugin under this root page
 		enabled = 1
-		# cat=plugin.tx_rdcontactplugin/100/main; type=string; label=[MAIN] Plugin position on the user screen (bottom-left / top-left / top-right / bottom-right)
-		position = bottom-right
-
-		# cat=plugin.tx_rdcontactplugin/150/primary; type=string; label=[Colors] $primary
-		primary = #7daf65
+		# cat=plugin.tx_rdcontactplugin/100/main; type=options[bottom-left=vertical-bottom horizontal-left,top-left=vertical-top horizontal-left,top-right=vertical-top horizontal-right,bottom-right=vertical-bottom horizontal-right]; label=[MAIN] Plugin position on the user screen
+  		position = vertical-bottom horizontal-right
 
 
 		###

@@ -6,8 +6,6 @@
     <!-- Contact plugin -->
     <div class="inner-container">
 
-        <f:debug>{_all}</f:debug>
-
         <div class="contact-list-container">
             <ul class="contact-list">
 
@@ -41,7 +39,7 @@
                                 <!-- GetAppointment -->
                                 <a 
                                     class="contact-list-item-link open-modal-form"
-                                    data-modal="GetAppointmentForm" >
+                                    data-form="getAppointmentForm" >
 
                                     <f:image 
                                         class="contact-list-item-icon"
@@ -64,7 +62,7 @@
                                 <!-- CallMe -->
                                 <a 
                                     class="contact-list-item-link open-modal-form"
-                                    data-modal="CallMeForm" >
+                                    data-form="callMeForm" >
 
                                     <f:image 
                                         class="contact-list-item-icon"
@@ -87,7 +85,7 @@
                                 <!-- AnswerMeByEmail -->
                                 <a 
                                     class="contact-list-item-link open-modal-form"
-                                    data-modal="AnswerMeByEmailForm" >
+                                    data-form="answerMeByEmailForm" >
 
                                     <f:image 
                                         class="contact-list-item-icon"
@@ -178,12 +176,9 @@
             </div>
         </div>
     </div>
-    <!-- Contact plugin -->
 
-    <!-- include modal boxes -->
-    <div>
-        <f:render partial="ModalBoxesList" arguments="{_all}" />
-    </div>
+    <!-- Include modal container -->
+    <f:render partial="ModalContainer" arguments="{_all}" />
 
 </f:section>
 
