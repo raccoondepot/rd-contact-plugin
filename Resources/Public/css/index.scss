@@ -1,9 +1,189 @@
-/* wrapper */
+@import './variables';
+
+@keyframes shadow-pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    35%, 100% {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+
+@keyframes show-up {
+    0% {
+        opacity: 0;
+        display: none;
+        visibility: hidden;
+        transform: translate3d(100%, 0, 0);
+    }
+    1% {
+        opacity: 0;
+        display: block;
+        visibility: visible;
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        display: block;
+        visibility: visible;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
 .rd-contact-plugin {
     position: fixed;
-    bottom: 50px;
-    left: 80px;
-    z-index: 999999;
+    z-index: 1080;
+
+    
+    @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+        right: 5rem;
+        bottom: 3rem;
+    }
+
+    .inner-container {
+
+        .contact-list-container {
+            display: none;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: $white;
+            max-width: 100%;
+            max-height: calc(100vh - 10rem);
+            overflow: auto;
+            visibility: hidden;
+            opacity: 0;
+
+            &.show {
+                display: block;
+                visibility: visible;
+                opacity: 1;
+                animation: show-up .3s;
+            }
+
+            .contact-list {
+                list-style: none;
+                padding-left: 0;
+                margin-bottom: 0;
+
+                &-item {
+
+                    &:not(:last-of-type) {
+                        border-bottom: 1px solid rgba($body-color, .25);
+                    }
+
+                    &-link {
+                        display: block;
+                        padding-top: .5rem;
+                        padding-bottom: .5rem;
+                        color: $body-color;
+                    }
+
+                    &-icon {
+                        width: 1.25rem;
+                        height: auto;
+                        margin-right: .5rem;
+                    }
+                }
+            }
+        }
+
+        .button-container {
+            position: relative;
+            width: 4rem;
+            height: 4rem;
+            background-color: $primary;
+            border-radius: 50%;
+            margin-left: auto;
+            box-shadow: 0 0 0 .3rem rgba($primary, .35), 0 0 0 .8rem rgba($primary, .2);
+
+            &.animate {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    border: .1rem solid $primary;
+                    border-radius: 50%;
+                    animation: shadow-pulse 3s ease-out infinite;
+                    z-index: -1;
+                }
+            }
+
+            &.show-close-button {
+                .button-icon-container {
+                    .button-icon.show {
+                        opacity: 0;
+                    }
+                }
+
+                .button-close-container {
+                    .button-icon.button-close-list {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .button-icon {
+                position: absolute;
+                width: 1.5rem;
+                height: 1.5rem;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 0);
+                opacity: 0;
+                will-change: opacity;
+                transition: opacity .4s ease-in-out;
+
+                &.show {
+                    opacity: 1;
+                }
+            }
+        }
+
+        // .button-icon-container {
+        //     .button-icon {
+        //         // position: absolute;
+        //         // width: 1.5rem;
+        //         // height: 1.5rem;
+        //         // top: 50%;
+        //         // left: 50%;
+        //         // transform: translate3d(-50%, -50%, 0);
+        //         // opacity: 0;
+        //         will-change: opacity;
+        //         transition: opacity .4s ease-in-out;
+
+        //         &.show {
+        //             opacity: 1;
+        //         }
+        //     }
+        // }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /* different positions of the plugin */
     &.top_left {
@@ -58,6 +238,9 @@
             }
         }
     }
+
+
+    
     
     /* plugin button styles */
     .inner {
@@ -108,16 +291,16 @@
             &.shadow1 {
                 left: -6px;
                 top: -6px;
-                width: calc(~"100% + 12px");
-                height: calc(~"100% + 12px");  
+                width: calc(100% + 12px);
+                height: calc(100% + 12px);  
                 z-index: -1;
                 opacity: 0.2;
             }
             &.shadow2 {
                 left: -10px;
                 top: -10px;
-                width: calc(~"100% + 20px");
-                height: calc(~"100% + 20px");
+                width: calc(100% + 20px);
+                height: calc(100% + 20px);
                 z-index: -2;
                 opacity: 0.1;
             }

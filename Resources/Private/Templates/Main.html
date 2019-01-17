@@ -1,120 +1,190 @@
-<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      data-namespace-typo3-fluid="true">
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
 <f:section name="Main">
 
     <!-- Contact plugin -->
-    <div class="inner ">
+    <div class="inner-container">
 
-        <!-- button content -->
-        <div class="contact-btn-shadow shadow1">
-            <div class="cbutton cbutton--effect-jelena run"></div>
-        </div>
-        <div class="contact-btn-shadow shadow2"></div>
-        <f:image src="EXT:rd_contact_plugin/Resources/Public/icons/telephone.svg" treatIdAsReference="1" class="contact-btn-icon" />
-        <!-- button content -->
+        <f:debug>{_all}</f:debug>
 
-        <div class="possible-cases">
-            <ul>
+        <div class="contact-list-container">
+            <ul class="contact-list">
 
-                <!-- MobilePhone -->
                 <f:if condition="{settings.rd_contact_plugin.useMobilePhone}">
                     <f:if condition="{settings.rd_contact_plugin.mobilePhone}">
                         <f:if condition="{settings.rd_contact_plugin.mobilePhoneLabel}">
-                            <li>
-                                <a href="tel:{settings.rd_contact_plugin.mobilePhone}" class="link-case">
-                                    <f:image src="{settings.rd_contact_plugin.mobilePhoneIcon}" treatIdAsReference="1" class="p-c-icon" />
-                                    {settings.rd_contact_plugin.mobilePhoneLabel}
+                            <li class="contact-list-item">
+                                <!-- MobilePhone -->
+                                <a 
+                                    class="contact-list-item-link"
+                                    href="tel:{settings.rd_contact_plugin.mobilePhone}" >
+
+                                    <f:image 
+                                        class="contact-list-item-icon"
+                                        src="{settings.rd_contact_plugin.mobilePhoneIcon}"
+                                        width="32" 
+                                        height="32" 
+                                        treatIdAsReference="1" />
+                                    
+                                    <span>{settings.rd_contact_plugin.mobilePhoneLabel}</span>
                                 </a>
                             </li>
                         </f:if>
                     </f:if>
                 </f:if>
-                <!-- MobilePhone -->
 
-                <!-- GetAppointment -->
                 <f:if condition="{settings.rd_contact_plugin.getAppointmentForm_email_recieverEmail}">
                     <f:if condition="{settings.rd_contact_plugin.useGetAppointment}">
                         <f:if condition="{settings.rd_contact_plugin.getAppointmentLabel}">
-                            <li>
-                                <a data-modal="GetAppointmentForm" class="link-case open-modal-form">
-                                    <f:image src="{settings.rd_contact_plugin.getAppointmentFormIcon}" treatIdAsReference="1" class="p-c-icon" />
-                                    {settings.rd_contact_plugin.getAppointmentLabel}
+                            <li class="contact-list-item">
+                                <!-- GetAppointment -->
+                                <a 
+                                    class="contact-list-item-link open-modal-form"
+                                    data-modal="GetAppointmentForm" >
+
+                                    <f:image 
+                                        class="contact-list-item-icon"
+                                        src="{settings.rd_contact_plugin.getAppointmentFormIcon}"
+                                        width="32" 
+                                        height="32" 
+                                        treatIdAsReference="1" />
+                                    
+                                    <span>{settings.rd_contact_plugin.getAppointmentLabel}</span>
                                 </a>
                             </li>
                         </f:if>
                     </f:if>
                 </f:if>
-                <!-- GetAppointment -->
 
-                <!-- CallMe -->
                 <f:if condition="{settings.rd_contact_plugin.callMeForm_email_recieverEmail}">
                     <f:if condition="{settings.rd_contact_plugin.useCallMe}">
                         <f:if condition="{settings.rd_contact_plugin.callMeLabel}">
-                            <li>
-                                <a data-modal="CallMeForm" class="link-case open-modal-form">
-                                    <f:image src="{settings.rd_contact_plugin.callMeFormIcon}" treatIdAsReference="1" class="p-c-icon" />
-                                    {settings.rd_contact_plugin.callMeLabel}
+                            <li class="contact-list-item">
+                                <!-- CallMe -->
+                                <a 
+                                    class="contact-list-item-link open-modal-form"
+                                    data-modal="CallMeForm" >
+
+                                    <f:image 
+                                        class="contact-list-item-icon"
+                                        src="{settings.rd_contact_plugin.callMeFormIcon}"
+                                        width="32" 
+                                        height="32" 
+                                        treatIdAsReference="1" />
+                                    
+                                    <span>{settings.rd_contact_plugin.callMeLabel}</span>
                                 </a>
                             </li>
                         </f:if>
                     </f:if>
                 </f:if>
-                <!-- CallMe -->
 
-                <!-- AnswerMeByEmail -->
                 <f:if condition="{settings.rd_contact_plugin.answerMeByEmailForm_email_recieverEmail}">
                     <f:if condition="{settings.rd_contact_plugin.useAnswerMeByEmail}">
                         <f:if condition="{settings.rd_contact_plugin.answerMeByEmailLabel}">
-                            <li>
-                                <a data-modal="AnswerMeByEmailForm" class="link-case open-modal-form">
-                                    <f:image src="{settings.rd_contact_plugin.answerMeByEmailFormIcon}" treatIdAsReference="1" class="p-c-icon" />
-                                    {settings.rd_contact_plugin.answerMeByEmailLabel}
+                            <li class="contact-list-item">
+                                <!-- AnswerMeByEmail -->
+                                <a 
+                                    class="contact-list-item-link open-modal-form"
+                                    data-modal="AnswerMeByEmailForm" >
+
+                                    <f:image 
+                                        class="contact-list-item-icon"
+                                        src="{settings.rd_contact_plugin.answerMeByEmailFormIcon}"
+                                        width="32" 
+                                        height="32" 
+                                        treatIdAsReference="1" />
+                                    
+                                    <span>{settings.rd_contact_plugin.answerMeByEmailLabel}</span>
                                 </a>
                             </li>
                         </f:if>
                     </f:if>
                 </f:if>
-                <!-- AnswerMeByEmail -->
 
-                <!-- useViber -->
                 <f:if condition="{settings.rd_contact_plugin.useViber}">
                     <f:if condition="{settings.rd_contact_plugin.viber}">
                         <f:if condition="{settings.rd_contact_plugin.viberLabel}">
-                            <li>
-                                <a href="viber://chat?number={settings.rd_contact_plugin.viber}" class="link-case" target="_blank">
-                                    <f:image src="{settings.rd_contact_plugin.viberIcon}" treatIdAsReference="1" class="p-c-icon" />
-                                    {settings.rd_contact_plugin.viberLabel}
+                            <li class="contact-list-item">
+                                <!-- useViber -->
+                                <a 
+                                    class="contact-list-item-link"
+                                    href="viber://chat?number={settings.rd_contact_plugin.viber}"
+                                    target="_blank" >
+
+                                    <f:image 
+                                        class="contact-list-item-icon"
+                                        src="{settings.rd_contact_plugin.viberIcon}"
+                                        width="32" 
+                                        height="32" 
+                                        treatIdAsReference="1" />
+                                    
+                                    <span>{settings.rd_contact_plugin.viberLabel}</span>
                                 </a>
                             </li>
                         </f:if>
                     </f:if>
                 </f:if>
-                <!-- useViber -->
 
-                <!-- useFbMessenger -->
                 <f:if condition="{settings.rd_contact_plugin.useFbMessenger}">
                     <f:if condition="{settings.rd_contact_plugin.fbMessengerUrl}">
                         <f:if condition="{settings.rd_contact_plugin.fbMessengerLabel}">
-                            <li>
-                                <a href="{settings.rd_contact_plugin.fbMessengerUrl}" class="link-case" target="_blank">
-                                    <f:image src="{settings.rd_contact_plugin.fbMessengerIcon}" treatIdAsReference="1" class="p-c-icon" />
-                                    {settings.rd_contact_plugin.fbMessengerLabel}
+                            <li class="contact-list-item">
+                                <!-- useFbMessenger -->
+                                <a 
+                                    class="contact-list-item-link"
+                                    href="{settings.rd_contact_plugin.fbMessengerUrl}"
+                                    target="_blank" >
+
+                                    <f:image 
+                                        class="contact-list-item-icon"
+                                        src="{settings.rd_contact_plugin.fbMessengerIcon}"
+                                        width="32" 
+                                        height="32" 
+                                        treatIdAsReference="1" />
+                                    
+                                    <span>{settings.rd_contact_plugin.fbMessengerLabel}</span>
                                 </a>
                             </li>
                         </f:if>
                     </f:if>
                 </f:if>
-                <!-- useFbMessenger -->
-
             </ul>
+        </div>
+
+        <div class="button-container">
+            <div class="button-icon-container">
+                <img 
+                    class="button-icon button-icon-phone show"
+                    width="32" 
+                    height="32" 
+                    src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4MC41NiA0ODAuNTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ4MC41NiA0ODAuNTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMzY1LjM1NCwzMTcuOWMtMTUuNy0xNS41LTM1LjMtMTUuNS01MC45LDBjLTExLjksMTEuOC0yMy44LDIzLjYtMzUuNSwzNS42Yy0zLjIsMy4zLTUuOSw0LTkuOCwxLjggICAgYy03LjctNC4yLTE1LjktNy42LTIzLjMtMTIuMmMtMzQuNS0yMS43LTYzLjQtNDkuNi04OS04MWMtMTIuNy0xNS42LTI0LTMyLjMtMzEuOS01MS4xYy0xLjYtMy44LTEuMy02LjMsMS44LTkuNCAgICBjMTEuOS0xMS41LDIzLjUtMjMuMywzNS4yLTM1LjFjMTYuMy0xNi40LDE2LjMtMzUuNi0wLjEtNTIuMWMtOS4zLTkuNC0xOC42LTE4LjYtMjcuOS0yOGMtOS42LTkuNi0xOS4xLTE5LjMtMjguOC0yOC44ICAgIGMtMTUuNy0xNS4zLTM1LjMtMTUuMy01MC45LDAuMWMtMTIsMTEuOC0yMy41LDIzLjktMzUuNywzNS41Yy0xMS4zLDEwLjctMTcsMjMuOC0xOC4yLDM5LjFjLTEuOSwyNC45LDQuMiw0OC40LDEyLjgsNzEuMyAgICBjMTcuNiw0Ny40LDQ0LjQsODkuNSw3Ni45LDEyOC4xYzQzLjksNTIuMiw5Ni4zLDkzLjUsMTU3LjYsMTIzLjNjMjcuNiwxMy40LDU2LjIsMjMuNyw4Ny4zLDI1LjRjMjEuNCwxLjIsNDAtNC4yLDU0LjktMjAuOSAgICBjMTAuMi0xMS40LDIxLjctMjEuOCwzMi41LTMyLjdjMTYtMTYuMiwxNi4xLTM1LjgsMC4yLTUxLjhDNDAzLjU1NCwzNTUuOSwzODQuNDU0LDMzNi45LDM2NS4zNTQsMzE3Ljl6IiBmaWxsPSIjRkZGRkZGIi8+CgkJPHBhdGggZD0iTTM0Ni4yNTQsMjM4LjJsMzYuOS02LjNjLTUuOC0zMy45LTIxLjgtNjQuNi00Ni4xLTg5Yy0yNS43LTI1LjctNTguMi00MS45LTk0LTQ2LjlsLTUuMiwzNy4xICAgIGMyNy43LDMuOSw1Mi45LDE2LjQsNzIuOCwzNi4zQzMyOS40NTQsMTg4LjIsMzQxLjc1NCwyMTIsMzQ2LjI1NCwyMzguMnoiIGZpbGw9IiNGRkZGRkYiLz4KCQk8cGF0aCBkPSJNNDAzLjk1NCw3Ny44Yy00Mi42LTQyLjYtOTYuNS02OS41LTE1Ni03Ny44bC01LjIsMzcuMWM1MS40LDcuMiw5OCwzMC41LDEzNC44LDY3LjJjMzQuOSwzNC45LDU3LjgsNzksNjYuMSwxMjcuNSAgICBsMzYuOS02LjNDNDcwLjg1NCwxNjkuMyw0NDQuMzU0LDExOC4zLDQwMy45NTQsNzcuOHoiIGZpbGw9IiNGRkZGRkYiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+    
+                <img 
+                    class="button-icon button-icon-phone"
+                    width="32" 
+                    height="32" 
+                    src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMCA1MTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0idGV4dHNtcyI+CgkJPHBhdGggZD0iTTQ1OSwwSDUxQzIyLjk1LDAsMCwyMi45NSwwLDUxdjQ1OWwxMDItMTAyaDM1N2MyOC4wNSwwLDUxLTIyLjk1LDUxLTUxVjUxQzUxMCwyMi45NSw0ODcuMDUsMCw0NTksMHogTTE3OC41LDIyOS41aC01MSAgICB2LTUxaDUxVjIyOS41eiBNMjgwLjUsMjI5LjVoLTUxdi01MWg1MVYyMjkuNXogTTM4Mi41LDIyOS41aC01MXYtNTFoNTFWMjI5LjV6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+                
+            </div>
+
+            <div class="button-close-container">
+                <img 
+                    class="button-icon button-close-list"
+                    width="32" 
+                    height="32" 
+                    src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ3Ljk3MSA0Ny45NzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ3Ljk3MSA0Ny45NzE7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4Ij4KPGc+Cgk8cGF0aCBkPSJNMjguMjI4LDIzLjk4Nkw0Ny4wOTIsNS4xMjJjMS4xNzItMS4xNzEsMS4xNzItMy4wNzEsMC00LjI0MmMtMS4xNzItMS4xNzItMy4wNy0xLjE3Mi00LjI0MiwwTDIzLjk4NiwxOS43NDRMNS4xMjEsMC44OCAgIGMtMS4xNzItMS4xNzItMy4wNy0xLjE3Mi00LjI0MiwwYy0xLjE3MiwxLjE3MS0xLjE3MiwzLjA3MSwwLDQuMjQybDE4Ljg2NSwxOC44NjRMMC44NzksNDIuODVjLTEuMTcyLDEuMTcxLTEuMTcyLDMuMDcxLDAsNC4yNDIgICBDMS40NjUsNDcuNjc3LDIuMjMzLDQ3Ljk3LDMsNDcuOTdzMS41MzUtMC4yOTMsMi4xMjEtMC44NzlsMTguODY1LTE4Ljg2NEw0Mi44NSw0Ny4wOTFjMC41ODYsMC41ODYsMS4zNTQsMC44NzksMi4xMjEsMC44NzkgICBzMS41MzUtMC4yOTMsMi4xMjEtMC44NzljMS4xNzItMS4xNzEsMS4xNzItMy4wNzEsMC00LjI0MkwyOC4yMjgsMjMuOTg2eiIgZmlsbD0iI0ZGRkZGRiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+            </div>
         </div>
     </div>
     <!-- Contact plugin -->
 
     <!-- include modal boxes -->
-    <f:render partial="ModalBoxesList" arguments="{_all}" />
+    <div>
+        <f:render partial="ModalBoxesList" arguments="{_all}" />
+    </div>
 
 </f:section>
+
 </html>
