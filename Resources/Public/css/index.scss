@@ -1,0 +1,317 @@
+@import './variables';
+
+@keyframes shadow-pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    35%, 100% {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+
+@keyframes show-up {
+    0% {
+        opacity: 0;
+        display: none;
+        visibility: hidden;
+        transform: translate3d(100%, 0, 0);
+    }
+    10% {
+        opacity: 0;
+        display: block;
+        visibility: visible;
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        display: block;
+        visibility: visible;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.rd-contact-plugin {
+    position: fixed;
+    z-index: 1080;
+    max-width: calc(100% - 2rem);
+
+    &.vertical-bottom {
+        @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+            bottom: 1rem;
+        }
+    
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            bottom: 3rem;
+        }
+    }
+
+    &.vertical-top {
+        @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+            top: 1rem;
+        }
+    
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            top: 3rem;
+        }
+
+        .inner-container {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+    
+    &.horizontal-right {
+        @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+            right: 1rem;
+        }
+    
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            right: 5rem;
+        }
+
+        .inner-container {
+            .button-container {
+                margin-left: auto;
+            }
+        }
+    }
+
+    &.horizontal-left {
+        @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+            left: 1rem;
+        }
+    
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            left: 5rem;
+        }
+
+        .inner-container {
+            .button-container {
+                margin-right: auto;
+            }
+        }
+    }
+
+    .inner-container {
+
+        .contact-list-container {
+            display: none;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: $light-bg-color;
+            max-width: 100%;
+            max-height: calc(100vh - 10rem);
+            overflow: auto;
+            visibility: hidden;
+            opacity: 0;
+
+            &.show {
+                display: block;
+                visibility: visible;
+                opacity: 1;
+                animation: show-up .3s;
+            }
+
+            .contact-list {
+                list-style: none;
+                padding-left: 0;
+                margin-bottom: 0;
+
+                &-item {
+
+                    &:not(:last-of-type) {
+                        border-bottom: 1px solid rgba($text-color, .25);
+                    }
+
+                    &-link {
+                        display: block;
+                        padding-top: .5rem;
+                        padding-bottom: .5rem;
+                        color: $text-color;
+
+                        &.open-modal-form {
+                            cursor: pointer;
+                        }
+                    }
+
+                    &-icon {
+                        width: 1.25rem;
+                        height: auto;
+                        margin-right: .5rem;
+                    }
+                }
+            }
+        }
+
+        .button-container {
+            position: relative;
+            width: 4rem;
+            height: 4rem;
+            background-color: $main-color;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 0 .3rem rgba($main-color, .35), 0 0 0 .8rem rgba($main-color, .2);
+
+            &.animate {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    border: .1rem solid $main-color;
+                    border-radius: 50%;
+                    animation: shadow-pulse 3s ease-out infinite;
+                    z-index: -1;
+                }
+            }
+
+            &.show-close-button {
+                .button-icon-container {
+                    .button-icon.show {
+                        opacity: 0;
+                    }
+                }
+
+                .button-close-container {
+                    .button-icon.button-close-list {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .button-icon {
+                position: absolute;
+                width: 1.5rem;
+                height: 1.5rem;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 0);
+                opacity: 0;
+                will-change: opacity;
+                transition: opacity .4s ease-in-out;
+
+                &.show {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .modal-container {
+        
+        .modal-box {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            overflow: hidden;
+            outline: 0;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba($dark-bg-color, .5);
+
+            &.show {
+                display: flex;
+            }
+
+            &-close {
+                position: fixed;
+                z-index: 1000;
+                padding: 0;
+                border: none;
+                background-color: transparent;
+                color: $light-bg-color;
+                font-family: monospace;
+                line-height: 1;
+                cursor: pointer;
+
+                @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+                    top: 1rem;
+                    right: 1rem;
+                    width: 3rem;
+                    height: 3rem;
+                    font-size: 3rem;
+                }
+            
+                @media (min-width: map-get($grid-breakpoints, md)) {
+                    top: 2rem;
+                    right: 5rem;
+                    width: 4rem;
+                    height: 4rem;
+                    font-size: 4rem;
+                }
+            }
+
+            &-content {
+                width: 100%;
+                max-width: 40rem;
+                padding: 1.5rem;
+                background: $light-bg-color;
+                border: 1px solid rgba($text-color, .25);
+                animation: show-up .3s;
+                
+                .form-container {
+                    display: none;
+
+                    &.show {
+                        display: block;
+                    }
+
+                    .form {
+
+                        .form-grid {
+                            display: flex;
+                            flex-wrap: wrap;
+                            margin-left: -.25rem;
+                            margin-right: -.25rem;
+                        }
+
+                        .form-cell {
+                            padding-left: .25rem;
+                            padding-right: .25rem;
+                            margin-bottom: .5rem;
+
+                            @media (max-width: map-get($grid-breakpoints, md) - .02px) {
+                                width: 100%;
+                            }
+                        
+                            @media (min-width: map-get($grid-breakpoints, md)) {
+                                flex: 0 0 50%;
+                                max-width: 50%;
+                            }
+
+                            label {
+                                display: block;
+                                margin-bottom: .25rem;
+                            }
+
+                            .form-input {
+                                display: block;
+                                width: 100%;
+                                padding: .375rem .75rem;
+                                color: $text-color;
+                                background-color: $light-bg-color;
+                                background-clip: padding-box;
+                                border: 1px solid rgba($text-color, .25);
+                            }
+                        }
+
+                        .form-submit {
+                            display: inline-block;
+                            border: 1px solid rgba($text-color, .25);
+                            padding: .375rem .75rem;
+                            color: $light-bg-color;
+                            background-color: $main-color;
+                            margin-top: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

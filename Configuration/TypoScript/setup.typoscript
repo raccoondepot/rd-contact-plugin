@@ -99,7 +99,7 @@ page.footerData.103.settings {
 
 # include js/css
 page.includeCSS {
-    rd_contact_plugin_css = typo3conf/ext/rd_contact_plugin/Resources/Public/css/index.less
+    rd_contact_plugin_css = typo3conf/ext/rd_contact_plugin/Resources/Public/css/index.scss
 }
 page.includeJS {
     imaskjs_js = https://unpkg.com/imask
