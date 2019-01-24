@@ -132,8 +132,12 @@ class EmailController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 $message = $mailView->render();
                 $mail = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
 
-                $mail->setFrom([$email => $name])
-                    ->setTo([$settings['answerMeByEmailForm_email_recieverEmail'] => ''.$settings['answerMeByEmailForm_email_recieverName']])
+                $mail->setFrom([$settings['emailSenderMail'] => $settings['emailSenderName']]);
+
+                if ( !empty($email) ) {
+                    $mail->setReplyTo([$email => $name]);
+                }
+                $mail->setTo([$settings['answerMeByEmailForm_email_recieverEmail'] => ''.$settings['answerMeByEmailForm_email_recieverName']])
                     ->setSubject( $settings['answerMeByEmailForm_email_subject'] )
                     ->setBody($message, 'text/html')
                     ->send();
@@ -194,11 +198,10 @@ class EmailController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 $message = $mailView->render();
                 $mail = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
 
+                $mail->setFrom([$settings['emailSenderMail'] => $settings['emailSenderName']]);
+
                 if ( !empty($email) ) {
-                    $mail->setFrom([$email => $name]);
-                }
-                else {
-                    $mail->setFrom([$settings['getAppointmentForm_email_recieverEmail'] => $name]);
+                    $mail->setReplyTo([$email => $name]);
                 }
 
                 $mail->setTo([$settings['getAppointmentForm_email_recieverEmail'] => ''.$settings['getAppointmentForm_email_recieverName']])
