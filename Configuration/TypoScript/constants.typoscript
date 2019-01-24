@@ -20,6 +20,10 @@ plugin.tx_rdcontactplugin {
 		enabled = 1
 		# cat=plugin.tx_rdcontactplugin/100/main; type=options[bottom-left=vertical-bottom horizontal-left,top-left=vertical-top horizontal-left,top-right=vertical-top horizontal-right,bottom-right=vertical-bottom horizontal-right]; label=[MAIN] Plugin position on the user screen
   		position = vertical-bottom horizontal-right
+		# cat=plugin.tx_rdcontactplugin/100/main; type=string; label=[MAIN] Sender's email addrress
+		emailSenderMail = no-reply@example.com
+		# cat=plugin.tx_rdcontactplugin/100/main; type=string; label=[MAIN] Sender's name
+		emailSenderName = NoReply
 
 
 		###

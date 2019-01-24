@@ -63,13 +63,12 @@ class EmailController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                     $message = $mailView->render();
                     $mail = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
 
-                    
+                    $mail->setFrom([$settings['emailSenderMail'] => $settings['emailSenderName']]);
+
                     if ( !empty($email) ) {
-                        $mail->setFrom([$email => $name]);
+                        $mail->setReplyTo([$email => $name]);
                     }
-                    else {
-                        $mail->setFrom([$settings['callMeForm_email_recieverEmail'] => $name]);
-                    }
+
 
                     $mail->setTo([$settings['callMeForm_email_recieverEmail'] => ''.$settings['callMeForm_email_recieverName']])
                          ->setSubject( $settings['callMeForm_email_subject'] )

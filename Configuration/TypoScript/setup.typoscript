@@ -21,6 +21,8 @@ page.footerData.103.settings {
     rd_contact_plugin {
         enabled = {$plugin.tx_rdcontactplugin.settings.enabled}
         position = {$plugin.tx_rdcontactplugin.settings.position}
+        emailSenderMail = {$plugin.tx_rdcontactplugin.settings.emailSenderMail}
+        emailSenderName = {$plugin.tx_rdcontactplugin.settings.emailSenderName}
         useMobilePhone = {$plugin.tx_rdcontactplugin.settings.useMobilePhone}
         mobilePhone = {$plugin.tx_rdcontactplugin.settings.mobilePhone}
         mobilePhoneLabel = {$plugin.tx_rdcontactplugin.settings.mobilePhoneLabel}
