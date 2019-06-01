@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>search-form</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="7" width="32" height="18"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="32" height="18" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-50.000000, -1830.000000)">
+            <g id="Search" transform="translate(50.000000, 1817.000000)">
+                <g id="search-form" transform="translate(0.000000, 13.000000)">
+                    <rect id="Rectangle-69" fill-opacity="0" fill="#FAFAFA" x="0" y="0" width="32" height="32"></rect>
+                    <use id="Rectangle-14" stroke="#B70032" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                    <g id="search" transform="translate(18.000000, 11.000000)" fill="#B70032">
+                        <path d="M6.94444444,6.11111111 L6.5,6.11111111 L6.33333333,5.94444444 C6.88888889,5.33333333 7.22222222,4.5 7.22222222,3.61111111 C7.22222222,1.61111111 5.61111111,0 3.61111111,0 C1.61111111,0 0,1.61111111 0,3.61111111 C0,5.61111111 1.61111111,7.22222222 3.61111111,7.22222222 C4.5,7.22222222 5.33333333,6.88888889 5.94444444,6.33333333 L6.11111111,6.5 L6.11111111,6.94444444 L8.88888889,9.72222222 L9.72222222,8.88888889 L6.94444444,6.11111111 L6.94444444,6.11111111 Z M3.61111111,6.11111111 C2.22222222,6.11111111 1.11111111,5 1.11111111,3.61111111 C1.11111111,2.22222222 2.22222222,1.11111111 3.61111111,1.11111111 C5,1.11111111 6.11111111,2.22222222 6.11111111,3.61111111 C6.11111111,5 5,6.11111111 3.61111111,6.11111111 L3.61111111,6.11111111 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
