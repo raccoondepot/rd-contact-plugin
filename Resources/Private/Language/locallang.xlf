@@ -14,9 +14,28 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.icon_library">
 				<source>Icon</source>
 			</trans-unit>
-
-
-
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.1">
+				<source>Simple link (Typolink)</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.2">
+				<source>CRM form</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.div1">
+				<source>Standard E-mail forms</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.3">
+				<source>Call me form</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.4">
+				<source>Answer me by E-mail form</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.5">
+				<source>Get appointment form</source>
+			</trans-unit>
+			
 
 
 

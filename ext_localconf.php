@@ -116,8 +116,38 @@ $boot = function ($extensionKey='rd_contact_plugin') {
             ['source' => 'EXT:' . $extensionKey . '/Resources/Public/Images/Icons/' . $standardIcon . '.svg']
         );
     }
-    //end
 
+    // add old icons
+    $oldIcons = [
+        'calendar',
+        'call-center-worker-with-headset',
+        'christmas-day_2',
+        'christmas-day',
+        'christmas',
+        'close',
+        'earphones',
+        'facebook',
+        'hand-holding-up-a-clock',
+        'icon',
+        'old-telephone-ringing',
+        'passage-of-time',
+        'phone-receiver',
+        'sms-bubble-speech',
+        'support',
+        'support2',
+        'telephone',
+        'time',
+        'viber',
+        'viber2',
+    ];
+    foreach ($oldIcons as $oldIcon) {
+        $iconRegistry->registerIcon(
+            'mkraina-old-' . $oldIcon,
+            TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+            ['source' => 'EXT:' . $extensionKey . '/Resources/Public/icons/' . $oldIcon . '.svg']
+        );
+    }
+    //end
 };
 
 $boot($_EXTKEY);

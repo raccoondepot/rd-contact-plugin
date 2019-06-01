@@ -23,10 +23,10 @@ return [
         'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_option.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, icon_library',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, icon_library'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -116,6 +116,22 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
                 ]
+            ],
+        ],
+        'option_type' => [
+            'exclude' => 0,
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.1', 1, 'apps-pagetree-page-shortcut-external'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.2', 2, 'apps-pagetree-page-backend-users'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.div1', '--div--'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.3', 3, 'mkraina-old-earphones'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.4', 4, 'mkraina-old-sms-bubble-speech'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.5', 5, 'mkraina-old-icon'],
+                ],
             ],
         ],
         'title' => [
@@ -225,6 +241,28 @@ return [
                     [$LOCALLANG . 'mkraina.icon_library.calendar', 'calendar', 'mkraina-calendar'],
                     [$LOCALLANG . 'mkraina.icon_library.gallery-big', 'gallery-big', 'mkraina-gallery-big'],
                     [$LOCALLANG . 'mkraina.icon_library.search', 'search', 'mkraina-search'],
+
+                    // old
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-calendar', 'mkraina-old-calendar', 'mkraina-old-calendar'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-call-center-worker-with-headset', 'mkraina-old-call-center-worker-with-headset', 'mkraina-old-call-center-worker-with-headset'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-christmas-day_2', 'mkraina-old-christmas-day_2', 'mkraina-old-christmas-day_2'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-christmas-day', 'mkraina-old-christmas-day', 'mkraina-old-christmas-day'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-christmas', 'mkraina-old-christmas', 'mkraina-old-christmas'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-close', 'mkraina-old-close', 'mkraina-old-close'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-earphones', 'mkraina-old-earphones', 'mkraina-old-earphones'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-facebook', 'mkraina-old-facebook', 'mkraina-old-facebook'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-hand-holding-up-a-clock', 'mkraina-old-hand-holding-up-a-clock', 'mkraina-old-hand-holding-up-a-clock'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-icon', 'mkraina-old-icon', 'mkraina-old-icon'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-old-telephone-ringing', 'mkraina-old-old-telephone-ringing', 'mkraina-old-old-telephone-ringing'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-passage-of-time', 'mkraina-old-passage-of-time', 'mkraina-old-passage-of-time'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-phone-receiver', 'mkraina-old-phone-receiver', 'mkraina-old-phone-receiver'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-sms-bubble-speech', 'mkraina-old-sms-bubble-speech', 'mkraina-old-sms-bubble-speech'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-support', 'mkraina-old-support', 'mkraina-old-support'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-support2', 'mkraina-old-support2', 'mkraina-old-support2'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-telephone', 'mkraina-old-telephone', 'mkraina-old-telephone'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-time', 'mkraina-old-time', 'mkraina-old-time'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-viber', 'mkraina-old-viber', 'mkraina-old-viber'],
+                    [$LOCALLANG . 'mkraina.icon_library.mkraina-old-viber2', 'mkraina-old-viber2', 'mkraina-old-viber2'],
                 ],
             ],
         ],

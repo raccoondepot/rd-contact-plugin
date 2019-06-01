@@ -14,6 +14,13 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $title = '';
 
     /**
+     * option_type
+     * 
+     * @var string
+     */
+    protected $optionType = '';
+
+    /**
      * icon_library
      * 
      * @var string
@@ -39,6 +46,27 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * Returns the optionType
+     * 
+     * @return string $optionType
+     */
+    public function getOptionType()
+    {
+        return $this->optionType;
+    }
+
+    /**
+     * Sets the optionType
+     * 
+     * @param string $optionType
+     * @return void
+     */
+    public function setOptionType($optionType)
+    {
+        $this->optionType = $optionType;
     }
 
     /**
