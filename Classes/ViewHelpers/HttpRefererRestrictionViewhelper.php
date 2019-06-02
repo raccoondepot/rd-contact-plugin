@@ -8,7 +8,7 @@ use RaccoonDepot\RdContactPlugin\Domain\Repository\OptionRepository;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 
-class HttpRefererRestrictionViewhelper extends AbstractViewHelper
+class HttpRefererRestrictionViewHelper extends AbstractViewHelper
 {
     /**
      * Initialize arguments
