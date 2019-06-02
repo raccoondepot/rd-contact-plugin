@@ -3,6 +3,204 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2018-08-05T18:44:00Z" product-name="rd_contact_plugin">
 		<header/>
 		<body>
+			<!-- tx_rdcontactplugin_domain_model_option -->
+			<trans-unit id="tx_rdcontactplugin_domain_model_option">
+				<source>Contact Option</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.title">
+				<source>Label</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.link">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.icon_library">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.embed">
+				<source>Embed code (HTML)</source>
+			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_respect">
+				<source>Show only on selected pages</source>
+			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.http_referer">
+				<source>Show this option if user came from next url (Http Referer)</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.1">
+				<source>Simple link (Typolink)</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.2">
+				<source>Amocrm.ru forms</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.div1">
+				<source>Standard E-mail forms</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.3">
+				<source>Call me form (configurable by Typoscript)</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.4">
+				<source>Answer me by E-mail form (configurable by Typoscript)</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.5">
+				<source>Get appointment form (configurable by Typoscript)</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.6">
+				<source>Custom Link</source>
+			</trans-unit>
+
+			<!-- tx_rdcontactplugin_domain_model_plugin -->
+			<trans-unit id="tx_rdcontactplugin_domain_model_plugin">
+				<source>Contact Plugin Configuration</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_plugin.title">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_plugin.options">
+				<source>Contact Options</source>
+			</trans-unit>
+
+			<!-- ICON LIBARY -->
+            <trans-unit id="mkraina.icon_library.no_icon">
+                <source>No icon</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.facebook">
+                <source>Facebook</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.image-zoom">
+                <source>Zoom</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.documents">
+                <source>Documents</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.delete">
+                <source>Delete</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.shoppingcart">
+                <source>Shopping cart</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.direct-order">
+                <source>Direct order</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.filter-grid">
+                <source>Grid</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.twitter">
+                <source>Twitter</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.zip-download">
+                <source>Zip</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.whatsapp">
+                <source>WhatsApp</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.filter-list">
+                <source>List</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.filter">
+                <source>Filter</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.document-random">
+                <source>Random document</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.sitemap">
+                <source>Sitemap</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.document">
+                <source>Document</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.share">
+                <source>Share</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.xing">
+                <source>Xing</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.arrow-dropdown">
+                <source>Arrow dropdown</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.creditcard">
+                <source>Credit card</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.language">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.contact">
+                <source>Contact</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.slider-back">
+                <source>Slider back</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.error">
+                <source>Error</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.slider-forward">
+                <source>Slider forward</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.document-pdf">
+                <source>PDF</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.document-jpg">
+                <source>JPG</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.document-xls">
+                <source>XLS</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.overview">
+                <source>Overview</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.menu-sub">
+                <source>Submenu</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.user">
+                <source>User</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.gallery-small">
+                <source>Small gallery</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.arrow-left">
+                <source>Arrow left</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.menu-main">
+                <source>Main menu</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.mail">
+                <source>Mail</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.folder">
+                <source>Folder</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.check">
+                <source>Check</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.arrow-link">
+                <source>Arrow link</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.calendar">
+                <source>Calendar</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.gallery-big">
+                <source>Big gallery</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.search">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.document-doc">
+            <source>DOC</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.arrow-right">
+                <source>Arrow right</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.linkedin">
+                <source>Linkedin</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.instagram">
+                <source>Instagram</source>
+            </trans-unit>
+            <trans-unit id="mkraina.icon_library.youtube">
+                <source>Youtube</source>
+            </trans-unit>
+            <!-- END Icon Library -->
 
 			<!-- callMe_form -->
 			<trans-unit id="callMe_form.email_description">
