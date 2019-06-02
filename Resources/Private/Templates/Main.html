@@ -13,9 +13,15 @@
                 <!-- CtaButtons -->
                 <f:for each="{pluginConfiguration.options}" as="contactOption" iteration="i">
                     <f:if condition="{contactOption.title}">
-                        <li class="contact-list-item">
-                            <f:render partial="OptionTypes/{contactOption.optionType}/CtaButton" arguments="{contactOption:contactOption, settings:settings}" />
-                        </li>
+
+                        <f:if condition="{rd:pagesRestriction(uid: contactOption.uid)}">
+                            <f:if condition="{rd:httpRefererRestriction(uid: contactOption.uid)}">
+                                <li class="contact-list-item">
+                                    <f:render partial="OptionTypes/{contactOption.optionType}/CtaButton" arguments="{contactOption:contactOption, settings:settings}" />
+                                </li>
+                            </f:if>
+                        </f:if>
+
                     </f:if>
                 </f:for>
             </ul>
@@ -47,6 +53,7 @@
     </div>
 
     <!-- Include modal container -->
-    <f:render partial="ModalContainer" arguments="{_all}" />
+    <f:render partial="ModalLayout" arguments="{_all}" />
 </f:section>
+
 </html>

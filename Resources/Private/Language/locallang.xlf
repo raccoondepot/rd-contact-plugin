@@ -3,7 +3,6 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2018-08-05T18:44:00Z" product-name="rd_contact_plugin">
 		<header/>
 		<body>
-
 			<!-- tx_rdcontactplugin_domain_model_option -->
 			<trans-unit id="tx_rdcontactplugin_domain_model_option">
 				<source>Contact Option</source>
@@ -14,7 +13,6 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.link">
 				<source>Link</source>
 			</trans-unit>
-			
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.icon_library">
 				<source>Icon</source>
 			</trans-unit>
@@ -24,7 +22,12 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.embed">
 				<source>Embed code (HTML)</source>
 			</trans-unit>
-			
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_respect">
+				<source>Show only on selected pages</source>
+			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.http_referer">
+				<source>Show this option if user came from next url (Http Referer)</source>
+			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.1">
 				<source>Simple link (Typolink)</source>
 			</trans-unit>
@@ -46,12 +49,6 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.6">
 				<source>Custom Link</source>
 			</trans-unit>
-			
-			
-
-
-
-
 
 			<!-- tx_rdcontactplugin_domain_model_plugin -->
 			<trans-unit id="tx_rdcontactplugin_domain_model_plugin">
@@ -63,9 +60,6 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_plugin.options">
 				<source>Contact Options</source>
 			</trans-unit>
-			
-
-
 
 			<!-- ICON LIBARY -->
             <trans-unit id="mkraina.icon_library.no_icon">
@@ -207,16 +201,6 @@
                 <source>Youtube</source>
             </trans-unit>
             <!-- END Icon Library -->
-
-
-
-
-
-
-
-
-
-
 
 			<!-- callMe_form -->
 			<trans-unit id="callMe_form.email_description">

@@ -8,6 +8,8 @@ CREATE TABLE tx_rdcontactplugin_domain_model_option (
     link varchar(255) DEFAULT '' NOT NULL,
     custom_link varchar(255) DEFAULT '' NOT NULL,
     embed text DEFAULT '' NOT NULL,
+    pages_respect text DEFAULT '' NOT NULL,
+    http_referer varchar(255) DEFAULT '' NOT NULL,
     plugin int(11) DEFAULT '0' NOT NULL,
 );
 

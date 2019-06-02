@@ -14,6 +14,20 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $title = '';
 
     /**
+     * http_referer
+     * 
+     * @var string
+     */
+    protected $httpReferer = '';
+
+    /**
+     * pages_respect
+     * 
+     * @var string
+     */
+    protected $pagesRespect = '';
+
+    /**
      * link
      * 
      * @var string
@@ -67,6 +81,48 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * Returns the httpReferer
+     * 
+     * @return string $httpReferer
+     */
+    public function getHttpReferer()
+    {
+        return $this->httpReferer;
+    }
+
+    /**
+     * Sets the httpReferer
+     * 
+     * @param string $httpReferer
+     * @return void
+     */
+    public function setHttpReferer($httpReferer)
+    {
+        $this->httpReferer = $httpReferer;
+    }
+
+    /**
+     * Returns the pagesRespect
+     * 
+     * @return string $pagesRespect
+     */
+    public function getPagesRespect()
+    {
+        return $this->pagesRespect;
+    }
+
+    /**
+     * Sets the pagesRespect
+     * 
+     * @param string $pagesRespect
+     * @return void
+     */
+    public function setPagesRespect($pagesRespect)
+    {
+        $this->pagesRespect = $pagesRespect;
     }
 
     /**

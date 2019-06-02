@@ -23,10 +23,10 @@ return [
         'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_option.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, pages_respect, http_referer',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, pages_respect, http_referer'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -119,7 +119,7 @@ return [
             ],
         ],
         'option_type' => [
-            'exclude' => 0,
+            'exclude' => true,
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type',
             'onChange' => 'reload',
             'config' => [
@@ -136,6 +136,23 @@ return [
                 ],
             ],
         ],
+        'pages_respect' => [
+            'exclude' => true,
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_respect',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'pages',
+                'size' => 8,
+                'treeConfig' => [
+                    'expandAll' => true,
+                    'parentField' => 'pid',
+                    'appearance' => [
+                        'showHeader' => true,
+                    ],
+                ],
+            ],
+        ],
         'title' => [
             'exclude' => true,
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.title',
@@ -145,8 +162,17 @@ return [
                 'eval' => 'trim'
             ],
         ],
+        'http_referer' => [
+            'exclude' => true,
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.http_referer',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
         'icon_library' => [
-            'exclude' => 0,
+            'exclude' => true,
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.icon_library',
             'config' => [
                 'type' => 'select',

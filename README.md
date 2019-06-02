@@ -1,20 +1,18 @@
 ## RD Contact form plugin ##
 <b>RD Contact Plugin</b> is an extension developed by <a href="http://www.raccoondepot.com/">Raccoon Depot</a> team to be used in TYPO3 CMS 9+ or higher. This plugin includes simple contact button on each website page, and provides different ways for communication between website visitors and website owner. <br/>
-An extension is flexible, so you could configure it as you wish. All configurations and labels available via TypoScript constants. <br />
+An extension is flexible, so you could configure it as you wish. Part of configurations and labels available via TypoScript constants, especially for contact forms. <br />
 Also we developed custom TS condition which can be used to run different configurations depends on HTTP_REFERER header. How HTTP_REFERER could help you in business, you can read here: <a href="https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33">https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33</a>. To see all available options/configurations and how to start read further..
 
 [Here will be some screenshots on FE & BE]
 
 ## Contact Options ##
-Any contact option can be disabled and configured precisely
+First you need to create plugin configuration in any storage folder, then attach needed contact options. There is 3 static contact forms:
 <ol>
-    <li><b>Mobile-Phone-Number</b> - with this option you will get a direct call from website visitor on your mobile phone number when visitor clicks on it.</li>
     <li><b>Call-Me-form</b> - with this option you will get an e-mail letter with the request from website visitor that he would like to have a call with you at preferred-by-visitor date or as soon as possible</li>
     <li><b>Answer-Me-By-E-mail-form</b> - with this option you will get an e-mail letter with the request from website visitor that he would like to get some answer on his question from you</li>
-    <li><b>Contact-using-Viber</b> - with this option website visitor will be redirected to the chat with you on Viber</li>
-    <li><b>Contact-using-FB-Messenger</b> - with this option website visitor will be redirected to the chat with you on Facebook Messenger</li>
     <li><b>Get-Appointment-form</b> - with this option you will get an e-mail letter with the request from website visitor that he would like to have a meeting with you at preferred-by-visitor date</li>
 </ol>
+Other ones can be flexible to configure. (Will be listed here further)
 
 ## How to install ##
 1. add git@gitlab.com:raccoondepot/rd_contact_plugin.git to repositories in your composer.json file
@@ -22,7 +20,7 @@ Any contact option can be disabled and configured precisely
 3. composer update
 4. make sure rd_contact_plugin enabled in Extension Manager
 5. add TS static includes
-6. to make [Call-Me-form], [Answer-Me-By-E-mail-form], [Get-Appointment-form] contact options visible on your website, set next constants in your TS: <b>callMeForm_email_recieverEmail</b>, <b>answerMeByEmailForm_email_recieverEmail</b>, <b>getAppointmentForm_email_recieverEmail</b> (you can find them further in the configuration section)
+6. create new plugin configuration under any storage folder and add needed contact options
 7. clear cache
 
 ## How to configure ##
