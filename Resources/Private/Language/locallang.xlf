@@ -14,15 +14,17 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.link">
 				<source>Link</source>
 			</trans-unit>
-			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.6">
-				<source>Custom Link</source>
-			</trans-unit>
+			
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.icon_library">
 				<source>Icon</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type">
 				<source>Type</source>
 			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.embed">
+				<source>Embed code (HTML)</source>
+			</trans-unit>
+			
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.1">
 				<source>Simple link (Typolink)</source>
 			</trans-unit>
@@ -41,10 +43,11 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.5">
 				<source>Get appointment form (configurable by Typoscript)</source>
 			</trans-unit>
-			
-			<trans-unit id="tx_rdcontactplugin_domain_model_option.embed">
-				<source>Embed code (HTML)</source>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.6">
+				<source>Custom Link</source>
 			</trans-unit>
+			
+			
 
 
 

@@ -5,216 +5,21 @@
 <f:section name="Main">
 
     <!-- Contact plugin -->
-    <div class="inner-container">
+    <f:variable name="pluginConfiguration">{rd:plugin()}</f:variable>
 
+    <div class="inner-container">
         <div class="contact-list-container">
             <ul class="contact-list">
-
-
-
-
-
-
-                <f:debug>{rd:plugin()}</f:debug>
-
-
-
-
-
-                <f:if condition="{settings.rd_contact_plugin.useMobilePhone}">
-                    <f:if condition="{settings.rd_contact_plugin.mobilePhone}">
-                        <f:if condition="{settings.rd_contact_plugin.mobilePhoneLabel}">
-                            
-                        
-                            <li class="contact-list-item">
-
-                                <!-- MobilePhone -->
-                                <a 
-                                    class="contact-list-item-link"
-                                    href="tel:{settings.rd_contact_plugin.mobilePhone}" >
-
-                                    <f:image 
-                                        class="contact-list-item-icon"
-                                        src="{settings.rd_contact_plugin.mobilePhoneIcon}"
-                                        width="32" 
-                                        height="32" 
-                                        treatIdAsReference="1" />
-                                    
-                                    <span>{settings.rd_contact_plugin.mobilePhoneLabel}</span>
-                                </a>
-
-                            </li>
-
-
-                        </f:if>
+                <!-- CtaButtons -->
+                <f:for each="{pluginConfiguration.options}" as="contactOption" iteration="i">
+                    <f:if condition="{contactOption.title}">
+                        <li class="contact-list-item">
+                            <f:render partial="OptionTypes/{contactOption.optionType}/CtaButton" arguments="{contactOption:contactOption, settings:settings}" />
+                        </li>
                     </f:if>
-                </f:if>
-
-
-
-
-
-
-
-
-
-
-
-
-                <f:if condition="{settings.rd_contact_plugin.getAppointmentForm_email_recieverEmail}">
-                    <f:if condition="{settings.rd_contact_plugin.useGetAppointment}">
-                        <f:if condition="{settings.rd_contact_plugin.getAppointmentLabel}">
-                            <li class="contact-list-item">
-                                <!-- GetAppointment -->
-                                <a 
-                                    class="contact-list-item-link open-modal-form"
-                                    data-form="getAppointmentForm" >
-
-                                    <f:image 
-                                        class="contact-list-item-icon"
-                                        src="{settings.rd_contact_plugin.getAppointmentFormIcon}"
-                                        width="32" 
-                                        height="32" 
-                                        treatIdAsReference="1" />
-                                    
-                                    <span>{settings.rd_contact_plugin.getAppointmentLabel}</span>
-                                </a>
-                            </li>
-                        </f:if>
-                    </f:if>
-                </f:if>
-
-
-
-
-
-
-
-
-
-
-
-                <f:if condition="{settings.rd_contact_plugin.callMeForm_email_recieverEmail}">
-                    <f:if condition="{settings.rd_contact_plugin.useCallMe}">
-                        <f:if condition="{settings.rd_contact_plugin.callMeLabel}">
-                            <li class="contact-list-item">
-                                <!-- CallMe -->
-                                <a 
-                                    class="contact-list-item-link open-modal-form"
-                                    data-form="callMeForm" >
-
-                                    <f:image 
-                                        class="contact-list-item-icon"
-                                        src="{settings.rd_contact_plugin.callMeFormIcon}"
-                                        width="32" 
-                                        height="32" 
-                                        treatIdAsReference="1" />
-                                    
-                                    <span>{settings.rd_contact_plugin.callMeLabel}</span>
-                                </a>
-                            </li>
-                        </f:if>
-                    </f:if>
-                </f:if>
-
-
-
-
-
-
-
-
-
-                <f:if condition="{settings.rd_contact_plugin.answerMeByEmailForm_email_recieverEmail}">
-                    <f:if condition="{settings.rd_contact_plugin.useAnswerMeByEmail}">
-                        <f:if condition="{settings.rd_contact_plugin.answerMeByEmailLabel}">
-                            <li class="contact-list-item">
-                                <!-- AnswerMeByEmail -->
-                                <a 
-                                    class="contact-list-item-link open-modal-form"
-                                    data-form="answerMeByEmailForm" >
-
-                                    <f:image 
-                                        class="contact-list-item-icon"
-                                        src="{settings.rd_contact_plugin.answerMeByEmailFormIcon}"
-                                        width="32" 
-                                        height="32" 
-                                        treatIdAsReference="1" />
-                                    
-                                    <span>{settings.rd_contact_plugin.answerMeByEmailLabel}</span>
-                                </a>
-                            </li>
-                        </f:if>
-                    </f:if>
-                </f:if>
-
-
-
-
-
-
-                <f:if condition="{settings.rd_contact_plugin.useViber}">
-                    <f:if condition="{settings.rd_contact_plugin.viber}">
-                        <f:if condition="{settings.rd_contact_plugin.viberLabel}">
-                            <li class="contact-list-item">
-                                <!-- useViber -->
-                                <a 
-                                    class="contact-list-item-link"
-                                    href="viber://chat?number={settings.rd_contact_plugin.viber}"
-                                    target="_blank" >
-
-                                    <f:image 
-                                        class="contact-list-item-icon"
-                                        src="{settings.rd_contact_plugin.viberIcon}"
-                                        width="32" 
-                                        height="32" 
-                                        treatIdAsReference="1" />
-                                    
-                                    <span>{settings.rd_contact_plugin.viberLabel}</span>
-                                </a>
-                            </li>
-                        </f:if>
-                    </f:if>
-                </f:if>
-
-
-
-
-
-                <f:if condition="{settings.rd_contact_plugin.useFbMessenger}">
-                    <f:if condition="{settings.rd_contact_plugin.fbMessengerUrl}">
-                        <f:if condition="{settings.rd_contact_plugin.fbMessengerLabel}">
-                            <li class="contact-list-item">
-                                <!-- useFbMessenger -->
-                                <a 
-                                    class="contact-list-item-link"
-                                    href="{settings.rd_contact_plugin.fbMessengerUrl}"
-                                    target="_blank" >
-
-                                    <f:image 
-                                        class="contact-list-item-icon"
-                                        src="{settings.rd_contact_plugin.fbMessengerIcon}"
-                                        width="32" 
-                                        height="32" 
-                                        treatIdAsReference="1" />
-                                    
-                                    <span>{settings.rd_contact_plugin.fbMessengerLabel}</span>
-                                </a>
-                            </li>
-                        </f:if>
-                    </f:if>
-                </f:if>
-
-
-
-
-
+                </f:for>
             </ul>
         </div>
-
-
-
-
 
         <f:comment><!-- Main Button itself --></f:comment>
         <div class="button-container">
@@ -241,13 +46,7 @@
         <f:comment><!-- Main Button itself --></f:comment>
     </div>
 
-
-
-
-
     <!-- Include modal container -->
     <f:render partial="ModalContainer" arguments="{_all}" />
-
 </f:section>
-
 </html>
