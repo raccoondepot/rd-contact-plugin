@@ -23,10 +23,10 @@ return [
         'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_option.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -121,11 +121,13 @@ return [
         'option_type' => [
             'exclude' => 0,
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type',
+            'onChange' => 'reload',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.1', 1, 'apps-pagetree-page-shortcut-external'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.6', 6, 'apps-pagetree-page-shortcut-external'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.1', 1, 'apps-pagetree-page-shortcut'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.2', 2, 'apps-pagetree-page-backend-users'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.div1', '--div--'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.3', 3, 'mkraina-old-earphones'],
@@ -264,6 +266,38 @@ return [
                     [$LOCALLANG . 'mkraina.icon_library.mkraina-old-viber', 'mkraina-old-viber', 'mkraina-old-viber'],
                     [$LOCALLANG . 'mkraina.icon_library.mkraina-old-viber2', 'mkraina-old-viber2', 'mkraina-old-viber2'],
                 ],
+            ],
+        ],
+        'link' => [
+            'exclude' => true,
+            'displayCond' => 'FIELD:option_type:=:1',
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.link',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputLink',
+                'eval' => 'trim',
+            ],
+        ],
+        'custom_link' => [
+            'exclude' => true,
+            'displayCond' => 'FIELD:option_type:=:6',
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.link',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+            ],
+        ],
+        'embed' => [
+            'exclude' => true,
+            'displayCond' => 'FIELD:option_type:=:2',
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.embed',
+            'config' => [
+                'type' => 'text',
+                'cols' => '80',
+                'rows' => '15',
+                'eval' => 'trim',
+                'default' => '',
             ],
         ],
         // end

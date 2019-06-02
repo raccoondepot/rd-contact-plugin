@@ -14,6 +14,27 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $title = '';
 
     /**
+     * link
+     * 
+     * @var string
+     */
+    protected $link = '';
+
+    /**
+     * customLink
+     * 
+     * @var string
+     */
+    protected $customLink = '';
+
+    /**
+     * embed
+     * 
+     * @var string
+     */
+    protected $embed = '';
+
+    /**
      * option_type
      * 
      * @var string
@@ -46,6 +67,48 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * Returns the link
+     * 
+     * @return string $link
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * Sets the link
+     * 
+     * @param string $link
+     * @return void
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+    }
+
+    /**
+     * Returns the customLink
+     * 
+     * @return string $customLink
+     */
+    public function getCustomLink()
+    {
+        return $this->customLink;
+    }
+
+    /**
+     * Sets the customLink
+     * 
+     * @param string $customLink
+     * @return void
+     */
+    public function setCustomLink($customLink)
+    {
+        $this->customLink = $customLink;
     }
 
     /**
@@ -88,5 +151,26 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setIconLibrary($iconLibrary)
     {
         $this->iconLibrary = $iconLibrary;
+    }
+
+    /**
+     * Returns the embed
+     * 
+     * @return string $embed
+     */
+    public function getEmbed()
+    {
+        return $this->embed;
+    }
+
+    /**
+     * Sets the embed
+     * 
+     * @param string $embed
+     * @return void
+     */
+    public function setEmbed($embed)
+    {
+        $this->embed = $embed;
     }
 }

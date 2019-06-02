@@ -11,6 +11,12 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.title">
 				<source>Label</source>
 			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.link">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.6">
+				<source>Custom Link</source>
+			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.icon_library">
 				<source>Icon</source>
 			</trans-unit>
@@ -21,21 +27,24 @@
 				<source>Simple link (Typolink)</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.2">
-				<source>CRM form</source>
+				<source>Amocrm.ru forms</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.div1">
 				<source>Standard E-mail forms</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.3">
-				<source>Call me form</source>
+				<source>Call me form (configurable by Typoscript)</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.4">
-				<source>Answer me by E-mail form</source>
+				<source>Answer me by E-mail form (configurable by Typoscript)</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.5">
-				<source>Get appointment form</source>
+				<source>Get appointment form (configurable by Typoscript)</source>
 			</trans-unit>
 			
+			<trans-unit id="tx_rdcontactplugin_domain_model_option.embed">
+				<source>Embed code (HTML)</source>
+			</trans-unit>
 
 
 
