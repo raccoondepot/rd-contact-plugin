@@ -46,12 +46,14 @@ class PagesRestrictionViewHelper extends AbstractViewHelper
         // check restriction
         if ($option && $option->getPagesRespect()) {
             $pages = explode(',', $option->getPagesRespect());
-            
-            if (in_array($GLOBALS['TSFE']->id, $pages)) {
-                return true;
-            } else {
-                return false;
+            $mode = $option->getPagesMode();
+            $result = in_array($GLOBALS['TSFE']->id, $pages);
+
+            if ($mode) {
+                $result = !$result;
             }
+
+            return $result;
         }
 
         return true;

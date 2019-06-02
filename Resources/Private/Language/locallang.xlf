@@ -23,10 +23,19 @@
 				<source>Embed code (HTML)</source>
 			</trans-unit>
             <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_respect">
-				<source>Show only on selected pages</source>
+				<source>Display/Hide only on selected pages</source>
 			</trans-unit>
             <trans-unit id="tx_rdcontactplugin_domain_model_option.http_referer">
-				<source>Show this option if user came from next url (Http Referer)</source>
+				<source>Display this item if user came from url like: (Http Referer)</source>
+			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_mode">
+				<source>Pages filter mode</source>
+			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_mode.0">
+				<source>Display</source>
+			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_mode.1">
+				<source>Hide</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.1">
 				<source>Simple link (Typolink)</source>
