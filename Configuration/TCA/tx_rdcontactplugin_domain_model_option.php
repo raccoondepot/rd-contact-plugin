@@ -23,10 +23,10 @@ return [
         'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_option.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, pages_respect, http_referer',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, pages_respect, pages_mode, http_referer',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, pages_respect, http_referer'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, pages_respect, pages_mode, http_referer'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -126,6 +126,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
+                    ['', 0],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.6', 6, 'apps-pagetree-page-shortcut-external'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.1', 1, 'apps-pagetree-page-shortcut'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.2', 2, 'apps-pagetree-page-backend-users'],
@@ -133,6 +134,18 @@ return [
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.3', 3, 'mkraina-old-earphones'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.4', 4, 'mkraina-old-sms-bubble-speech'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.5', 5, 'mkraina-old-icon'],
+                ],
+            ],
+        ],
+        'pages_mode' => [
+            'exclude' => true,
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_mode',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_mode.0', 0],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_mode.1', 1],
                 ],
             ],
         ],

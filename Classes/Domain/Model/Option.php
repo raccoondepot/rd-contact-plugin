@@ -14,6 +14,13 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $title = '';
 
     /**
+     * pages_mode
+     * 
+     * @var string
+     */
+    protected $pagesMode = '';
+
+    /**
      * http_referer
      * 
      * @var string
@@ -81,6 +88,27 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * Returns the pagesMode
+     * 
+     * @return string $pagesMode
+     */
+    public function getPagesMode()
+    {
+        return $this->pagesMode;
+    }
+
+    /**
+     * Sets the pagesMode
+     * 
+     * @param string $pagesMode
+     * @return void
+     */
+    public function setPagesMode($pagesMode)
+    {
+        $this->pagesMode = $pagesMode;
     }
 
     /**
