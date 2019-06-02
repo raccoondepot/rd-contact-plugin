@@ -8,7 +8,7 @@ use RaccoonDepot\RdContactPlugin\Domain\Repository\PluginRepository;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 
-class PluginViewhelper extends AbstractViewHelper
+class PluginViewHelper extends AbstractViewHelper
 {
     /**
      * @param array $arguments
