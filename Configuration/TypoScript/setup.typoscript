@@ -100,14 +100,9 @@ page.footerData.103.settings {
 }
 
 # include js/css
-page.includeCSS {
-    rd_contact_plugin_css = typo3conf/ext/rd_contact_plugin/Resources/Public/css/index.scss
-}
-page.includeJS {
-    imaskjs_js = https://unpkg.com/imask
-    imaskjs_js.external = 1
-    rd_contact_plugin_js = typo3conf/ext/rd_contact_plugin/Resources/Public/js/index.js
-}
+page.includeJSFooter.rd_contact_plugin3 = EXT:rd_contact_plugin/Resources/Public/Contrib/fe_layout/assets/js/main.js
+page.includeCSS.rd_contact_plugin3 = EXT:rd_contact_plugin/Resources/Public/Contrib/fe_layout/assets/css/contact.css
+
 
 // plugin settings
 plugin.tx_rdcontactplugin_emailactions {

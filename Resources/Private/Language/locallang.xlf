@@ -41,7 +41,7 @@
 				<source>Simple link (Typolink)</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.2">
-				<source>Amocrm.ru forms</source>
+				<source>Embeded code forms</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.div1">
 				<source>Standard E-mail forms</source>

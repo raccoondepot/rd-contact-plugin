@@ -1,0 +1,30 @@
+{namespace core = TYPO3\CMS\Core\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:switch expression="{contactOption.optionType}">
+    <f:case value="1">
+        <f:link.typolink class="list-group-item list-group-item-action" parameter="{contactOption.link}">
+            <f:render section="Title" arguments="{contactOption:contactOption}" />
+        </f:link.typolink>
+    </f:case>
+    <f:case value="6">
+        <a class="list-group-item list-group-item-action" href="{contactOption.customLink}" target="_blank">
+            <f:render section="Title" arguments="{contactOption:contactOption}" />
+        </a>
+    </f:case>
+    <f:defaultCase>
+        <a class="list-group-item list-group-item-action" data-toggle="modal" data-target="#rd-contact-plugin-modal"
+            data-form="modal-form-{contactOption.optionType}-{contactOption.uid}">
+            <f:render section="Title" arguments="{contactOption:contactOption}" />
+        </a>
+    </f:defaultCase>
+</f:switch>
+
+<f:section name="Title">
+    <f:if condition="{contactOption.iconLibrary}">
+        <core:icon identifier="{contactOption.iconLibrary}" size="small" />
+    </f:if>
+    <span>{contactOption.title}</span>
+</f:section>
+
+</html>
