@@ -4,7 +4,6 @@
   "type": "typo3-cms-extension",
   "version": "9.0.0-dev",
   "prefer-stable": true,
-  "minimum-stability": "dev",
   "keywords": ["TYPO3 CMS", "rd_contact_plugin"],
   "license": "GPL-2.0+",
   "require": {
