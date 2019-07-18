@@ -80,7 +80,13 @@ if (! defined('TYPO3_MODE')) {
         'instagram',
     ];
     foreach ($icons as $icon) {
-        registerIcon('mkraina-' . $icon, 'EXT:' . $extKey . '/Resources/Public/Images/Icons/' . $icon . '.svg');
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
+        $iconRegistry = $objectManager->get(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+        $iconRegistry->registerIcon(
+            'mkraina-' . $icon,
+            TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+            ['source' => 'EXT:' . $extKey . '/Resources/Public/Images/Icons/' . $icon . '.svg']
+        );
     }
 
     // Override standard or third-party icons
@@ -91,7 +97,13 @@ if (! defined('TYPO3_MODE')) {
         'extension-powermail-main',
     ];
     foreach ($standardIcons as $standardIcon) {
-        registerIcon($standardIcon, 'EXT:' . $extKey . '/Resources/Public/Images/Icons/' . $standardIcon . '.svg');
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
+        $iconRegistry = $objectManager->get(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+        $iconRegistry->registerIcon(
+            $standardIcon,
+            TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+            ['source' => 'EXT:' . $extKey . '/Resources/Public/Images/Icons/' . $standardIcon . '.svg']
+        );
     }
 
     // add old icons set
@@ -118,17 +130,12 @@ if (! defined('TYPO3_MODE')) {
         'viber2',
     ];
     foreach ($oldIcons as $oldIcon) {
-        registerIcon('mkraina-old-' . $oldIcon, 'EXT:' . $extKey . '/Resources/Public/icons/' . $oldIcon . '.svg');
-    }
-
-    // icons registration handler
-    function registerIcon($identifier, $source) {
         $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
         $iconRegistry = $objectManager->get(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
         $iconRegistry->registerIcon(
-            $identifier,
+            'mkraina-old-' . $oldIcon,
             TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-            ['source' => $source]
+            ['source' => 'EXT:' . $extKey . '/Resources/Public/icons/' . $oldIcon . '.svg']
         );
     }
 })('rd_contact_plugin');
