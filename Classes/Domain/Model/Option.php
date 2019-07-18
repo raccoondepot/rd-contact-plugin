@@ -1,10 +1,14 @@
 <?php
+declare(strict_types=1);
+
 namespace RaccoonDepot\RdContactPlugin\Domain\Model;
+
+use \TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Option
  */
-class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Option extends AbstractEntity
 {
     /**
      * title
@@ -74,7 +78,7 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $title
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -83,9 +87,10 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the title
      * 
      * @param string $title
+     *
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle($title): void
     {
         $this->title = $title;
     }
@@ -95,7 +100,7 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $pagesMode
      */
-    public function getPagesMode()
+    public function getPagesMode(): string
     {
         return $this->pagesMode;
     }
@@ -104,9 +109,10 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the pagesMode
      * 
      * @param string $pagesMode
+     *
      * @return void
      */
-    public function setPagesMode($pagesMode)
+    public function setPagesMode($pagesMode): void
     {
         $this->pagesMode = $pagesMode;
     }
@@ -116,7 +122,7 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $httpReferer
      */
-    public function getHttpReferer()
+    public function getHttpReferer(): string
     {
         return $this->httpReferer;
     }
@@ -125,9 +131,10 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the httpReferer
      * 
      * @param string $httpReferer
+     *
      * @return void
      */
-    public function setHttpReferer($httpReferer)
+    public function setHttpReferer($httpReferer): void
     {
         $this->httpReferer = $httpReferer;
     }
@@ -137,7 +144,7 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $pagesRespect
      */
-    public function getPagesRespect()
+    public function getPagesRespect(): string
     {
         return $this->pagesRespect;
     }
@@ -146,9 +153,10 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the pagesRespect
      * 
      * @param string $pagesRespect
+     *
      * @return void
      */
-    public function setPagesRespect($pagesRespect)
+    public function setPagesRespect($pagesRespect): void
     {
         $this->pagesRespect = $pagesRespect;
     }
@@ -158,7 +166,7 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $link
      */
-    public function getLink()
+    public function getLink(): string
     {
         return $this->link;
     }
@@ -167,9 +175,10 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the link
      * 
      * @param string $link
+     *
      * @return void
      */
-    public function setLink($link)
+    public function setLink($link): void
     {
         $this->link = $link;
     }
@@ -179,7 +188,7 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $customLink
      */
-    public function getCustomLink()
+    public function getCustomLink(): string
     {
         return $this->customLink;
     }
@@ -188,9 +197,10 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the customLink
      * 
      * @param string $customLink
+     *
      * @return void
      */
-    public function setCustomLink($customLink)
+    public function setCustomLink($customLink): void
     {
         $this->customLink = $customLink;
     }
@@ -200,7 +210,7 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $optionType
      */
-    public function getOptionType()
+    public function getOptionType(): string
     {
         return $this->optionType;
     }
@@ -209,9 +219,10 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the optionType
      * 
      * @param string $optionType
+     *
      * @return void
      */
-    public function setOptionType($optionType)
+    public function setOptionType($optionType): void
     {
         $this->optionType = $optionType;
     }
@@ -221,7 +232,7 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $iconLibrary
      */
-    public function getIconLibrary()
+    public function getIconLibrary(): string
     {
         return $this->iconLibrary;
     }
@@ -230,9 +241,10 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the iconLibrary
      * 
      * @param string $iconLibrary
+     *
      * @return void
      */
-    public function setIconLibrary($iconLibrary)
+    public function setIconLibrary($iconLibrary): void
     {
         $this->iconLibrary = $iconLibrary;
     }
@@ -242,7 +254,7 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $embed
      */
-    public function getEmbed()
+    public function getEmbed(): string
     {
         return $this->embed;
     }
@@ -251,9 +263,10 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the embed
      * 
      * @param string $embed
+     *
      * @return void
      */
-    public function setEmbed($embed)
+    public function setEmbed($embed): void
     {
         $this->embed = $embed;
     }

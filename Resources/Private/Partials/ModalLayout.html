@@ -1,5 +1,4 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-
 <div class="modal fade" id="rd-contact-plugin-modal" tabindex="-1" role="dialog"
     aria-labelledby="rd-contact-plugin-modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered w-100" role="document">
@@ -15,11 +14,10 @@
                 </f:comment>
                 <f:for each="{pluginConfiguration.options}" as="contactOption" iteration="i">
                     <f:variable name="formId">modal-form-{contactOption.optionType}-{contactOption.uid}</f:variable>
-                    <f:render partial="Form" arguments="{_all}" />
+                    <f:render partial="ModalForm" arguments="{_all}" />
                 </f:for>
             </div>
         </div>
     </div>
 </div>
-
 </html>

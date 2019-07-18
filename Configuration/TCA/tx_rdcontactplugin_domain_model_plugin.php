@@ -137,7 +137,7 @@ return [
                 'foreign_sortby' => 'sorting',
                 'foreign_field' => 'plugin',
                 'minitems' => 0,
-                'maxitems' => 15,
+                'maxitems' => 99,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -153,6 +153,5 @@ return [
                 ]
             ]
         ],
-        // end
     ],
 ];

@@ -5,11 +5,6 @@ if (! defined('TYPO3_MODE')) {
 }
 
 (function ($extKey) {
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-        'RaccoonDepot.RdContactPlugin',
-        'EmailActions',
-        'Email Actions'
-    );
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
         $extKey,
         'Configuration/TypoScript',

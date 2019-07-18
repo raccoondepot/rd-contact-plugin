@@ -41,21 +41,9 @@
 				<source>Simple link (Typolink)</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.2">
-				<source>Embeded code forms</source>
-			</trans-unit>
-			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.div1">
-				<source>Standard E-mail forms</source>
+				<source>Embeded code (Inline forms etc.)</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.3">
-				<source>Call me form (configurable by Typoscript)</source>
-			</trans-unit>
-			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.4">
-				<source>Answer me by E-mail form (configurable by Typoscript)</source>
-			</trans-unit>
-			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.5">
-				<source>Get appointment form (configurable by Typoscript)</source>
-			</trans-unit>
-			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.6">
 				<source>Custom Link</source>
 			</trans-unit>
 
@@ -210,65 +198,6 @@
                 <source>Youtube</source>
             </trans-unit>
             <!-- END Icon Library -->
-
-			<!-- callMe_form -->
-			<trans-unit id="callMe_form.email_description">
-				<source>Dear friend, you got new call-me request from -</source>
-			</trans-unit>
-			<trans-unit id="callMe_form.email_field.name">
-				<source>Name</source>
-			</trans-unit>
-			<trans-unit id="callMe_form.email_field.email">
-				<source>E-mail</source>
-			</trans-unit>
-			<trans-unit id="callMe_form.email_field.phone">
-				<source>Phone</source>
-			</trans-unit>
-			<trans-unit id="callMe_form.email_field.date">
-				<source>Preferred date for the call</source>
-			</trans-unit>
-			<trans-unit id="callMe_form.email_field.date.now">
-				<source>As soon as possible!</source>
-			</trans-unit>
-
-			<!-- answerMeByEmail_form -->
-			<trans-unit id="answerMeByEmail_form.email_description">
-				<source>Dear friend, you got new answer-me-by-email request from -</source>
-			</trans-unit>
-			<trans-unit id="answerMeByEmail_form.email_field.name">
-				<source>Name</source>
-			</trans-unit>
-			<trans-unit id="answerMeByEmail_form.email_field.email">
-				<source>E-mail</source>
-			</trans-unit>
-			<trans-unit id="answerMeByEmail_form.email_field.question">
-				<source>Question</source>
-			</trans-unit>
-
-			<!-- getAppointment -->
-			<trans-unit id="getAppointment_form.email_description">
-				<source>Dear friend, you got new Appointment request from -</source>
-			</trans-unit>
-			<trans-unit id="getAppointment_form.email_field.name">
-				<source>Name</source>
-			</trans-unit>
-			<trans-unit id="getAppointment_form.email_field.email">
-				<source>E-mail</source>
-			</trans-unit>
-			<trans-unit id="getAppointment_form.email_field.phone">
-				<source>Phone</source>
-			</trans-unit>
-			<trans-unit id="getAppointment_form.email_field.date">
-				<source>Preferred date for the Appointment</source>
-			</trans-unit>
-			<trans-unit id="getAppointment_form.email_field.date.now">
-				<source>As soon as possible!</source>
-			</trans-unit>
-			
-			<!-- general -->
-			<trans-unit id="all_forms.visitor_page">
-				<source>Contact from page</source>
-			</trans-unit>
 		</body>
 	</file>
 </xliff>

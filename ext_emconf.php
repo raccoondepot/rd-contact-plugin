@@ -6,7 +6,7 @@
 
 $EM_CONF[$_EXTKEY] = [
   'title' => 'Contact Plugin',
-  'description' => 'Use it to run embed contact form on your website',
+  'description' => 'Deploy beautiful embed contact form on your website',
   'category' => 'plugin',
   'author' => 'Rostyslav Matviyiv, Yaroslav Trach, Andrii Pozdieiev',
   'author_email' => 'depot@raccoondepot.com',
@@ -14,11 +14,12 @@ $EM_CONF[$_EXTKEY] = [
   'internal' => '',
   'uploadfolder' => '1',
   'createDirs' => '',
-  'clearCacheOnLoad' => 0,
-  'version' => '1.0.0',
+  'clearCacheOnLoad' => 1,
+  'version' => '1.1.0',
   'constraints' => [
       'depends' => [
           'typo3' => '9.0.0-9.5.99',
+          'form' => '9.0.0-9.5.99'
       ],
       'conflicts' => [],
       'suggests' => [],

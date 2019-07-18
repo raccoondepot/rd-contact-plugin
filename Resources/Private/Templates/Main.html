@@ -3,24 +3,27 @@
 <f:layout name="Default" />
 
 <f:section name="Main">
+    <f:variable name="pluginConfiguration">{rd:plugin()}</f:variable>
+
     <f:comment>
         <!-- Contact plugin -->
     </f:comment>
-
-    <f:variable name="pluginConfiguration">{rd:plugin()}</f:variable>
     <div class="list-group contact-list-container fade">
         <f:comment>
-            <!-- CtaButtons -->
+            <!-- ContactOptions -->
         </f:comment>
-
         <f:for each="{pluginConfiguration.options}" as="contactOption" iteration="i">
             <f:if condition="{contactOption.title}">
 
                 <f:if condition="{rd:pagesRestriction(uid: contactOption.uid)}">
+
                     <f:if condition="{rd:httpRefererRestriction(uid: contactOption.uid)}">
-                        <f:render partial="CtaButton"
-                            arguments="{contactOption:contactOption, settings:settings}" />
+
+                        <f:render partial="ContactOption"
+                                  arguments="{contactOption:contactOption, settings:settings}" />
+
                     </f:if>
+
                 </f:if>
 
             </f:if>
@@ -44,11 +47,10 @@
     </div>
 </f:section>
 
+<f:comment>
+    <!-- Include modal container -->
+</f:comment>
 <f:section name="Modal">
-    <f:comment>
-        <!-- Include modal container -->
-    </f:comment>
     <f:render partial="ModalLayout" arguments="{_all}" />
 </f:section>
-
 </html>

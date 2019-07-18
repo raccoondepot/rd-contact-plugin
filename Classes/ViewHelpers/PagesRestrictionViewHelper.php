@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace RaccoonDepot\RdContactPlugin\ViewHelpers;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -15,7 +17,7 @@ class PagesRestrictionViewHelper extends AbstractViewHelper
      *
      * @api
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerArgument('uid', 'string', 'uid of item');
@@ -25,13 +27,14 @@ class PagesRestrictionViewHelper extends AbstractViewHelper
      * @param array $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
-     * @return string
+     *
+     * @return bool
      */
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
-    ) {
+    ): bool {
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         $optionRepository = $objectManager->get(OptionRepository::class);
 
