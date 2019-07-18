@@ -21,6 +21,7 @@ page.footerData.103.settings {
     rd_contact_plugin {
         enabled = {$plugin.tx_rdcontactplugin.settings.enabled}
         position = {$plugin.tx_rdcontactplugin.settings.position}
+        pluginToUseUid = {$plugin.tx_rdcontactplugin.settings.pluginToUseUid}
     }
 }
 
