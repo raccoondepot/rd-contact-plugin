@@ -12,70 +12,70 @@ class Option extends AbstractEntity
 {
     /**
      * title
-     * 
+     *
      * @var string
      */
     protected $title = '';
 
     /**
      * pages_mode
-     * 
+     *
      * @var string
      */
     protected $pagesMode = '';
 
     /**
      * http_referer
-     * 
+     *
      * @var string
      */
     protected $httpReferer = '';
 
     /**
      * pages_respect
-     * 
+     *
      * @var string
      */
     protected $pagesRespect = '';
 
     /**
      * link
-     * 
+     *
      * @var string
      */
     protected $link = '';
 
     /**
      * customLink
-     * 
+     *
      * @var string
      */
     protected $customLink = '';
 
     /**
      * embed
-     * 
+     *
      * @var string
      */
     protected $embed = '';
 
     /**
      * option_type
-     * 
+     *
      * @var string
      */
     protected $optionType = '';
 
     /**
      * icon_library
-     * 
+     *
      * @var string
      */
     protected $iconLibrary = '';
 
     /**
      * Returns the title
-     * 
+     *
      * @return string $title
      */
     public function getTitle(): string
@@ -85,7 +85,7 @@ class Option extends AbstractEntity
 
     /**
      * Sets the title
-     * 
+     *
      * @param string $title
      *
      * @return void
@@ -97,7 +97,7 @@ class Option extends AbstractEntity
 
     /**
      * Returns the pagesMode
-     * 
+     *
      * @return string $pagesMode
      */
     public function getPagesMode(): string
@@ -107,7 +107,7 @@ class Option extends AbstractEntity
 
     /**
      * Sets the pagesMode
-     * 
+     *
      * @param string $pagesMode
      *
      * @return void
@@ -119,7 +119,7 @@ class Option extends AbstractEntity
 
     /**
      * Returns the httpReferer
-     * 
+     *
      * @return string $httpReferer
      */
     public function getHttpReferer(): string
@@ -129,7 +129,7 @@ class Option extends AbstractEntity
 
     /**
      * Sets the httpReferer
-     * 
+     *
      * @param string $httpReferer
      *
      * @return void
@@ -141,7 +141,7 @@ class Option extends AbstractEntity
 
     /**
      * Returns the pagesRespect
-     * 
+     *
      * @return string $pagesRespect
      */
     public function getPagesRespect(): string
@@ -151,7 +151,7 @@ class Option extends AbstractEntity
 
     /**
      * Sets the pagesRespect
-     * 
+     *
      * @param string $pagesRespect
      *
      * @return void
@@ -163,7 +163,7 @@ class Option extends AbstractEntity
 
     /**
      * Returns the link
-     * 
+     *
      * @return string $link
      */
     public function getLink(): string
@@ -173,7 +173,7 @@ class Option extends AbstractEntity
 
     /**
      * Sets the link
-     * 
+     *
      * @param string $link
      *
      * @return void
@@ -185,7 +185,7 @@ class Option extends AbstractEntity
 
     /**
      * Returns the customLink
-     * 
+     *
      * @return string $customLink
      */
     public function getCustomLink(): string
@@ -195,7 +195,7 @@ class Option extends AbstractEntity
 
     /**
      * Sets the customLink
-     * 
+     *
      * @param string $customLink
      *
      * @return void
@@ -207,7 +207,7 @@ class Option extends AbstractEntity
 
     /**
      * Returns the optionType
-     * 
+     *
      * @return string $optionType
      */
     public function getOptionType(): string
@@ -217,7 +217,7 @@ class Option extends AbstractEntity
 
     /**
      * Sets the optionType
-     * 
+     *
      * @param string $optionType
      *
      * @return void
@@ -229,7 +229,7 @@ class Option extends AbstractEntity
 
     /**
      * Returns the iconLibrary
-     * 
+     *
      * @return string $iconLibrary
      */
     public function getIconLibrary(): string
@@ -239,7 +239,7 @@ class Option extends AbstractEntity
 
     /**
      * Sets the iconLibrary
-     * 
+     *
      * @param string $iconLibrary
      *
      * @return void
@@ -251,7 +251,7 @@ class Option extends AbstractEntity
 
     /**
      * Returns the embed
-     * 
+     *
      * @return string $embed
      */
     public function getEmbed(): string
@@ -261,7 +261,7 @@ class Option extends AbstractEntity
 
     /**
      * Sets the embed
-     * 
+     *
      * @param string $embed
      *
      * @return void

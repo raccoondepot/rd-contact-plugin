@@ -13,13 +13,13 @@ class Plugin extends AbstractEntity
 {
     /**
      * title
-     * 
+     *
      * @var string
      */
     protected $title = '';
 
     /**
-     * @var ObjectStorage<Option>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RaccoonDepot\RdContactPlugin\Domain\Model\Option>
      * @lazy
      */
     protected $options;
@@ -36,7 +36,7 @@ class Plugin extends AbstractEntity
 
     /**
      * Returns the title
-     * 
+     *
      * @return string $title
      */
     public function getTitle(): string
@@ -46,7 +46,7 @@ class Plugin extends AbstractEntity
 
     /**
      * Sets the title
-     * 
+     *
      * @param string $title
      *
      * @return void
@@ -70,8 +70,6 @@ class Plugin extends AbstractEntity
      * Set options list
      *
      * @param ObjectStorage $options options
-     *
-     * @return void
      */
     public function setOptions($options): void
     {
@@ -82,8 +80,6 @@ class Plugin extends AbstractEntity
      * Adds a option to the record
      *
      * @param Option $option
-     *
-     * @return void
      */
     public function addOption(Option $option): void
     {
