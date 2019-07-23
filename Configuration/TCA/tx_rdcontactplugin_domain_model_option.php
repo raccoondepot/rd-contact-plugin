@@ -334,6 +334,7 @@ return [
         'process_all_restrictions' => [
             'exclude' => true,
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.process_all_restrictions',
+            'description' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.process_all_restrictions.description',
             'config' => [
                 'type' => 'check',
                 'default' => 0,

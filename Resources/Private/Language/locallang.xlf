@@ -47,7 +47,10 @@
                 <source>Restrictions are used to dynamically change contact option fields depends on the different aspects (where user came from, or which page he has loaded right now)</source>
             </trans-unit>
             <trans-unit id="tx_rdcontactplugin_domain_model_option.process_all_restrictions">
-                <source>Enforce all matched restrictions. Please note, when this setting isn't checked and there are at least 2 restrictions that can be used, then only the first one will be followed.</source>
+                <source>Enforce all matched restrictions</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.process_all_restrictions.description">
+                <source>Please note, when this setting isn't checked and there are at least 2 restrictions that can be used, then only the first one will be followed.</source>
             </trans-unit>
 
 			<!-- tx_rdcontactplugin_domain_model_plugin -->
@@ -87,7 +90,7 @@
                 <source>Type</source>
             </trans-unit>
             <trans-unit id="tx_rdcontactplugin_domain_model_restriction.restriction_type.0">
-                <source>Show this option only when restriction is matched</source>
+                <source>Show this contact option only when restriction is matched</source>
             </trans-unit>
             <trans-unit id="tx_rdcontactplugin_domain_model_restriction.restriction_type.1">
                 <source>Replace this option with alternative one or hide</source>

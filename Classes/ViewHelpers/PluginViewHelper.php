@@ -87,7 +87,8 @@ class PluginViewHelper extends AbstractViewHelper
      */
     public static function followAllRestrictions(Option $option, & $filteredOptions): void
     {
-        $newOption = '';
+        $alternativeWasFound = false;
+        $thereAreSimpleRestrictionType = false;
         $isRestrictionTypeWithoutReplacingFound = false;
 
         if (! empty($option->getRestrictions())) {
@@ -96,19 +97,23 @@ class PluginViewHelper extends AbstractViewHelper
                 $restrictionMatch = self::processRestriction($restriction);
 
                 // Show this option only when restriction is matched
-                if ($restriction->getRestrictionType() === 0 && $restrictionMatch && ! $isRestrictionTypeWithoutReplacingFound) {
-                    $filteredOptions[] = $option;
-                    $isRestrictionTypeWithoutReplacingFound = true;
+                if ($restriction->getRestrictionType() == 0) {
+                    $thereAreSimpleRestrictionType = true;
+                    if ($restrictionMatch && ! $isRestrictionTypeWithoutReplacingFound) {
+                        $filteredOptions[] = $option;
+                        $isRestrictionTypeWithoutReplacingFound = true;
+                    }
                 }
 
                 // Replace this option with alternative one or hide
-                if ($restriction->getRestrictionType() === 1 && $restrictionMatch) {
+                if ($restriction->getRestrictionType() == 1 && $restrictionMatch) {
                     $filteredOptions[] = array_shift($restriction->getAlternativeOptions()->toArray());
+                    $alternativeWasFound = true;
                 }
             }
         }
         // if nothing matched use original one
-        if (empty($newOption) && ! $isRestrictionTypeWithoutReplacingFound) {
+        if (! $alternativeWasFound && ! $isRestrictionTypeWithoutReplacingFound && ! $thereAreSimpleRestrictionType) {
             $filteredOptions[] = $option;
         }
     }
@@ -120,6 +125,7 @@ class PluginViewHelper extends AbstractViewHelper
     public static function followFirstMatchedRestriction(Option $option, & $filteredOptions): void
     {
         $newOption = '';
+        $thereAreSimpleRestrictionType = false;
         $isRestrictionTypeWithoutReplacingFound = false;
 
         if (! empty($option->getRestrictions())) {
@@ -128,47 +134,57 @@ class PluginViewHelper extends AbstractViewHelper
                 $restrictionMatch = self::processRestriction($restriction);
 
                 // Show this option only when restriction is matched
-                if ($restriction->getRestrictionType() === 0 && $restrictionMatch) {
-                    $newOption = $option;
-                    $isRestrictionTypeWithoutReplacingFound = true;
-                    break;
+                if ($restriction->getRestrictionType() == 0) {
+                    $thereAreSimpleRestrictionType = true;
+                    if ($restrictionMatch) {
+                        $newOption = $option;
+                        $isRestrictionTypeWithoutReplacingFound = true;
+                        break;
+                    }
                 }
 
                 // Replace this option with alternative one or hide
-                if ($restriction->getRestrictionType() === 1 && $restrictionMatch) {
+                if ($restriction->getRestrictionType() == 1 && $restrictionMatch) {
                     $newOption = array_shift($restriction->getAlternativeOptions()->toArray());
                     break;
                 }
             }
         }
         // if nothing matched use original one
-        if (empty($newOption) && ! $isRestrictionTypeWithoutReplacingFound) {
+        if (empty($newOption) && ! $isRestrictionTypeWithoutReplacingFound && ! $thereAreSimpleRestrictionType) {
             $newOption = $option;
         }
-        $filteredOptions[] = $newOption;
+        if (! empty($newOption)) {
+            $filteredOptions[] = $newOption;
+        }
     }
 
     /**
      * @param Restriction $restriction
+     * @param bool        $defaultPagesRestrictionState
+     * @param bool        $defaultHttpRefererRestrictionState
      *
      * @return bool
      */
-    public static function processRestriction(Restriction $restriction): bool
-    {
+    public static function processRestriction(
+        Restriction $restriction,
+        bool $defaultPagesRestrictionState = true,
+        bool $defaultHttpRefererRestrictionState = true
+    ): bool {
         // let's check pages restriction
         if ($restriction->getPagesRespect()) {
             $pages = explode(',', $restriction->getPagesRespect());
             $pagesRestriction = in_array($GLOBALS['TSFE']->id, $pages, false);
         } else {
-            $pagesRestriction = true;
+            $pagesRestriction = $defaultPagesRestrictionState;
         }
 
         // let's check http referer restriction
-        $doesHttpRefererMatch = empty($_SERVER['HTTP_REFERER']) || strpos($_SERVER['HTTP_REFERER'], trim($restriction->getHttpReferer())) === FALSE;
-        if ($restriction->getHttpReferer() && $doesHttpRefererMatch) {
+        $doesHttpRefererNotMatch = empty($_SERVER['HTTP_REFERER']) || empty(trim($restriction->getHttpReferer())) || strpos($_SERVER['HTTP_REFERER'], trim($restriction->getHttpReferer())) === FALSE;
+        if ($restriction->getHttpReferer() && $doesHttpRefererNotMatch) {
             $httpRefererRestriction = false;
         } else {
-            $httpRefererRestriction = true;
+            $httpRefererRestriction = $defaultHttpRefererRestrictionState;
         }
 
         // in general
