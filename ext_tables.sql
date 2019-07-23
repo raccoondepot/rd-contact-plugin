@@ -31,6 +31,7 @@ CREATE TABLE tx_rdcontactplugin_domain_model_option (
 # Table structure for table 'tx_rdcontactplugin_domain_model_restriction'
 #
 CREATE TABLE tx_rdcontactplugin_domain_model_restriction (
+    restriction_type varchar(255) DEFAULT '' NOT NULL,
     pages_respect text DEFAULT '' NOT NULL,
     http_referer varchar(255) DEFAULT '' NOT NULL,
     alternative_options int(11) DEFAULT '0' NOT NULL,

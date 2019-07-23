@@ -12,6 +12,13 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Restriction extends AbstractEntity
 {
     /**
+     * restriction_type
+     *
+     * @var string
+     */
+    protected $restrictionType = '';
+
+    /**
      * http_referer
      *
      * @var string
@@ -39,6 +46,28 @@ class Restriction extends AbstractEntity
     public function __construct()
     {
         $this->alternativeOptions = new ObjectStorage();
+    }
+
+    /**
+     * Returns the restrictionType
+     *
+     * @return string $restrictionType
+     */
+    public function getRestrictionType(): string
+    {
+        return $this->restrictionType;
+    }
+
+    /**
+     * Sets the restrictionType
+     *
+     * @param string $restrictionType
+     *
+     * @return void
+     */
+    public function setRestrictionType($restrictionType): void
+    {
+        $this->restrictionType = $restrictionType;
     }
 
     /**

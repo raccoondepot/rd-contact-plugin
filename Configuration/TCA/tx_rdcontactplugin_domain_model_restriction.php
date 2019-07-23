@@ -24,10 +24,10 @@ return [
         'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_restriction.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, pages_respect, http_referer, alternative_options',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, restriction_type, pages_respect, http_referer, alternative_options',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, pages_respect, http_referer, alternative_options'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, restriction_type, pages_respect, http_referer, alternative_options'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -123,6 +123,19 @@ return [
         /**
          * Custom fields
          */
+        'restriction_type' => [
+            'exclude' => true,
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_restriction.restriction_type',
+            'onChange' => 'reload',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_restriction.restriction_type.0', 0, 'mkraina-document-random'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_restriction.restriction_type.1', 1, 'mkraina-documents'],
+                ],
+            ],
+        ],
         'pages_respect' => [
             'exclude' => true,
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_restriction.pages_respect',
@@ -152,6 +165,7 @@ return [
         ],
         'alternative_options' => [
             'exclude' => true,
+            'displayCond' => 'FIELD:restriction_type:=:1',
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_restriction.options',
             'config' => [
                 'type' => 'inline',

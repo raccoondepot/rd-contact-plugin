@@ -72,17 +72,31 @@ class PluginViewHelper extends AbstractViewHelper
         $filteredOptions = [];
         foreach ($options as $option) {
             $newOption = '';
+            $isRestrictionTypeWithoutReplacingFound = false;
+
             if (! empty($option->getRestrictions())) {
                 foreach ($option->getRestrictions() as $restriction) {
-                    // if should be replaced
-                    if (self::processRestriction($restriction)) {
+
+                    $restrictionMatch = self::processRestriction($restriction);
+
+                    // Show this option only when restriction is matched
+                    if ($restriction->getRestrictionType() == 0 && $restrictionMatch) {
+                        $newOption = $option;
+                        $isRestrictionTypeWithoutReplacingFound = true;
+                        break;
+                    }
+
+                    // Replace this option with alternative one or hide
+                    if ($restriction->getRestrictionType() == 1 && $restrictionMatch) {
+                        // if should be replaced
                         $newOption = array_shift($restriction->getAlternativeOptions()->toArray());
                         break;
                     }
+
                 }
             }
             // if nothing matched use original one
-            if (empty($newOption)) {
+            if (empty($newOption) && ! $isRestrictionTypeWithoutReplacingFound) {
                 $newOption = $option;
             }
             $filteredOptions[] = $newOption;
