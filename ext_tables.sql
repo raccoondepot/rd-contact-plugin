@@ -25,6 +25,7 @@ CREATE TABLE tx_rdcontactplugin_domain_model_option (
     embed text DEFAULT '' NOT NULL,
     plugin int(11) DEFAULT '0' NOT NULL,
     restrictions int(11) DEFAULT '0' NOT NULL,
+    process_all_restrictions tinyint(1) unsigned DEFAULT '0' NOT NULL,
 );
 
 #

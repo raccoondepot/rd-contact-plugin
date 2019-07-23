@@ -44,7 +44,10 @@
                 <source>Restrictions</source>
             </trans-unit>
             <trans-unit id="tx_rdcontactplugin_domain_model_option.restrictions.description">
-                <source>Restrictions are used to dynamically change contact option fields depends on the different aspects (where user came from, or which page he has loaded right now). Please note, if there will be at least 2 restrictions that can be used, then only the first one will be followed</source>
+                <source>Restrictions are used to dynamically change contact option fields depends on the different aspects (where user came from, or which page he has loaded right now)</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.process_all_restrictions">
+                <source>Enforce all matched restrictions. Please note, when this setting isn't checked and there are at least 2 restrictions that can be used, then only the first one will be followed.</source>
             </trans-unit>
 
 			<!-- tx_rdcontactplugin_domain_model_plugin -->

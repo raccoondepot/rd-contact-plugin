@@ -7,6 +7,9 @@ $optionTca = (include 'tx_rdcontactplugin_domain_model_option.php');
 $optionTca['ctrl']['title'] = $LOCALLANG . 'tx_rdcontactplugin_domain_model_alternativeoption';
 
 // remove fields which will break the logic
-unset($optionTca['columns']['restrictions']);
+unset(
+    $optionTca['columns']['restrictions'],
+    $optionTca['columns']['process_all_restrictions']
+);
 
 return $optionTca;

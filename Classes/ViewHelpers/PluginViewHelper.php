@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace RaccoonDepot\RdContactPlugin\ViewHelpers;
 
+use RaccoonDepot\RdContactPlugin\Domain\Model\Option;
 use RaccoonDepot\RdContactPlugin\Domain\Model\Restriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -71,37 +72,80 @@ class PluginViewHelper extends AbstractViewHelper
     {
         $filteredOptions = [];
         foreach ($options as $option) {
-            $newOption = '';
-            $isRestrictionTypeWithoutReplacingFound = false;
-
-            if (! empty($option->getRestrictions())) {
-                foreach ($option->getRestrictions() as $restriction) {
-
-                    $restrictionMatch = self::processRestriction($restriction);
-
-                    // Show this option only when restriction is matched
-                    if ($restriction->getRestrictionType() == 0 && $restrictionMatch) {
-                        $newOption = $option;
-                        $isRestrictionTypeWithoutReplacingFound = true;
-                        break;
-                    }
-
-                    // Replace this option with alternative one or hide
-                    if ($restriction->getRestrictionType() == 1 && $restrictionMatch) {
-                        // if should be replaced
-                        $newOption = array_shift($restriction->getAlternativeOptions()->toArray());
-                        break;
-                    }
-
-                }
+            if ($option->getProcessAllRestrictions() === 1) {
+                self::followAllRestrictions($option, $filteredOptions);
+            } else {
+                self::followFirstMatchedRestriction($option, $filteredOptions);
             }
-            // if nothing matched use original one
-            if (empty($newOption) && ! $isRestrictionTypeWithoutReplacingFound) {
-                $newOption = $option;
-            }
-            $filteredOptions[] = $newOption;
         }
         return $filteredOptions;
+    }
+
+    /**
+     * @param Option $option
+     * @param array  $filteredOptions
+     */
+    public static function followAllRestrictions(Option $option, & $filteredOptions): void
+    {
+        $newOption = '';
+        $isRestrictionTypeWithoutReplacingFound = false;
+
+        if (! empty($option->getRestrictions())) {
+            foreach ($option->getRestrictions() as $restriction) {
+
+                $restrictionMatch = self::processRestriction($restriction);
+
+                // Show this option only when restriction is matched
+                if ($restriction->getRestrictionType() === 0 && $restrictionMatch && ! $isRestrictionTypeWithoutReplacingFound) {
+                    $filteredOptions[] = $option;
+                    $isRestrictionTypeWithoutReplacingFound = true;
+                }
+
+                // Replace this option with alternative one or hide
+                if ($restriction->getRestrictionType() === 1 && $restrictionMatch) {
+                    $filteredOptions[] = array_shift($restriction->getAlternativeOptions()->toArray());
+                }
+            }
+        }
+        // if nothing matched use original one
+        if (empty($newOption) && ! $isRestrictionTypeWithoutReplacingFound) {
+            $filteredOptions[] = $option;
+        }
+    }
+
+    /**
+     * @param Option $option
+     * @param array  $filteredOptions
+     */
+    public static function followFirstMatchedRestriction(Option $option, & $filteredOptions): void
+    {
+        $newOption = '';
+        $isRestrictionTypeWithoutReplacingFound = false;
+
+        if (! empty($option->getRestrictions())) {
+            foreach ($option->getRestrictions() as $restriction) {
+
+                $restrictionMatch = self::processRestriction($restriction);
+
+                // Show this option only when restriction is matched
+                if ($restriction->getRestrictionType() === 0 && $restrictionMatch) {
+                    $newOption = $option;
+                    $isRestrictionTypeWithoutReplacingFound = true;
+                    break;
+                }
+
+                // Replace this option with alternative one or hide
+                if ($restriction->getRestrictionType() === 1 && $restrictionMatch) {
+                    $newOption = array_shift($restriction->getAlternativeOptions()->toArray());
+                    break;
+                }
+            }
+        }
+        // if nothing matched use original one
+        if (empty($newOption) && ! $isRestrictionTypeWithoutReplacingFound) {
+            $newOption = $option;
+        }
+        $filteredOptions[] = $newOption;
     }
 
     /**

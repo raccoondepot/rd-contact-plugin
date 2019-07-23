@@ -18,6 +18,13 @@ class Option extends AbstractOption
     protected $restrictions;
 
     /**
+     * process_all_restrictions
+     *
+     * @var int
+     */
+    protected $processAllRestrictions;
+
+    /**
      * Initialize relation
      *
      * @return Option
@@ -58,5 +65,27 @@ class Option extends AbstractOption
             $this->restrictions = new ObjectStorage();
         }
         $this->restrictions->attach($restriction);
+    }
+
+    /**
+     * Returns the processAllRestrictions
+     *
+     * @return int $processAllRestrictions
+     */
+    public function getProcessAllRestrictions(): int
+    {
+        return $this->processAllRestrictions;
+    }
+
+    /**
+     * Sets the processAllRestrictions
+     *
+     * @param int $processAllRestrictions
+     *
+     * @return void
+     */
+    public function setProcessAllRestrictions($processAllRestrictions): void
+    {
+        $this->processAllRestrictions = $processAllRestrictions;
     }
 }

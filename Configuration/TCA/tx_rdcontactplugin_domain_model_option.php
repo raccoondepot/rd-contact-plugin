@@ -24,10 +24,10 @@ return [
         'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_option.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions, process_all_restrictions',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions, process_all_restrictions'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -330,6 +330,14 @@ return [
                     ]
                 ]
             ]
+        ],
+        'process_all_restrictions' => [
+            'exclude' => true,
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.process_all_restrictions',
+            'config' => [
+                'type' => 'check',
+                'default' => 0,
+            ],
         ],
     ],
 ];
