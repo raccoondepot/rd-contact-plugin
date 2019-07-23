@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace RaccoonDepot\RdContactPlugin\Domain\Model;
 
-use \TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Plugin

@@ -3,13 +3,14 @@ declare(strict_types=1);
 
 namespace RaccoonDepot\RdContactPlugin\ViewHelpers;
 
+use RaccoonDepot\RdContactPlugin\Domain\Model\Restriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use RaccoonDepot\RdContactPlugin\Domain\Repository\PluginRepository;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
-use RaccoonDepot\RdContactPlugin\Domain\Model\Plugin;
 use Closure;
 
 class PluginViewHelper extends AbstractViewHelper
@@ -30,13 +31,13 @@ class PluginViewHelper extends AbstractViewHelper
      * @param Closure                   $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
      *
-     * @return Plugin
+     * @return array
      */
     public static function renderStatic(
         array $arguments,
         Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
-    ): Plugin {
+    ): array {
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         $pluginRepository = $objectManager->get(PluginRepository::class);
 
@@ -47,9 +48,72 @@ class PluginViewHelper extends AbstractViewHelper
 
         // should we use specific plugin configurations here?
         if (! empty($arguments['pluginToUseUid'])) {
-            return $pluginRepository->findByUid((int) $arguments['pluginToUseUid']);
+            $pluginConfiguration = $pluginRepository->findByUid((int) $arguments['pluginToUseUid']);
+        } else {
+            $pluginConfiguration = $pluginRepository->findAll()->getFirst();
         }
 
-        return $pluginRepository->findAll()->getFirst();
+        // filter by restrictions
+        $filteredOptions = [];
+        if (! empty($pluginConfiguration) && $pluginConfiguration->getOptions()) {
+            $filteredOptions = self::respectRestrictions($pluginConfiguration->getOptions());
+        }
+
+        return [$pluginConfiguration, $filteredOptions];
+    }
+
+    /**
+     * @param ObjectStorage $options
+     *
+     * @return array
+     */
+    public static function respectRestrictions(ObjectStorage $options): array
+    {
+        $filteredOptions = [];
+        foreach ($options as $option) {
+            $newOption = '';
+            if (! empty($option->getRestrictions())) {
+                foreach ($option->getRestrictions() as $restriction) {
+                    // if should be replaced
+                    if (self::processRestriction($restriction)) {
+                        $newOption = array_shift($restriction->getAlternativeOptions()->toArray());
+                        break;
+                    }
+                }
+            }
+            // if nothing matched use original one
+            if (empty($newOption)) {
+                $newOption = $option;
+            }
+            $filteredOptions[] = $newOption;
+        }
+        return $filteredOptions;
+    }
+
+    /**
+     * @param Restriction $restriction
+     *
+     * @return bool
+     */
+    public static function processRestriction(Restriction $restriction): bool
+    {
+        // let's check pages restriction
+        if ($restriction->getPagesRespect()) {
+            $pages = explode(',', $restriction->getPagesRespect());
+            $pagesRestriction = in_array($GLOBALS['TSFE']->id, $pages, false);
+        } else {
+            $pagesRestriction = true;
+        }
+
+        // let's check http referer restriction
+        $doesHttpRefererMatch = empty($_SERVER['HTTP_REFERER']) || strpos($_SERVER['HTTP_REFERER'], trim($restriction->getHttpReferer())) === FALSE;
+        if ($restriction->getHttpReferer() && $doesHttpRefererMatch) {
+            $httpRefererRestriction = false;
+        } else {
+            $httpRefererRestriction = true;
+        }
+
+        // in general
+        return $pagesRestriction && $httpRefererRestriction;
     }
 }

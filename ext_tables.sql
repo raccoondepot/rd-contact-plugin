@@ -1,4 +1,19 @@
 #
+# Table structure for table 'tx_rdcontactplugin_domain_model_plugin'
+#
+CREATE TABLE tx_rdcontactplugin_domain_model_plugin (
+	title varchar(255) DEFAULT '' NOT NULL,
+    options int(11) DEFAULT '0' NOT NULL,
+);
+
+############################################################
+### *** Attention ***
+### tx_rdcontactplugin_domain_model_option should be equal
+### to tx_rdcontactplugin_domain_model_alternativeoption
+### by settings fields (not a system or relation fields)
+############################################################
+
+#
 # Table structure for table 'tx_rdcontactplugin_domain_model_option'
 #
 CREATE TABLE tx_rdcontactplugin_domain_model_option (
@@ -8,16 +23,38 @@ CREATE TABLE tx_rdcontactplugin_domain_model_option (
     link varchar(255) DEFAULT '' NOT NULL,
     custom_link varchar(255) DEFAULT '' NOT NULL,
     embed text DEFAULT '' NOT NULL,
-    pages_respect text DEFAULT '' NOT NULL,
-    pages_mode varchar(255) DEFAULT '' NOT NULL,
-    http_referer varchar(255) DEFAULT '' NOT NULL,
     plugin int(11) DEFAULT '0' NOT NULL,
+    restrictions int(11) DEFAULT '0' NOT NULL,
 );
 
 #
-# Table structure for table 'tx_rdcontactplugin_domain_model_plugin'
+# Table structure for table 'tx_rdcontactplugin_domain_model_restriction'
 #
-CREATE TABLE tx_rdcontactplugin_domain_model_plugin (
-	title varchar(255) DEFAULT '' NOT NULL,
-    options int(11) DEFAULT '0' NOT NULL,
+CREATE TABLE tx_rdcontactplugin_domain_model_restriction (
+    pages_respect text DEFAULT '' NOT NULL,
+    http_referer varchar(255) DEFAULT '' NOT NULL,
+    alternative_options int(11) DEFAULT '0' NOT NULL,
+    option int(11) DEFAULT '0' NOT NULL,
+    plugin int(11) DEFAULT '0' NOT NULL,
+);
+
+############################################################
+### *** Attention ***
+### tx_rdcontactplugin_domain_model_option should be equal
+### to tx_rdcontactplugin_domain_model_alternativeoption
+### by settings fields (not a system or relation fields)
+############################################################
+
+#
+# Table structure for table 'tx_rdcontactplugin_domain_model_alternativeoption'
+#
+CREATE TABLE tx_rdcontactplugin_domain_model_alternativeoption (
+    option_type varchar(255) DEFAULT '' NOT NULL,
+    title varchar(255) DEFAULT '' NOT NULL,
+    icon_library varchar(255) DEFAULT '' NOT NULL,
+    link varchar(255) DEFAULT '' NOT NULL,
+    custom_link varchar(255) DEFAULT '' NOT NULL,
+    embed text DEFAULT '' NOT NULL,
+    restriction int(11) DEFAULT '0' NOT NULL,
+    plugin int(11) DEFAULT '0' NOT NULL,
 );

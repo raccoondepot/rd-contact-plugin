@@ -4,6 +4,7 @@ $LOCALLANG = 'LLL:EXT:rd_contact_plugin/Resources/Private/Language/locallang.xlf
 return [
     'ctrl' => [
         'title' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option',
+        'hideTable' => true,
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -23,10 +24,10 @@ return [
         'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_option.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, pages_respect, pages_mode, http_referer',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, pages_respect, pages_mode, http_referer'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -130,7 +131,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['', 0],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.0', 0, 'mkraina-gallery-big'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.1', 1, 'apps-pagetree-page-shortcut'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.2', 2, 'apps-pagetree-page-backend-users'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.3', 3, 'apps-pagetree-page-shortcut-external'],
@@ -140,6 +141,7 @@ return [
         'title' => [
             'exclude' => true,
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.title',
+            'description' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.title.description',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -283,6 +285,7 @@ return [
             'exclude' => true,
             'displayCond' => 'FIELD:option_type:=:3',
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.link',
+            'description' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.link.description',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -301,43 +304,32 @@ return [
                 'default' => '',
             ],
         ],
-        'pages_respect' => [
+        'restrictions' => [
             'exclude' => true,
-            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_respect',
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.restrictions',
+            'description' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.restrictions.description',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectTree',
-                'foreign_table' => 'pages',
-                'size' => 8,
-                'treeConfig' => [
-                    'expandAll' => true,
-                    'parentField' => 'pid',
-                    'appearance' => [
-                        'showHeader' => true,
-                    ],
-                ],
-            ],
-        ],
-        'pages_mode' => [
-            'exclude' => true,
-            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_mode',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_mode.0', 0],
-                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_mode.1', 1],
-                ],
-            ],
-        ],
-        'http_referer' => [
-            'exclude' => true,
-            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.http_referer',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
-            ],
+                'type' => 'inline',
+                'allowed' => 'tx_rdcontactplugin_domain_model_restriction',
+                'foreign_table' => 'tx_rdcontactplugin_domain_model_restriction',
+                'foreign_sortby' => 'sorting',
+                'foreign_field' => 'plugin',
+                'minitems' => 0,
+                'maxitems' => 99,
+                'appearance' => [
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'levelLinksPosition' => 'bottom',
+                    'useSortable' => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showRemovedLocalizationRecords' => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
+                    'enabledControls' => [
+                        'info' => false,
+                    ]
+                ]
+            ]
         ],
     ],
 ];

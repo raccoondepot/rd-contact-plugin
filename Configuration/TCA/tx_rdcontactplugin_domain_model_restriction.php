@@ -3,8 +3,9 @@ $LOCALLANG = 'LLL:EXT:rd_contact_plugin/Resources/Private/Language/locallang.xlf
 
 return [
     'ctrl' => [
-        'title' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_plugin',
-        'label' => 'title',
+        'title' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_restriction',
+        'hideTable' => true,
+        'label' => 'alternative_options',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -20,13 +21,13 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'title',
-        'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_plugin.gif'
+        'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_restriction.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, options',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, pages_respect, http_referer, alternative_options',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, options'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, pages_respect, http_referer, alternative_options'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -57,8 +58,8 @@ return [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_rdcontactplugin_domain_model_plugin',
-                'foreign_table_where' => 'AND {#tx_rdcontactplugin_domain_model_plugin}.{#pid}=###CURRENT_PID### AND {#tx_rdcontactplugin_domain_model_plugin}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table' => 'tx_rdcontactplugin_domain_model_restriction',
+                'foreign_table_where' => 'AND {#tx_rdcontactplugin_domain_model_restriction}.{#pid}=###CURRENT_PID### AND {#tx_rdcontactplugin_domain_model_restriction}.{#sys_language_uid} IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -118,31 +119,53 @@ return [
                 ]
             ],
         ],
-        'title' => [
+
+        /**
+         * Custom fields
+         */
+        'pages_respect' => [
             'exclude' => true,
-            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_plugin.title',
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_restriction.pages_respect',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'pages',
+                'foreign_table_where' => 'AND pages.sys_language_uid = 0',
+                'size' => 8,
+                'treeConfig' => [
+                    'expandAll' => true,
+                    'parentField' => 'pid',
+                    'appearance' => [
+                        'showHeader' => true,
+                    ],
+                ],
+            ],
+        ],
+        'http_referer' => [
+            'exclude' => true,
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_restriction.http_referer',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
             ],
         ],
-        'options' => [
+        'alternative_options' => [
             'exclude' => true,
-            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_plugin.options',
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_restriction.options',
             'config' => [
                 'type' => 'inline',
-                'allowed' => 'tx_rdcontactplugin_domain_model_option',
-                'foreign_table' => 'tx_rdcontactplugin_domain_model_option',
+                'allowed' => 'tx_rdcontactplugin_domain_model_alternativeoption',
+                'foreign_table' => 'tx_rdcontactplugin_domain_model_alternativeoption',
                 'foreign_sortby' => 'sorting',
                 'foreign_field' => 'plugin',
-                'minitems' => 0,
-                'maxitems' => 99,
+                'minitems' => 1,
+                'maxitems' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
-                    'levelLinksPosition' => 'both',
-                    'useSortable' => true,
+                    'levelLinksPosition' => 'bottom',
+                    'useSortable' => false,
                     'showPossibleLocalizationRecords' => true,
                     'showRemovedLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,

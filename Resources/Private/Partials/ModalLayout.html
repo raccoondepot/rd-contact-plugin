@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered w-100" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Default title</h3>
+                <h3 class="modal-title"></h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">×</span></button>
             </div>
@@ -12,7 +12,7 @@
                 <f:comment>
                     <!-- ModalForms -->
                 </f:comment>
-                <f:for each="{pluginConfiguration.options}" as="contactOption" iteration="i">
+                <f:for each="{pluginContactOptions}" as="contactOption" iteration="i">
                     <f:variable name="formId">modal-form-{contactOption.optionType}-{contactOption.uid}</f:variable>
                     <f:render partial="ModalForm" arguments="{_all}" />
                 </f:for>

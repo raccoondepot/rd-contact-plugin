@@ -3,8 +3,6 @@
 <f:layout name="Default" />
 
 <f:section name="Main">
-    <f:variable name="pluginConfiguration">{rd:plugin(pluginToUseUid: settings.rd_contact_plugin.pluginToUseUid)}</f:variable>
-
     <f:comment>
         <!-- Contact plugin -->
     </f:comment>
@@ -12,20 +10,9 @@
         <f:comment>
             <!-- ContactOptions -->
         </f:comment>
-        <f:for each="{pluginConfiguration.options}" as="contactOption" iteration="i">
-            <f:if condition="{contactOption.title}">
-
-                <f:if condition="{rd:pagesRestriction(uid: contactOption.uid)}">
-
-                    <f:if condition="{rd:httpRefererRestriction(uid: contactOption.uid)}">
-
-                        <f:render partial="ContactOption"
-                                  arguments="{contactOption:contactOption, settings:settings}" />
-
-                    </f:if>
-
-                </f:if>
-
+        <f:for each="{pluginContactOptions}" as="contactOption" iteration="i">
+            <f:if condition="{contactOption.title} && {contactOption.optionType} != 0">
+                <f:render partial="ContactOption" arguments="{contactOption:contactOption, settings:settings}" />
             </f:if>
         </f:for>
     </div>

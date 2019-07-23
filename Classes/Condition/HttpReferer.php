@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace RaccoonDepot\RdContactPlugin\Condition;
 
-use \TYPO3\CMS\Core\Configuration\TypoScript\ConditionMatching\AbstractCondition;
-use \TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Core\Configuration\TypoScript\ConditionMatching\AbstractCondition;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class HttpReferer extends AbstractCondition
 {

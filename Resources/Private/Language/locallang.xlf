@@ -10,9 +10,15 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.title">
 				<source>Label</source>
 			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.title.description">
+                <source>this text will be shown as a button label on the plugin options menu</source>
+            </trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.link">
 				<source>Link</source>
 			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.link.description">
+                <source>tel:+XXXXXXXXXXXX, viber://chat?number=+XXXXXXXXXXXX, http://m.me/xxxx etc.</source>
+            </trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.icon_library">
 				<source>Icon</source>
 			</trans-unit>
@@ -22,21 +28,9 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.embed">
 				<source>Embed code (HTML)</source>
 			</trans-unit>
-            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_respect">
-				<source>Display/Hide only on selected pages</source>
-			</trans-unit>
-            <trans-unit id="tx_rdcontactplugin_domain_model_option.http_referer">
-				<source>Display this item if user came from url like: (Http Referer)</source>
-			</trans-unit>
-            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_mode">
-				<source>Pages filter mode</source>
-			</trans-unit>
-            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_mode.0">
-				<source>Display</source>
-			</trans-unit>
-            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_mode.1">
-				<source>Hide</source>
-			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.0">
+                <source>Hidden</source>
+            </trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.1">
 				<source>Simple link (Typolink)</source>
 			</trans-unit>
@@ -46,6 +40,12 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.3">
 				<source>Custom Link</source>
 			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.restrictions">
+                <source>Restrictions</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.restrictions.description">
+                <source>Restrictions are used to dynamically change contact option fields depends on the different aspects (where user came from, or which page he has loaded right now). Please note, if there will be at least 2 restrictions that can be used, then only the first one will be followed</source>
+            </trans-unit>
 
 			<!-- tx_rdcontactplugin_domain_model_plugin -->
 			<trans-unit id="tx_rdcontactplugin_domain_model_plugin">
@@ -57,6 +57,34 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_plugin.options">
 				<source>Contact Options</source>
 			</trans-unit>
+
+            <!-- tx_rdcontactplugin_domain_model_restriction -->
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction">
+                <source>Restriction</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.pages_respect">
+                <source>Display/Hide this option only on selected pages</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.pages_mode">
+                <source>Pages restriction mode</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.pages_mode.0">
+                <source>Display</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.pages_mode.1">
+                <source>Hide</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.http_referer">
+                <source>Display this option if user came from url like: (HTTP REFERER)</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.options">
+                <source>Alternative option</source>
+            </trans-unit>
+
+            <!-- tx_rdcontactplugin_domain_model_alternativeoption -->
+            <trans-unit id="tx_rdcontactplugin_domain_model_alternativeoption">
+                <source>Alternative option</source>
+            </trans-unit>
 
 			<!-- ICON LIBARY -->
             <trans-unit id="mkraina.icon_library.no_icon">
