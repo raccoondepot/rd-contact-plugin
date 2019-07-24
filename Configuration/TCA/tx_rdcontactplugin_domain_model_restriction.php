@@ -5,7 +5,7 @@ return [
     'ctrl' => [
         'title' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_restriction',
         'hideTable' => true,
-        'label' => 'alternative_options',
+        'label' => 'restriction_type',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',

@@ -100,20 +100,25 @@ class PluginViewHelper extends AbstractViewHelper
                 if ($restriction->getRestrictionType() == 0) {
                     $thereAreSimpleRestrictionType = true;
                     if ($restrictionMatch && ! $isRestrictionTypeWithoutReplacingFound) {
-                        $filteredOptions[] = $option;
+                        if ((int) $option->getOptionType()) {
+                            $filteredOptions[] = $option;
+                        }
                         $isRestrictionTypeWithoutReplacingFound = true;
                     }
                 }
 
                 // Replace this option with alternative one or hide
                 if ($restriction->getRestrictionType() == 1 && $restrictionMatch) {
-                    $filteredOptions[] = array_shift($restriction->getAlternativeOptions()->toArray());
+                    $altOption = array_shift($restriction->getAlternativeOptions()->toArray());
+                    if ((int) $altOption->getOptionType()) {
+                        $filteredOptions[] = $altOption;
+                    }
                     $alternativeWasFound = true;
                 }
             }
         }
         // if nothing matched use original one
-        if (! $alternativeWasFound && ! $isRestrictionTypeWithoutReplacingFound && ! $thereAreSimpleRestrictionType) {
+        if (! $alternativeWasFound && ! $isRestrictionTypeWithoutReplacingFound && ! $thereAreSimpleRestrictionType && (int) $option->getOptionType()) {
             $filteredOptions[] = $option;
         }
     }
