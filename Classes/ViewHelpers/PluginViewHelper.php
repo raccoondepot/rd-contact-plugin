@@ -154,7 +154,7 @@ class PluginViewHelper extends AbstractViewHelper
         if (empty($newOption) && ! $isRestrictionTypeWithoutReplacingFound && ! $thereAreSimpleRestrictionType) {
             $newOption = $option;
         }
-        if (! empty($newOption)) {
+        if (! empty($newOption) && (int) $newOption->getOptionType()) {
             $filteredOptions[] = $newOption;
         }
     }
