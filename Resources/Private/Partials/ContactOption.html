@@ -26,6 +26,15 @@
             <f:render section="Title" arguments="{contactOption:contactOption}" />
         </a>
     </f:case>
+    <f:comment>
+        <!-- Content Element -->
+    </f:comment>
+    <f:case value="4">
+        <a class="list-group-item list-group-item-action" data-toggle="modal" data-target="#rd-contact-plugin-modal"
+           data-form="modal-form-{contactOption.optionType}-{contactOption.uid}">
+            <f:render section="Title" arguments="{contactOption:contactOption}" />
+        </a>
+    </f:case>
 </f:switch>
 
 <f:section name="Title">

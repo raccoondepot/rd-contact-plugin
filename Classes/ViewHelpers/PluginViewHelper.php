@@ -3,8 +3,12 @@ declare(strict_types=1);
 
 namespace RaccoonDepot\RdContactPlugin\ViewHelpers;
 
+use RaccoonDepot\RdContactPlugin\Domain\Model\AlternativeOption;
 use RaccoonDepot\RdContactPlugin\Domain\Model\Option;
 use RaccoonDepot\RdContactPlugin\Domain\Model\Restriction;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
+use TYPO3\CMS\Core\Database\Query\Restriction\HiddenRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
@@ -58,6 +62,19 @@ class PluginViewHelper extends AbstractViewHelper
         $filteredOptions = [];
         if (! empty($pluginConfiguration) && $pluginConfiguration->getOptions()) {
             $filteredOptions = self::respectRestrictions($pluginConfiguration->getOptions());
+        }
+
+        // filter content elements
+        if (!empty($filteredOptions)) {
+            foreach ($filteredOptions as $fKey => $fOption) {
+                if ($fOption !== null && $fOption->getSysLanguageUid() > 0) {
+                    // check if l10n_state is custom
+                    $l10nState = (array) json_decode($fOption->getL10nState());
+                    if (empty($l10nState['content_elements']) || $l10nState['content_elements'] === 'custom') {
+                        $filteredOptions[$fKey]->setContentElementIdList(implode(',', self::getLocalizedContentElements($fOption)));
+                    }
+                }
+            }
         }
 
         return [$pluginConfiguration, $filteredOptions];
@@ -194,5 +211,34 @@ class PluginViewHelper extends AbstractViewHelper
 
         // in general
         return $pagesRestriction && $httpRefererRestriction;
+    }
+
+    /**
+     * Get localized content elements for specific option
+     *
+     * @param Option|AlternativeOption $fOption item
+     *
+     * @return array
+     */
+    public static function getLocalizedContentElements($fOption): array
+    {
+        $itemId = (int) $fOption->_getProperty('_localizedUid');
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $connectionPool = $objectManager->get(ConnectionPool::class);
+        $queryBuilder = $connectionPool->getQueryBuilderForTable('tt_content');
+        $queryBuilder->getRestrictions()
+            ->removeAll()
+            ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
+            ->add(GeneralUtility::makeInstance(HiddenRestriction::class));
+
+        return $queryBuilder
+            ->select('uid')
+            ->from('tt_content')
+            ->where(
+                $queryBuilder->expr()->eq('tx_rdcontactplugin_related_option', $queryBuilder->createNamedParameter($itemId, \PDO::PARAM_INT))
+            )
+            ->orderBy('sorting')
+            ->execute()
+            ->fetchAll(\PDO::FETCH_COLUMN);
     }
 }

@@ -4,4 +4,11 @@
             <f:format.raw>{contactOption.embed}</f:format.raw>
         </div>
     </f:if>
+    <f:if condition="{contactOption.optionType} == 4">
+        <div class="form-container" data-form-id="{formId}">
+            <f:if condition="{contactOption.contentElements}">
+                <f:cObject typoscriptObjectPath="lib.rd_contact_plugin.contentElementRendering">{contactOption.contentElementIdList}</f:cObject>
+            </f:if>
+        </div>
+    </f:if>
 </html>

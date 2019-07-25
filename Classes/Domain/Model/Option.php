@@ -31,6 +31,7 @@ class Option extends AbstractOption
      */
     public function __construct()
     {
+        parent::__construct();
         $this->restrictions = new ObjectStorage();
     }
 

@@ -40,8 +40,14 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.3">
 				<source>Custom Link</source>
 			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.4">
+                <source>Content Elements in Modal Window</source>
+            </trans-unit>
             <trans-unit id="tx_rdcontactplugin_domain_model_option.restrictions">
                 <source>Restrictions</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.content_elements">
+                <source>Content Elements</source>
             </trans-unit>
             <trans-unit id="tx_rdcontactplugin_domain_model_option.restrictions.description">
                 <source>Restrictions are used to dynamically change contact option fields depends on the different aspects (where user came from, or which page he has loaded right now)</source>

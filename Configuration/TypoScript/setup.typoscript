@@ -32,3 +32,28 @@ page.includeCSS.rd_contact_plugin3 = EXT:rd_contact_plugin/Resources/Public/asse
 # current url helper
 lib.currentURL= TEXT
 lib.currentURL.data = getIndpEnv:TYPO3_REQUEST_URL
+
+# render specific content element
+lib.rd_contact_plugin.contentElementRendering = RECORDS
+lib.rd_contact_plugin.contentElementRendering {
+    tables = tt_content
+    source.current = 1
+    dontCheckPid = 1
+}
+
+# ==============================================
+# Persistence object mapping configuration
+# ==============================================
+config.tx_extbase.persistence.classes {
+    RaccoonDepot\RdContactPlugin\Domain\Model\TtContent {
+        mapping {
+            tableName = tt_content
+            columns {
+                altText.mapOnProperty = altText
+                titleText.mapOnProperty = titleText
+                colPos.mapOnProperty = colPos
+                CType.mapOnProperty = CType
+            }
+        }
+    }
+}

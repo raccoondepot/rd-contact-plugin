@@ -24,10 +24,10 @@ return [
         'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_option.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions, process_all_restrictions',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions, process_all_restrictions, content_elements',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions, process_all_restrictions'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions, process_all_restrictions, content_elements'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -135,6 +135,7 @@ return [
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.1', 1, 'apps-pagetree-page-shortcut'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.2', 2, 'apps-pagetree-page-backend-users'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.3', 3, 'apps-pagetree-page-shortcut-external'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.4', 4, 'mkraina-image-zoom'],
                 ],
             ],
         ],
@@ -339,6 +340,35 @@ return [
                 'type' => 'check',
                 'default' => 0,
             ],
+        ],
+        'content_elements' => [
+            'exclude' => true,
+            'displayCond' => 'FIELD:option_type:=:4',
+            'l10n_mode' => 'mergeIfNotBlank',
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.content_elements',
+            'config' => [
+                'type' => 'inline',
+                'allowed' => 'tt_content',
+                'foreign_table' => 'tt_content',
+                'foreign_sortby' => 'sorting',
+                'foreign_field' => 'tx_rdcontactplugin_related_option',
+                'minitems' => 1,
+                'maxitems' => 99,
+                'appearance' => [
+                    'useXclassedVersion' => true,
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'levelLinksPosition' => 'bottom',
+                    'useSortable' => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showRemovedLocalizationRecords' => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
+                    'enabledControls' => [
+                        'info' => false,
+                    ]
+                ]
+            ]
         ],
     ],
 ];
