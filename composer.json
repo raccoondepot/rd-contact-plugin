@@ -11,8 +11,7 @@
     "typo3/cms-backend": "^9.0 || dev-master",
     "typo3/cms-recordlist": "^9.0 || dev-master",
     "typo3/cms-frontend": "^9.0 || dev-master",
-    "typo3/cms-form": "^9.0 || dev-master",
-    "php": "7.1.0"
+    "php": "^7.1"
   },
   "replace": {
     "rd_contact_plugin": "self.version"
