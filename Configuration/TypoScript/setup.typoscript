@@ -29,6 +29,7 @@ page.footerData.103.settings {
 page.includeJSFooter.rd_contact_plugin3 = EXT:rd_contact_plugin/Resources/Public/assets/js/main.js
 page.includeCSS.rd_contact_plugin3 = EXT:rd_contact_plugin/Resources/Public/assets/css/contact.css
 page.includeCSS.rd_contact_plugin4 = EXT:rd_contact_plugin/Resources/Public/assets/css/tobereplaced.css
+page.includeJSFooter.rd_contact_plugin4 = EXT:rd_contact_plugin/Resources/Public/assets/js/tobereplaced.js
 
 # current url helper
 lib.currentURL= TEXT

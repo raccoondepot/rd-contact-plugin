@@ -1,3 +1,5 @@
 .rd-contact-plugin-modal-container .modal-body > .form-container.show, .rd-contact-plugin-modal-container .form-container {display: block;}
 .rd-contact-plugin-modal-container .modal-body > .form-container > .frame {padding: 0;}
 .form-element-type-date-picker .form-column-hours, .form-element-type-date-picker .form-column-minute {min-width: 90px;}
+.datetime-field-dots {position: absolute;margin-right: -2px;margin-top: 5px;top: 0;right: 0;font-size: 1.2em;}
+.form-element-type-date-picker .form-column-hours {position: relative;}
