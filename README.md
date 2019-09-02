@@ -1,21 +1,15 @@
 ## RD Contact form plugin ##
 <b>RD Contact Plugin</b> is an extension developed by <a href="http://www.raccoondepot.com/">Raccoon Depot</a> team to be used in TYPO3 CMS 9+ or higher. This plugin includes simple contact button on each website page, and provides different ways for communication between website visitors and website owner. <br/>
-An extension is flexible, so you could configure it as you wish. Part of configurations and labels available via TypoScript constants, especially for contact forms. <br />
+An extension is flexible, so you could configure it as you wish. There are implemented very flexible restrictions where you can manipulate contact options dynamically based on that restrictions<br />
 Also we developed custom TS condition which can be used to run different configurations depends on HTTP_REFERER header. How HTTP_REFERER could help you in business, you can read here: <a href="https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33">https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33</a>. To see all available options/configurations and how to start read further..
 
 ## Contact Options ##
-First you need to create plugin configuration in any storage folder, then attach needed contact options. There is 3 static contact forms:
-<ol>
-    <li><b>Call-Me-form</b> - with this option you will get an e-mail letter with the request from website visitor that he would like to have a call with you at preferred-by-visitor date or as soon as possible</li>
-    <li><b>Answer-Me-By-E-mail-form</b> - with this option you will get an e-mail letter with the request from website visitor that he would like to get some answer on his question from you</li>
-    <li><b>Get-Appointment-form</b> - with this option you will get an e-mail letter with the request from website visitor that he would like to have a meeting with you at preferred-by-visitor date</li>
-</ol>
-Other ones can be flexible to configure. (Will be listed here further)
+First you need to create plugin configuration in any storage folder, then attach needed contact options.
 
 ## How to install ##
 1. add git@gitlab.com:raccoondepot/rd_contact_plugin.git to repositories in your composer.json file
-2. add "raccoondepot/rd-contact-plugin": "dev-master" in require section in your composer.json file
-3. composer update
+2. add "raccoondepot/rd-contact-plugin" in require section in your composer.json file
+3. composer update raccoondepot/rd-contact-plugin
 4. make sure rd_contact_plugin enabled in Extension Manager
 5. add TS static includes
 6. create new plugin configuration under any storage folder and add needed contact options
