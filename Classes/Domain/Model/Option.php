@@ -1,260 +1,92 @@
 <?php
+declare(strict_types=1);
+
 namespace RaccoonDepot\RdContactPlugin\Domain\Model;
+
+use RaccoonDepot\RdContactPlugin\Domain\Model\Basic\AbstractOption;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Option
  */
-class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Option extends AbstractOption
 {
     /**
-     * title
-     * 
-     * @var string
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RaccoonDepot\RdContactPlugin\Domain\Model\Restriction>
+     * @lazy
      */
-    protected $title = '';
+    protected $restrictions;
 
     /**
-     * pages_mode
-     * 
-     * @var string
+     * process_all_restrictions
+     *
+     * @var int
      */
-    protected $pagesMode = '';
+    protected $processAllRestrictions;
 
     /**
-     * http_referer
-     * 
-     * @var string
+     * Initialize relation
+     *
+     * @return Option
      */
-    protected $httpReferer = '';
-
-    /**
-     * pages_respect
-     * 
-     * @var string
-     */
-    protected $pagesRespect = '';
-
-    /**
-     * link
-     * 
-     * @var string
-     */
-    protected $link = '';
-
-    /**
-     * customLink
-     * 
-     * @var string
-     */
-    protected $customLink = '';
-
-    /**
-     * embed
-     * 
-     * @var string
-     */
-    protected $embed = '';
-
-    /**
-     * option_type
-     * 
-     * @var string
-     */
-    protected $optionType = '';
-
-    /**
-     * icon_library
-     * 
-     * @var string
-     */
-    protected $iconLibrary = '';
-
-    /**
-     * Returns the title
-     * 
-     * @return string $title
-     */
-    public function getTitle()
+    public function __construct()
     {
-        return $this->title;
+        parent::__construct();
+        $this->restrictions = new ObjectStorage();
     }
 
     /**
-     * Sets the title
-     * 
-     * @param string $title
+     * Get restrictions
+     *
+     * @return ObjectStorage
+     */
+    public function getRestrictions(): ObjectStorage
+    {
+        return $this->restrictions;
+    }
+
+    /**
+     * Set restrictions list
+     *
+     * @param ObjectStorage $restrictions restrictions
+     */
+    public function setRestrictions($restrictions): void
+    {
+        $this->restrictions = $restrictions;
+    }
+
+    /**
+     * Adds a restriction to the record
+     *
+     * @param Restriction $restriction
+     */
+    public function addRestriction(Restriction $restriction): void
+    {
+        if ($this->getRestrictions() === null) {
+            $this->restrictions = new ObjectStorage();
+        }
+        $this->restrictions->attach($restriction);
+    }
+
+    /**
+     * Returns the processAllRestrictions
+     *
+     * @return int $processAllRestrictions
+     */
+    public function getProcessAllRestrictions(): int
+    {
+        return $this->processAllRestrictions;
+    }
+
+    /**
+     * Sets the processAllRestrictions
+     *
+     * @param int $processAllRestrictions
+     *
      * @return void
      */
-    public function setTitle($title)
+    public function setProcessAllRestrictions($processAllRestrictions): void
     {
-        $this->title = $title;
-    }
-
-    /**
-     * Returns the pagesMode
-     * 
-     * @return string $pagesMode
-     */
-    public function getPagesMode()
-    {
-        return $this->pagesMode;
-    }
-
-    /**
-     * Sets the pagesMode
-     * 
-     * @param string $pagesMode
-     * @return void
-     */
-    public function setPagesMode($pagesMode)
-    {
-        $this->pagesMode = $pagesMode;
-    }
-
-    /**
-     * Returns the httpReferer
-     * 
-     * @return string $httpReferer
-     */
-    public function getHttpReferer()
-    {
-        return $this->httpReferer;
-    }
-
-    /**
-     * Sets the httpReferer
-     * 
-     * @param string $httpReferer
-     * @return void
-     */
-    public function setHttpReferer($httpReferer)
-    {
-        $this->httpReferer = $httpReferer;
-    }
-
-    /**
-     * Returns the pagesRespect
-     * 
-     * @return string $pagesRespect
-     */
-    public function getPagesRespect()
-    {
-        return $this->pagesRespect;
-    }
-
-    /**
-     * Sets the pagesRespect
-     * 
-     * @param string $pagesRespect
-     * @return void
-     */
-    public function setPagesRespect($pagesRespect)
-    {
-        $this->pagesRespect = $pagesRespect;
-    }
-
-    /**
-     * Returns the link
-     * 
-     * @return string $link
-     */
-    public function getLink()
-    {
-        return $this->link;
-    }
-
-    /**
-     * Sets the link
-     * 
-     * @param string $link
-     * @return void
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-    }
-
-    /**
-     * Returns the customLink
-     * 
-     * @return string $customLink
-     */
-    public function getCustomLink()
-    {
-        return $this->customLink;
-    }
-
-    /**
-     * Sets the customLink
-     * 
-     * @param string $customLink
-     * @return void
-     */
-    public function setCustomLink($customLink)
-    {
-        $this->customLink = $customLink;
-    }
-
-    /**
-     * Returns the optionType
-     * 
-     * @return string $optionType
-     */
-    public function getOptionType()
-    {
-        return $this->optionType;
-    }
-
-    /**
-     * Sets the optionType
-     * 
-     * @param string $optionType
-     * @return void
-     */
-    public function setOptionType($optionType)
-    {
-        $this->optionType = $optionType;
-    }
-
-    /**
-     * Returns the iconLibrary
-     * 
-     * @return string $iconLibrary
-     */
-    public function getIconLibrary()
-    {
-        return $this->iconLibrary;
-    }
-
-    /**
-     * Sets the iconLibrary
-     * 
-     * @param string $iconLibrary
-     * @return void
-     */
-    public function setIconLibrary($iconLibrary)
-    {
-        $this->iconLibrary = $iconLibrary;
-    }
-
-    /**
-     * Returns the embed
-     * 
-     * @return string $embed
-     */
-    public function getEmbed()
-    {
-        return $this->embed;
-    }
-
-    /**
-     * Sets the embed
-     * 
-     * @param string $embed
-     * @return void
-     */
-    public function setEmbed($embed)
-    {
-        $this->embed = $embed;
+        $this->processAllRestrictions = $processAllRestrictions;
     }
 }

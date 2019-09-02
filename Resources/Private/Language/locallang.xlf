@@ -10,9 +10,15 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.title">
 				<source>Label</source>
 			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.title.description">
+                <source>this text will be shown as a button label on the plugin options menu</source>
+            </trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.link">
 				<source>Link</source>
 			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.link.description">
+                <source>tel:+XXXXXXXXXXXX, viber://chat?number=+XXXXXXXXXXXX, http://m.me/xxxx etc.</source>
+            </trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.icon_library">
 				<source>Icon</source>
 			</trans-unit>
@@ -22,42 +28,36 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.embed">
 				<source>Embed code (HTML)</source>
 			</trans-unit>
-            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_respect">
-				<source>Display/Hide only on selected pages</source>
-			</trans-unit>
-            <trans-unit id="tx_rdcontactplugin_domain_model_option.http_referer">
-				<source>Display this item if user came from url like: (Http Referer)</source>
-			</trans-unit>
-            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_mode">
-				<source>Pages filter mode</source>
-			</trans-unit>
-            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_mode.0">
-				<source>Display</source>
-			</trans-unit>
-            <trans-unit id="tx_rdcontactplugin_domain_model_option.pages_mode.1">
-				<source>Hide</source>
-			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.0">
+                <source>Hidden</source>
+            </trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.1">
 				<source>Simple link (Typolink)</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.2">
-				<source>Embeded code forms</source>
-			</trans-unit>
-			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.div1">
-				<source>Standard E-mail forms</source>
+				<source>Embeded code (Inline forms etc.)</source>
 			</trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.3">
-				<source>Call me form (configurable by Typoscript)</source>
-			</trans-unit>
-			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.4">
-				<source>Answer me by E-mail form (configurable by Typoscript)</source>
-			</trans-unit>
-			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.5">
-				<source>Get appointment form (configurable by Typoscript)</source>
-			</trans-unit>
-			<trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.6">
 				<source>Custom Link</source>
 			</trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.option_type.4">
+                <source>Content Elements in Modal Window</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.restrictions">
+                <source>Restrictions</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.content_elements">
+                <source>Content Elements</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.restrictions.description">
+                <source>Restrictions are used to dynamically change contact option fields depends on the different aspects (where user came from, or which page he has loaded right now)</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.process_all_restrictions">
+                <source>Enforce all matched restrictions</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.process_all_restrictions.description">
+                <source>Please note, when this setting isn't checked and there are at least 2 restrictions that can be used, then only the first one will be followed.</source>
+            </trans-unit>
 
 			<!-- tx_rdcontactplugin_domain_model_plugin -->
 			<trans-unit id="tx_rdcontactplugin_domain_model_plugin">
@@ -69,6 +69,43 @@
 			<trans-unit id="tx_rdcontactplugin_domain_model_plugin.options">
 				<source>Contact Options</source>
 			</trans-unit>
+
+            <!-- tx_rdcontactplugin_domain_model_restriction -->
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction">
+                <source>Restriction</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.pages_respect">
+                <source>Display/Hide this option only on selected pages</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.pages_mode">
+                <source>Pages restriction mode</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.pages_mode.0">
+                <source>Display</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.pages_mode.1">
+                <source>Hide</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.http_referer">
+                <source>Display this option if user came from url like: (HTTP REFERER)</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.options">
+                <source>Alternative option</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.restriction_type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.restriction_type.0">
+                <source>Show this contact option only when restriction is matched</source>
+            </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_restriction.restriction_type.1">
+                <source>Replace this option with alternative one or hide</source>
+            </trans-unit>
+
+            <!-- tx_rdcontactplugin_domain_model_alternativeoption -->
+            <trans-unit id="tx_rdcontactplugin_domain_model_alternativeoption">
+                <source>Alternative option</source>
+            </trans-unit>
 
 			<!-- ICON LIBARY -->
             <trans-unit id="mkraina.icon_library.no_icon">
@@ -210,65 +247,6 @@
                 <source>Youtube</source>
             </trans-unit>
             <!-- END Icon Library -->
-
-			<!-- callMe_form -->
-			<trans-unit id="callMe_form.email_description">
-				<source>Dear friend, you got new call-me request from -</source>
-			</trans-unit>
-			<trans-unit id="callMe_form.email_field.name">
-				<source>Name</source>
-			</trans-unit>
-			<trans-unit id="callMe_form.email_field.email">
-				<source>E-mail</source>
-			</trans-unit>
-			<trans-unit id="callMe_form.email_field.phone">
-				<source>Phone</source>
-			</trans-unit>
-			<trans-unit id="callMe_form.email_field.date">
-				<source>Preferred date for the call</source>
-			</trans-unit>
-			<trans-unit id="callMe_form.email_field.date.now">
-				<source>As soon as possible!</source>
-			</trans-unit>
-
-			<!-- answerMeByEmail_form -->
-			<trans-unit id="answerMeByEmail_form.email_description">
-				<source>Dear friend, you got new answer-me-by-email request from -</source>
-			</trans-unit>
-			<trans-unit id="answerMeByEmail_form.email_field.name">
-				<source>Name</source>
-			</trans-unit>
-			<trans-unit id="answerMeByEmail_form.email_field.email">
-				<source>E-mail</source>
-			</trans-unit>
-			<trans-unit id="answerMeByEmail_form.email_field.question">
-				<source>Question</source>
-			</trans-unit>
-
-			<!-- getAppointment -->
-			<trans-unit id="getAppointment_form.email_description">
-				<source>Dear friend, you got new Appointment request from -</source>
-			</trans-unit>
-			<trans-unit id="getAppointment_form.email_field.name">
-				<source>Name</source>
-			</trans-unit>
-			<trans-unit id="getAppointment_form.email_field.email">
-				<source>E-mail</source>
-			</trans-unit>
-			<trans-unit id="getAppointment_form.email_field.phone">
-				<source>Phone</source>
-			</trans-unit>
-			<trans-unit id="getAppointment_form.email_field.date">
-				<source>Preferred date for the Appointment</source>
-			</trans-unit>
-			<trans-unit id="getAppointment_form.email_field.date.now">
-				<source>As soon as possible!</source>
-			</trans-unit>
-			
-			<!-- general -->
-			<trans-unit id="all_forms.visitor_page">
-				<source>Contact from page</source>
-			</trans-unit>
 		</body>
 	</file>
 </xliff>

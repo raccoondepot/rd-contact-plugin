@@ -1,26 +1,11 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+
+if (! defined('TYPO3_MODE')) {
     die('Access denied.');
 }
 
-$boot = function ($extensionKey='rd_contact_plugin') {
-    $extensionPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($extensionKey);
-
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'RaccoonDepot.RdContactPlugin',
-        'EmailActions',
-        [
-            'Email' => 'callmeformHandler, answermebyemailformHandler, getAppointmentformHandler'
-        ],
-        // non-cacheable actions
-        [
-            'Email' => 'callmeformHandler, answermebyemailformHandler, getAppointmentformHandler'
-        ]
-    );
-
-    // Register icons
-    $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
-    $iconRegistry = $objectManager->get(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+(function ($extKey) {
+    // Register new icons set
     $icons = [
         'content-tabs',
         'content-media-slider',
@@ -95,13 +80,15 @@ $boot = function ($extensionKey='rd_contact_plugin') {
         'instagram',
     ];
     foreach ($icons as $icon) {
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
+        $iconRegistry = $objectManager->get(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
         $iconRegistry->registerIcon(
             'mkraina-' . $icon,
             TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-            ['source' => 'EXT:' . $extensionKey . '/Resources/Public/Images/Icons/' . $icon . '.svg']
+            ['source' => 'EXT:' . $extKey . '/Resources/Public/Images/Icons/' . $icon . '.svg']
         );
     }
-    
+
     // Override standard or third-party icons
     $standardIcons = [
         'content-textmedia',
@@ -110,14 +97,16 @@ $boot = function ($extensionKey='rd_contact_plugin') {
         'extension-powermail-main',
     ];
     foreach ($standardIcons as $standardIcon) {
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
+        $iconRegistry = $objectManager->get(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
         $iconRegistry->registerIcon(
             $standardIcon,
             TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-            ['source' => 'EXT:' . $extensionKey . '/Resources/Public/Images/Icons/' . $standardIcon . '.svg']
+            ['source' => 'EXT:' . $extKey . '/Resources/Public/Images/Icons/' . $standardIcon . '.svg']
         );
     }
 
-    // add old icons
+    // add old icons set
     $oldIcons = [
         'calendar',
         'call-center-worker-with-headset',
@@ -141,14 +130,12 @@ $boot = function ($extensionKey='rd_contact_plugin') {
         'viber2',
     ];
     foreach ($oldIcons as $oldIcon) {
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
+        $iconRegistry = $objectManager->get(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
         $iconRegistry->registerIcon(
             'mkraina-old-' . $oldIcon,
             TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-            ['source' => 'EXT:' . $extensionKey . '/Resources/Public/icons/' . $oldIcon . '.svg']
+            ['source' => 'EXT:' . $extKey . '/Resources/Public/icons/' . $oldIcon . '.svg']
         );
     }
-    //end
-};
-
-$boot($_EXTKEY);
-unset($boot);
+})('rd_contact_plugin');

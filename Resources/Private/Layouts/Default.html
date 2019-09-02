@@ -2,15 +2,27 @@
 <f:spaceless>
 
     <f:if condition="{settings.rd_contact_plugin.enabled}">
+        <f:comment>
+            <!-- SetUp environment -->
+        </f:comment>
+        <f:variable name="pluginConfigurationOutput">{rd:plugin(pluginToUseUid: settings.rd_contact_plugin.pluginToUseUid)}</f:variable>
+        <f:variable name="pluginConfiguration">{pluginConfigurationOutput.0}</f:variable>
+        <f:variable name="pluginContactOptions">{pluginConfigurationOutput.1}</f:variable>
+
+        <f:comment>
+            <!-- Button and contact options -->
+        </f:comment>
         <div class="rd-contact-plugin {settings.rd_contact_plugin.position}">
             <f:render section="Main" arguments="{_all}" />
         </div>
 
+        <f:comment>
+            <!-- Modal forms containers -->
+        </f:comment>
         <div class="rd-contact-plugin-modal-container">
             <f:render section="Modal" arguments="{_all}" />
         </div>
     </f:if>
 
 </f:spaceless>
-
 </html>

@@ -4,6 +4,7 @@ $LOCALLANG = 'LLL:EXT:rd_contact_plugin/Resources/Private/Language/locallang.xlf
 return [
     'ctrl' => [
         'title' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option',
+        'hideTable' => true,
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -23,10 +24,10 @@ return [
         'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_option.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, pages_respect, pages_mode, http_referer',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions, process_all_restrictions, content_elements',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, pages_respect, pages_mode, http_referer'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions, process_all_restrictions, content_elements'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -118,6 +119,10 @@ return [
                 ]
             ],
         ],
+
+        /**
+         * Custom fields
+         */
         'option_type' => [
             'exclude' => true,
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type',
@@ -126,58 +131,18 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['', 0],
-                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.6', 6, 'apps-pagetree-page-shortcut-external'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.0', 0, 'mkraina-gallery-big'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.1', 1, 'apps-pagetree-page-shortcut'],
                     [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.2', 2, 'apps-pagetree-page-backend-users'],
-                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.div1', '--div--'],
-                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.3', 3, 'mkraina-old-earphones'],
-                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.4', 4, 'mkraina-old-sms-bubble-speech'],
-                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.5', 5, 'mkraina-old-icon'],
-                ],
-            ],
-        ],
-        'pages_mode' => [
-            'exclude' => true,
-            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_mode',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_mode.0', 0],
-                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_mode.1', 1],
-                ],
-            ],
-        ],
-        'pages_respect' => [
-            'exclude' => true,
-            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.pages_respect',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectTree',
-                'foreign_table' => 'pages',
-                'size' => 8,
-                'treeConfig' => [
-                    'expandAll' => true,
-                    'parentField' => 'pid',
-                    'appearance' => [
-                        'showHeader' => true,
-                    ],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.3', 3, 'apps-pagetree-page-shortcut-external'],
+                    [$LOCALLANG . 'tx_rdcontactplugin_domain_model_option.option_type.4', 4, 'mkraina-image-zoom'],
                 ],
             ],
         ],
         'title' => [
             'exclude' => true,
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.title',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
-            ],
-        ],
-        'http_referer' => [
-            'exclude' => true,
-            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.http_referer',
+            'description' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.title.description',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -319,8 +284,9 @@ return [
         ],
         'custom_link' => [
             'exclude' => true,
-            'displayCond' => 'FIELD:option_type:=:6',
+            'displayCond' => 'FIELD:option_type:=:3',
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.link',
+            'description' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.link.description',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -339,6 +305,70 @@ return [
                 'default' => '',
             ],
         ],
-        // end
+        'restrictions' => [
+            'exclude' => true,
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.restrictions',
+            'description' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.restrictions.description',
+            'config' => [
+                'type' => 'inline',
+                'allowed' => 'tx_rdcontactplugin_domain_model_restriction',
+                'foreign_table' => 'tx_rdcontactplugin_domain_model_restriction',
+                'foreign_sortby' => 'sorting',
+                'foreign_field' => 'plugin',
+                'minitems' => 0,
+                'maxitems' => 99,
+                'appearance' => [
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'levelLinksPosition' => 'bottom',
+                    'useSortable' => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showRemovedLocalizationRecords' => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
+                    'enabledControls' => [
+                        'info' => false,
+                    ]
+                ]
+            ]
+        ],
+        'process_all_restrictions' => [
+            'exclude' => true,
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.process_all_restrictions',
+            'description' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.process_all_restrictions.description',
+            'config' => [
+                'type' => 'check',
+                'default' => 0,
+            ],
+        ],
+        'content_elements' => [
+            'exclude' => true,
+            'displayCond' => 'FIELD:option_type:=:4',
+            'l10n_mode' => 'mergeIfNotBlank',
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.content_elements',
+            'config' => [
+                'type' => 'inline',
+                'allowed' => 'tt_content',
+                'foreign_table' => 'tt_content',
+                'foreign_sortby' => 'sorting',
+                'foreign_field' => 'tx_rdcontactplugin_related_option',
+                'minitems' => 1,
+                'maxitems' => 99,
+                'appearance' => [
+                    'useXclassedVersion' => true,
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'levelLinksPosition' => 'bottom',
+                    'useSortable' => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showRemovedLocalizationRecords' => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
+                    'enabledControls' => [
+                        'info' => false,
+                    ]
+                ]
+            ]
+        ],
     ],
 ];

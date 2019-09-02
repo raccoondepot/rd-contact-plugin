@@ -1,14 +1,19 @@
 <?php
+declare(strict_types=1);
+
 namespace RaccoonDepot\RdContactPlugin\Domain\Model;
+
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Plugin
  */
-class Plugin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Plugin extends AbstractEntity
 {
     /**
      * title
-     * 
+     *
      * @var string
      */
     protected $title = '';
@@ -22,30 +27,31 @@ class Plugin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Initialize relation
      *
-     * @return \RaccoonDepot\RdContactPlugin\Domain\Model\Plugin
+     * @return Plugin
      */
     public function __construct()
     {
-        $this->options = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->options = new ObjectStorage();
     }
 
     /**
      * Returns the title
-     * 
+     *
      * @return string $title
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
     /**
      * Sets the title
-     * 
+     *
      * @param string $title
+     *
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle($title): void
     {
         $this->title = $title;
     }
@@ -53,9 +59,9 @@ class Plugin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Get options
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     * @return ObjectStorage
      */
-    public function getOptions()
+    public function getOptions(): ObjectStorage
     {
         return $this->options;
     }
@@ -63,9 +69,9 @@ class Plugin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Set options list
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $options options
+     * @param ObjectStorage $options options
      */
-    public function setOptions($options)
+    public function setOptions($options): void
     {
         $this->options = $options;
     }
@@ -73,12 +79,12 @@ class Plugin extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Adds a option to the record
      *
-     * @param \RaccoonDepot\RdContactPlugin\Domain\Model\Option $option
+     * @param Option $option
      */
-    public function addOption(\RaccoonDepot\RdContactPlugin\Domain\Model\Option $option)
+    public function addOption(Option $option): void
     {
         if ($this->getOptions() === null) {
-            $this->options = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+            $this->options = new ObjectStorage();
         }
         $this->options->attach($option);
     }
