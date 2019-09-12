@@ -22,9 +22,9 @@
         <!-- Custom link -->
     </f:comment>
     <f:case value="3">
-        <a class="list-group-item list-group-item-action" href="{contactOption.customLink}" target="_blank">
-            <f:render section="Title" arguments="{contactOption:contactOption}" />
-        </a>
+        <span class="list-group-item list-group-item-action">
+            <f:render section="CustomLink" arguments="{contactOption:contactOption}" />
+        </span>
     </f:case>
     <f:comment>
         <!-- Content Element -->
@@ -42,5 +42,11 @@
         <core:icon identifier="{contactOption.iconLibrary}" size="small" />
     </f:if>
     <span>{contactOption.title}</span>
+</f:section>
+<f:section name="CustomLink">
+    <f:if condition="{contactOption.iconLibrary}">
+        <core:icon identifier="{contactOption.iconLibrary}" size="small" />
+    </f:if>
+    <a href="{contactOption.customLink}" class="list-group-item-action {contactOption.customClass}" target="_blank">{contactOption.title}</a>
 </f:section>
 </html>

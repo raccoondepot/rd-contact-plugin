@@ -20,6 +20,13 @@ class AbstractOption extends AbstractEntity
     protected $title = '';
 
     /**
+     * custom_class
+     *
+     * @var string
+     */
+    protected $customClass = '';
+
+    /**
      * link
      *
      * @var string
@@ -105,6 +112,28 @@ class AbstractOption extends AbstractEntity
     public function setTitle($title): void
     {
         $this->title = $title;
+    }
+
+    /**
+     * Returns the customClass
+     *
+     * @return string $customClass
+     */
+    public function getCustomClass(): string
+    {
+        return $this->customClass;
+    }
+
+    /**
+     * Sets the customClass
+     *
+     * @param string $customClass
+     *
+     * @return void
+     */
+    public function setCustomClass($customClass): void
+    {
+        $this->customClass = $customClass;
     }
 
     /**

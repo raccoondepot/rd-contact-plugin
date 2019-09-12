@@ -24,10 +24,10 @@ return [
         'iconfile' => 'EXT:rd_contact_plugin/Resources/Public/icons/tx_rdcontactplugin_domain_model_option.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions, process_all_restrictions, content_elements',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, custom_class, restrictions, process_all_restrictions, content_elements',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, restrictions, process_all_restrictions, content_elements'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, option_type, title, icon_library, link, custom_link, embed, custom_class, restrictions, process_all_restrictions, content_elements'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -143,6 +143,16 @@ return [
             'exclude' => true,
             'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.title',
             'description' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.title.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
+        'custom_class' => [
+            'exclude' => true,
+            'displayCond' => 'FIELD:option_type:=:3',
+            'label' => $LOCALLANG . 'tx_rdcontactplugin_domain_model_option.custom_class',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
