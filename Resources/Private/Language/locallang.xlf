@@ -13,6 +13,9 @@
             <trans-unit id="tx_rdcontactplugin_domain_model_option.title.description">
                 <source>this text will be shown as a button label on the plugin options menu</source>
             </trans-unit>
+            <trans-unit id="tx_rdcontactplugin_domain_model_option.custom_class">
+                <source>Additional CSS Class for Option button</source>
+            </trans-unit>
 			<trans-unit id="tx_rdcontactplugin_domain_model_option.link">
 				<source>Link</source>
 			</trans-unit>
