@@ -1,29 +1,35 @@
-## RD Contact form plugin ##
-<b>RD Contact Plugin</b> is an extension developed by <a href="http://www.raccoondepot.com/">Raccoon Depot</a> team to be used in TYPO3 CMS 9+ or higher. This plugin includes simple contact button on each website page, and provides different ways for communication between website visitors and website owner. <br/>
-An extension is flexible, so you could configure it as you wish. There are implemented very flexible restrictions where you can manipulate contact options dynamically based on that restrictions<br />
-Also we developed custom TS condition which can be used to run different configurations depends on HTTP_REFERER header. How HTTP_REFERER could help you in business, you can read here: <a href="https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33">https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33</a>. To see all available options/configurations and how to start read further..
+<b>raccoondepot/rd-contact-plugin</b> - is an extension built for TYPO3 CMS 9+ which displays on your website simple 
+contact button (you can choose the position), and by click on it user see different contact options. 
+Plugin is very flexible thus you can configure contact options for different situations as you wish! 
+Also you can create particular contact option which by choosing it will open modal window and there you can 
+insert any content element you would like, e.g contact form :)
 
-## Contact Options ##
-First you need to create plugin configuration in any storage folder, then attach needed contact options.
+Also, it is possible to set restrictions in specific contact options so they would appear on the frontend 
+only when such restrictions matches
 
-## How to install ##
-1. add git@gitlab.com:raccoondepot/rd_contact_plugin.git to repositories in your composer.json file
-2. add "raccoondepot/rd-contact-plugin" in require section in your composer.json file
-3. composer update raccoondepot/rd-contact-plugin
-4. make sure rd_contact_plugin enabled in Extension Manager
-5. add TS static includes
-6. create new plugin configuration under any storage folder and add needed contact options
-7. clear cache
+Next restrictions are implemented:
+- PID (display contact option only if current page match the selected ones in restriction)
+- HTTP_REFERER (display contact option only if HTTP_REFERER contains specific value set in restriction). How such options could help you in business? here is an article: https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33
 
-## How to configure ##
 
-### Contact options ###
+## How to install? ##
+- composer require raccoondepot/rd-contact-plugin
+- include TypoScript of an extension
+- flush the cache
 
-### Typoscript variables ###
-Plugin can be configured by TypoScript constants. They can be found under <b>plugin.tx_rdcontactplugin.settings</b> Here is the list of all available options:
 
-#### Main ####
-<!-- Main -->
+## How to get started? ##
+- first create plugin configuration record in any storage folder
+- create any combination of contact options in it 
+- use any restriction to setup some dynamic behavior
+- save and flush the cache
+- check the frontend
+
+
+### TypoScript settings ###
+Beside settings in database configuration record you have few more options in TypoScript. 
+They can be found under <b>plugin.tx_rdcontactplugin.settings</b> Here is the list of all available options:
+
 <table style="width: 100%;">
     <thead>
         <tr>
@@ -36,7 +42,7 @@ Plugin can be configured by TypoScript constants. They can be found under <b>plu
     <tbody>
         <tr>
             <td>enabled</td>
-            <td>Is the whole plugin enabled?</td>
+            <td>Is the whole plugin enabled? (Global enable/disable)</td>
             <td>1</td>
             <td>1/0</td>
         </tr>
@@ -49,8 +55,10 @@ Plugin can be configured by TypoScript constants. They can be found under <b>plu
     </tbody>
 </table>
 
-### Typoscript conditions ###
-We have developed custom typoscript condition which you can use to have different contact plugin configuration depending on where website visitor came from. How such options could help you in business? here is an article: https://www.lifewire.com/how-to-use-http-referer-3471200#mntl-sc-block_1-0-33
+
+### TypoScript HTTP_REFERER condition ###
+
+We've developed TypoScript condition which you can use to have different behaviour of your website depending on where website visitor came from (HTTP_REFERER). 
 
 <table style="width: 100%;">
     <thead>
@@ -93,25 +101,15 @@ We have developed custom typoscript condition which you can use to have differen
     </tbody>
 </table>
 
-Also do not forget about another TYPO3 TS conditions: https://docs.typo3.org/typo3cms/TyposcriptReference/7.6/Conditions/Reference/Index.html
 
-## Known issues ##
-In case of any issue please inform us by depot@raccoondepot.com
+## AUTHORS ##
 
-## Future improvements ##
-In future we plan to bring more contact options.
-
-<div style="text-align: center;">
-<h1>Authors</h1>
-<a href="http://www.raccoondepot.com/" target="_blank">
-    <img src="https://www.raccoondepot.com/themes/fe_layout_rd/assets/images/logo/raccoon-depot-logo.svg" width="200" style="width: 200px; height: auto;">
-</a><br />
-<a href="http://www.raccoondepot.com/" target="_blank">
-    Raccoon Depot
-</a><br />
+<a href="https://www.linkedin.com/in/rostyslav-matviyiv/" target="_blank">Rostyslav Matviyiv</a><br />
+Yaroslav Trach<br />
+<br />
 <a href="mailto:depot@raccoondepot.com">
     depot@raccoondepot.com
 </a><br />
-<a href="https://www.facebook.com/profile.php?id=100004945534421" target="_blank">
-    Rostyslav Matviyiv</a>, Yaroslav Trach, Andrii Pozdieiev<br />
-</div>
+<a href="http://www.raccoondepot.com/" target="_blank">
+    <img src="https://www.raccoondepot.com/themes/fe_layout_rd/assets/images/logo/raccoon-depot-logo.svg" width="200" style="width: 200px; height: auto;">
+</a><br />
