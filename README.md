@@ -52,11 +52,17 @@ They can be found under <b>plugin.tx_rdcontactplugin.settings</b> Here is the li
             <td>bottom_right</td>
             <td>bottom_left / top_left / top_right / bottom_right</td>
         </tr>
+        <tr>
+            <td>pluginToUseUid</td>
+            <td>Do you wanna use specific plugin configurations?</td>
+            <td>-</td>
+            <td>UID of the configuration record</td>
+        </tr>
     </tbody>
 </table>
 
 
-### TypoScript HTTP_REFERER condition (DEPRECATED) ###
+### [DEPRECATED] TypoScript HTTP_REFERER condition ###
 
 We've developed TypoScript condition which you can use to have different behaviour of your website depending on where website visitor came from (HTTP_REFERER). 
 
