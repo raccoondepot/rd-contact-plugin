@@ -6,6 +6,12 @@ namespace RaccoonDepot\RdContactPlugin\Condition;
 use TYPO3\CMS\Core\Configuration\TypoScript\ConditionMatching\AbstractCondition;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
+/**
+ * Class HttpReferer
+ * @deprecated since 1.1.0, will be removed in 2.x.
+ * As conditioning feature is not based on TS anymore.
+ * If you still need it, please implement it on your side.
+ */
 class HttpReferer extends AbstractCondition
 {
     /**
@@ -25,7 +31,7 @@ class HttpReferer extends AbstractCondition
 
                     if( isset($_SERVER['HTTP_REFERER']) ) {
                         $value = trim( $value );
-                        
+
                         switch ($value[0]) {
                             case '=':
                                 // exactly
@@ -48,13 +54,13 @@ class HttpReferer extends AbstractCondition
                                 }
 
                                 break;
-                            
+
                             default:
                                 return false;
                                 break;
                         }
                         // end
-                    } 
+                    }
                     else {
                         return false;
                     }

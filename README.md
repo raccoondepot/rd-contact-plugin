@@ -1,6 +1,6 @@
 <b>raccoondepot/rd-contact-plugin</b> - is an extension built for TYPO3 CMS 9+ which displays on your website simple 
 contact button (you can choose the position), and by click on it user see different contact options. 
-Plugin is very flexible thus you can configure contact options for different situations as you wish! 
+Plugin is very flexible thus you can configure contact options exactly for your needs! 
 Also you can create particular contact option which by choosing it will open modal window and there you can 
 insert any content element you would like, e.g contact form :)
 
@@ -52,11 +52,17 @@ They can be found under <b>plugin.tx_rdcontactplugin.settings</b> Here is the li
             <td>bottom_right</td>
             <td>bottom_left / top_left / top_right / bottom_right</td>
         </tr>
+        <tr>
+            <td>pluginToUseUid</td>
+            <td>Do you wanna use specific plugin configurations?</td>
+            <td>-</td>
+            <td>UID of the configuration record</td>
+        </tr>
     </tbody>
 </table>
 
 
-### TypoScript HTTP_REFERER condition ###
+### [DEPRECATED] TypoScript HTTP_REFERER condition ###
 
 We've developed TypoScript condition which you can use to have different behaviour of your website depending on where website visitor came from (HTTP_REFERER). 
 
@@ -101,15 +107,24 @@ We've developed TypoScript condition which you can use to have different behavio
     </tbody>
 </table>
 
+## Do you have any questions? ##
+
+Please contact us by <a href="mailto:depot@raccoondepot.com">depot@raccoondepot.com</a>, 
+or use *Discussions* section on <a href="https://github.com/raccoondepot/rd-contact-plugin">GitHub</a> page  
+
+## Report an issue ##
+
+Please contact us by <a href="mailto:depot@raccoondepot.com">depot@raccoondepot.com</a>, 
+or use *Discussions* section on <a href="https://github.com/raccoondepot/rd-contact-plugin">GitHub</a> page                   
 
 ## AUTHORS ##
 
-<a href="https://www.linkedin.com/in/rostyslav-matviyiv/" target="_blank">Rostyslav Matviyiv</a><br />
-Yaroslav Trach<br />
+<a href="https://www.linkedin.com/in/rostyslav-matviyiv/" target="_blank">Rostyslav Matviyiv</a> (BE)<br />
+Yaroslav Trach (FE)<br />
 <br />
 <a href="mailto:depot@raccoondepot.com">
     depot@raccoondepot.com
 </a><br />
-<a href="http://www.raccoondepot.com/" target="_blank">
+<a href="https://www.raccoondepot.com/" target="_blank">
     <img src="https://www.raccoondepot.com/themes/fe_layout_rd/assets/images/logo/raccoon-depot-logo.svg" width="200" style="width: 200px; height: auto;">
 </a><br />
