@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Contact Plugin',
-    'version' => '1.1.0',
+    'version' => '1.2.0',
     'description' => 'Flexible frontend contact plugin for TYPO3 CMS',
     'category' => 'fe',
     'author' => 'Rostyslav Matviiv, Yaroslav Trach',
