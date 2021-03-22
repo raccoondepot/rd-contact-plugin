@@ -1,24 +1,56 @@
 {
   "name": "raccoondepot/rd-contact-plugin",
-  "description": "Deploy beautiful embed contact form on your website",
+  "version": "1.2.0",
   "type": "typo3-cms-extension",
-  "version": "1.1.0",
+  "description": "Flexible frontend contact plugin for TYPO3 CMS",
+  "homepage": "https://raccoondepot.com",
+  "keywords": [
+    "TYPO3",
+    "extension",
+    "contact",
+    "communication",
+    "plugin"
+  ],
+  "authors": [
+    {
+      "name": "Rostyslav Matviiv",
+      "role": "Backend Developer"
+    },
+    {
+      "name": "Yaroslav Trach",
+      "role": "Frontend Developer"
+    }
+  ],
   "prefer-stable": true,
-  "keywords": ["TYPO3 CMS", "rd_contact_plugin"],
-  "license": "GPL-2.0+",
+  "license": [
+    "GPL-2.0-or-later"
+  ],
   "require": {
-    "typo3/cms-core": "^9.0 || dev-master",
-    "typo3/cms-backend": "^9.0 || dev-master",
-    "typo3/cms-recordlist": "^9.0 || dev-master",
-    "typo3/cms-frontend": "^9.0 || dev-master",
+    "typo3/cms-core": "^9.5",
     "php": "^7.1"
   },
   "replace": {
-    "rd_contact_plugin": "self.version"
+    "typo3-ter/rd_contact_plugin": "self.version"
   },
   "autoload": {
     "psr-4": {
       "RaccoonDepot\\RdContactPlugin\\": "Classes"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "RaccoonDepot\\RdContactPlugin\\Tests\\": "Tests"
+    }
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "rd_contact_plugin",
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
     }
   }
 }
